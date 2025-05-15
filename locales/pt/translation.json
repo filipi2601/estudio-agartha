@@ -1,0 +1,128 @@
+{
+  "title": "Estúdio Agartha",
+  "studioName": "Estúdio Agartha",
+  "menu": {
+    "home": "Início",
+    "projects": "Projetos",
+    "services": "Serviços",
+    "about": "Sobre nós",
+    "contact": "Contato"
+  },
+  "mainTitle": "A Beleza que <br>Converte",
+  "subtitle": "Criamos projetos que combinam beleza <br> estratégica e alta performance.",
+  "ctaButton": "Vamos conversar?",
+  "projects": {
+    "title": "PROJETOS RECENTES",
+    "amana": {
+      "description": "Organização sem fins lucrativos"
+    },
+    "religions": {
+      "title": "Religiões do Homem",
+      "description": "Capa de Livro"
+    },
+    "stella": {
+      "title": "Stella Maris",
+      "description": "Logotipo"
+    },
+    "moreDetails": "Mais detalhes",
+    "seeMore": "Ver mais"
+  },
+  "journey": {
+    "title": "Sua jornada <br> será assim",
+    "strategy": {
+      "title": "Estratégia de marca",
+      "content": "Conteúdo explicativo sobre a estratégia de marca."
+    },
+    "prototyping": {
+      "title": "Prototipação",
+      "content": "Conteúdo explicativo sobre prototipação."
+    },
+    "presentation": {
+      "title": "Apresentação",
+      "content": "Conteúdo explicativo sobre a apresentação."
+    },
+    "delivery": {
+      "title": "Entrega",
+      "content": "Conteúdo explicativo sobre a entrega final."
+    }
+  },
+  "brands": {
+    "title": "Marcas que já transformaram suas ideias em <br> projetos incríveis com o Estúdio Agartha!"
+  },
+  "services": {
+    "title": "Quais serviços <br> ofereçemos?",
+    "visualIdentity": {
+      "title": "Identidade Visual",
+      "content": "Conjunto de elementos gráficos que representa uma marca, incluindo logotipo, cores e tipografia, criando uma imagem coesa que transmite os valores e a personalidade da empresa."
+    },
+    "websiteDevelopment": {
+      "title": "Desenvolvimento e criação de website",
+      "content": "Criamos websites personalizados, unindo design moderno, navegação intuitiva e otimização para uma experiência eficiente e profissional."
+    },
+    "packaging": {
+      "title": "Embalagem & Rótulo",
+      "content": "Desenvolvemos embalagens que oferecem uma experiência agradável e inesquecível aos clientes, comunicando a mensagem da marca de maneira clara e eficaz."
+    },
+    "editorial": {
+      "title": "Editorial",
+      "content": "Design de publicações impressas e digitais que combina tipografia, imagens e layout, garantindo que o conteúdo seja legível, atraente e visualmente harmonioso para o leitor."
+    },
+    "socialMedia": {
+      "title": "Criativos para Social Media",
+      "content": "Criação de conteúdos visuais para plataformas digitais, como postagens e vídeos, visando aumentar o engajamento e promover a marca de forma eficaz e adaptada a cada rede."
+    }
+  },
+  "gallery": {
+    "title": "Galeria",
+    "subtitle": "Criamos obras visuais e estratégicas para negócios que <br> desejam ser sólidos lucrativos e memoráveis."
+  },
+  "footer": {
+    "cta": {
+      "title": "Transforme sua ideia em<br>algo incrível.",
+      "button": "Vamos conversar?"
+    },
+    "description": "Assim como o javali, nosso design é original e impossível de ignorar.",
+    "pages": {
+      "title": "Páginas"
+    },
+    "portfolio": {
+      "title": "Portfolio"
+    },
+    "contact": {
+      "title": "Contato"
+    },
+    "copyright": "© 2025 ESTÚDIO AGARTHA | TODOS OS DIREITOS RESERVADOS"
+  },
+  "contactForm": {
+    "title": "Fale conosco",
+    "description": "Este formulário é uma etapa inicial crucial para assegurar que entendamos claramente o seu projeto.",
+    "nameLabel": "Nome",
+    "namePlaceholder": "Lucas",
+    "emailLabel": "Email",
+    "emailPlaceholder": "example@youremail.com",
+    "phoneLabel": "Telefone",
+    "phonePlaceholder": "(123) 456 - 7890",
+    "companyLabel": "Nome da sua empresa",
+    "companyPlaceholder": "Sua agência",
+    "instagramLabel": "Qual Instagram da sua empresa?",
+    "instagramPlaceholder": "@agarthaestudio",
+    "howFoundLabel": "Como nos conheceu?",
+    "howFoundOptions": {
+      "behance": "Behance",
+      "instagram": "Instagram",
+      "ad": "Anúncio",
+      "recommendation": "Recomendação"
+    },
+    "servicesLabel": "Quais serviços deseja contratar?",
+    "servicesOptions": {
+      "visualIdentity": "Identidade visual",
+      "website": "Landing Page/website",
+      "socialMedia": "Social Media",
+      "packaging": "Embalagem",
+      "editorial": "Editorial"
+    },
+    "businessLabel": "Descreva brevemente sobre seu negócio",
+    "businessPlaceholder": "Escreva aqui...",
+    "submitButton": "Enviar →"
+  }
+}

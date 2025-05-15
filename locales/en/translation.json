@@ -1,0 +1,128 @@
+{
+  "title": "Agartha Studio",
+  "studioName": "Agartha Studio",
+  "menu": {
+    "home": "Home",
+    "projects": "Projects",
+    "services": "Services",
+    "about": "About us",
+    "contact": "Contact"
+  },
+  "mainTitle": "The Beauty that <br>Converts",
+  "subtitle": "We create projects that combine strategic <br> beauty and high performance.",
+  "ctaButton": "Let's talk?",
+  "projects": {
+    "title": "RECENT PROJECTS",
+    "amana": {
+      "description": "Non-profit organization"
+    },
+    "religions": {
+      "title": "Religions of Man",
+      "description": "Book Cover"
+    },
+    "stella": {
+      "title": "Stella Maris",
+      "description": "Logo"
+    },
+    "moreDetails": "More details",
+    "seeMore": "See more"
+  },
+  "journey": {
+    "title": "Your journey <br> will be like this",
+    "strategy": {
+      "title": "Brand strategy",
+      "content": "Explanatory content about brand strategy."
+    },
+    "prototyping": {
+      "title": "Prototyping",
+      "content": "Explanatory content about prototyping."
+    },
+    "presentation": {
+      "title": "Presentation",
+      "content": "Explanatory content about the presentation."
+    },
+    "delivery": {
+      "title": "Delivery",
+      "content": "Explanatory content about final delivery."
+    }
+  },
+  "brands": {
+    "title": "Brands that have already transformed their ideas into <br> amazing projects with Agartha Studio!"
+  },
+  "services": {
+    "title": "What services <br> do we offer?",
+    "visualIdentity": {
+      "title": "Visual Identity",
+      "content": "Set of graphic elements that represent a brand, including logo, colors and typography, creating a cohesive image that conveys the company's values and personality."
+    },
+    "websiteDevelopment": {
+      "title": "Website development",
+      "content": "We create customized websites, combining modern design, intuitive navigation and optimization for an efficient and professional experience."
+    },
+    "packaging": {
+      "title": "Packaging & Label",
+      "content": "We develop packaging that provides a pleasant and unforgettable experience for customers, communicating the brand's message clearly and effectively."
+    },
+    "editorial": {
+      "title": "Editorial",
+      "content": "Design of printed and digital publications that combines typography, images and layout, ensuring that the content is readable, attractive and visually harmonious for the reader."
+    },
+    "socialMedia": {
+      "title": "Social Media Creatives",
+      "content": "Creation of visual content for digital platforms, such as posts and videos, aiming to increase engagement and effectively promote the brand, adapted to each network."
+    }
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "We create visual and strategic works for businesses that <br> want to be solid, profitable and memorable."
+  },
+  "footer": {
+    "cta": {
+      "title": "Transform your idea into<br>something amazing.",
+      "button": "Let's talk?"
+    },
+    "description": "Like the boar, our design is original and impossible to ignore.",
+    "pages": {
+      "title": "Pages"
+    },
+    "portfolio": {
+      "title": "Portfolio"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "copyright": "© 2025 AGARTHA STUDIO | ALL RIGHTS RESERVED"
+  },
+  "contactForm": {
+    "title": "Contact us",
+    "description": "This form is a crucial initial step to ensure we clearly understand your project.",
+    "nameLabel": "Name",
+    "namePlaceholder": "John",
+    "emailLabel": "Email",
+    "emailPlaceholder": "example@youremail.com",
+    "phoneLabel": "Phone",
+    "phonePlaceholder": "(123) 456 - 7890",
+    "companyLabel": "Your company name",
+    "companyPlaceholder": "Your agency",
+    "instagramLabel": "What's your company Instagram?",
+    "instagramPlaceholder": "@agarthastudio",
+    "howFoundLabel": "How did you find us?",
+    "howFoundOptions": {
+      "behance": "Behance",
+      "instagram": "Instagram",
+      "ad": "Advertisement",
+      "recommendation": "Recommendation"
+    },
+    "servicesLabel": "Which services do you want to hire?",
+    "servicesOptions": {
+      "visualIdentity": "Visual identity",
+      "website": "Landing Page/website",
+      "socialMedia": "Social Media",
+      "packaging": "Packaging",
+      "editorial": "Editorial"
+    },
+    "businessLabel": "Briefly describe your business",
+    "businessPlaceholder": "Write here...",
+    "submitButton": "Send →"
+  }
+}
