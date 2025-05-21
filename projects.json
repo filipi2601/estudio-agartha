@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "projects.amana.title",
+    "descriptionProject": "projects.amana.descriptionProject",
+    "categories": ["projects.amana.categories.identity", "projects.amana.categories.branding", "projects.amana.categories.strategy"],
+    "images": [
+      "img/projetos/amana/1.png",
+      "img/projetos/amana/2.png",
+      "img/projetos/amana/3.png",
+      "img/projetos/amana/4.png",
+      "img/projetos/amana/5.png",
+      "img/projetos/amana/6.png",
+      "img/projetos/amana/7.png",
+      "img/projetos/amana/8.png"
+    ]
+  }
+]

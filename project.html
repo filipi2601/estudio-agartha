@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="title">Estúdio Agartha</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector/i18nextBrowserLanguageDetector.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <div class="w-100 d-flex justify-content-between align-items-center">
+                    <a class="navbar-brand" href="#">
+                        <img src="img/logo.png" alt="Logo Estúdio Agartha" class="img-fluid" />
+                    </a>
+                    <div class="text-end d-inline-block d-lg-none">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <ul class="navbar-nav flex-lg-row d-none d-lg-flex">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html" data-i18n="menu.home">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#projetos" data-i18n="menu.projects">Projetos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#servicos" data-i18n="menu.services">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#footer" data-i18n="menu.about">Sobre nós</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-i18n="menu.contact" data-bs-toggle="offcanvas"
+                                data-bs-target="#contactOffcanvas" aria-controls="contactOffcanvas">Contato</a>
+                        </li>
+                    </ul>
+                    <span class="text-teal me-2 d-none d-lg-block" style="color: #00a69c" data-i18n="studioName">Estúdio
+                        Agartha</span>
+                </div>
+                <div class="collapse navbar-collapse d-lg-none" id="navbarSupportedContent">
+                    <ul class="navbar-nav flex-lg-row">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-i18n="menu.home">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projetos" data-i18n="menu.projects">Projetos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#servicos" data-i18n="menu.services">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#footer" data-i18n="menu.about">Sobre nós</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-i18n="menu.contact" data-bs-toggle="offcanvas"
+                                data-bs-target="#contactOffcanvas" aria-controls="contactOffcanvas">Contato</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <section id="project" class="project pt-5">
+            <h2 id="project-title" class="mb-4"></h2>
+            <div id="categories" class="d-flex justify-content-center mb-4"></div>
+            <p id="project-description" style="max-width: 500px;" class="mb-4 mx-auto"></p>
+            <div id="project-images"></div>
+        </section>
+
+        <footer id="footer" class="bg-white rounded-4 mt-5 py-5 px-4">
+            <div class="text-center bg--primary rounded-3 p-4 mb-5">
+                <h3 class="mb-3 text-white" data-i18n="footer.cta.title">
+                    Transforme sua ideia em<br />algo incrível.
+                </h3>
+                <a href="#" class="btn btn-light px-4" data-i18n="footer.cta.button" data-bs-toggle="offcanvas"
+                    data-bs-target="#contactOffcanvas" aria-controls="contactOffcanvas">Vamos conversar?</a>
+            </div>
+
+            <div class="row text-center text-md-start align-items-start">
+                <div class="col-md-3 mb-4">
+                    <img src="img/logo-footer.png" alt="Estúdio Agartha" class="mb-2 img-fluid"
+                        style="max-height: 40px" />
+                    <p class="small" data-i18n="footer.description">
+                        Assim como o javali, nosso design é original e impossível de
+                        ignorar.
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/agarthaestudio/" class="text-decoration-none"
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/paulo-ricardo-930a72219" class="text-decoration-none"
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h6 class="primary--color" data-i18n="footer.pages.title">
+                        Páginas
+                    </h6>
+                    <ul class="list-unstyled small">
+                        <li>
+                            <a href="index.html" class="text-decoration-none" data-i18n="menu.home">Início</a>
+                        </li>
+                        <li>
+                            <a href="index.html#projetos" class="text-decoration-none" data-i18n="menu.projects">Projetos</a>
+                        </li>
+                        <li>
+                            <a href="index.html#servicos" class="text-decoration-none" data-i18n="menu.services">Serviços</a>
+                        </li>
+                        <li>
+                            <a href="#footer" class="text-decoration-none" data-i18n="menu.about">Sobre Nós</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h6 class="primary--color" data-i18n="footer.portfolio.title">
+                        Portfolio
+                    </h6>
+                    <ul class="list-unstyled small">
+                        <li>
+                            <a href="https://www.behance.net/estudioagartha" class="text-decoration-none"
+                                target="_blank" rel="noopener noreferrer">Behance</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h6 class="primary--color" data-i18n="footer.contact.title">
+                        Contato
+                    </h6>
+                    <p class="small mb-2">
+                        <a href="mailto:contato@estudioagartha.com" class="text-decoration-none" target="_blank"
+                            rel="noopener noreferrer">
+                            <i class="fas fa-envelope me-2"></i>contato@estudioagartha.com
+                        </a>
+                    </p>
+                    <p class="small mb-0">
+                        <a href="https://wa.me/5574999396200?text=Ol%C3%A1%21+Gostaria+de+solicitar+um+or%C3%A7amento"
+                            class="text-decoration-none" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fw-bold fa-whatsapp me-2"></i>+55 (74) 99939-6200
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center mt-4 small primary--color fw-semibold" data-i18n="footer.copyright">
+                © 2025 ESTÚDIO AGARTHA | TODOS OS DIREITOS RESERVADOS
+            </div>
+        </footer>
+    </div>
+
+    <div class="offcanvas offcanvas-end offcanvas-end-custom" tabindex="-1" id="contactOffcanvas"
+        aria-labelledby="contactOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="contactOffcanvasLabel" data-i18n="contactForm.title">
+                Fale conosco
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p class="mb-4" data-i18n="contactForm.description">
+                Este formulário é uma etapa inicial crucial para assegurar que
+                entendamos claramente o seu projeto.
+            </p>
+
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label" data-i18n="contactForm.nameLabel">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Lucas"
+                        data-i18n="[placeholder]contactForm.namePlaceholder" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label" data-i18n="contactForm.emailLabel">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="example@youremail.com"
+                        data-i18n="[placeholder]contactForm.emailPlaceholder" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="form-label" data-i18n="contactForm.phoneLabel">Telefone</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="(123) 456 - 7890"
+                        data-i18n="[placeholder]contactForm.phonePlaceholder" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="company" class="form-label" data-i18n="contactForm.companyLabel">Nome da sua
+                        empresa</label>
+                    <input type="text" class="form-control" id="company" placeholder="Sua agência"
+                        data-i18n="[placeholder]contactForm.companyPlaceholder" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="instagram" class="form-label" data-i18n="contactForm.instagramLabel">Qual Instagram
+                        da sua empresa?</label>
+                    <input type="text" class="form-control" id="instagram" placeholder="@agarthaestudio"
+                        data-i18n="[placeholder]contactForm.instagramPlaceholder" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" data-i18n="contactForm.howFoundLabel">Como nos conheceu?</label>
+                    <div class="btn-group-toggle d-flex flex-wrap" data-toggle="buttons">
+                        <input type="radio" class="btn-check" name="conheceu" id="behance" autocomplete="off"
+                            value="Behance" />
+                        <label class="btn btns-form m-1" for="behance"
+                            data-i18n="contactForm.howFoundOptions.behance">Behance</label>
+
+                        <input type="radio" class="btn-check" name="conheceu" id="instagramConheceu"
+                            autocomplete="off" value="Instagram" />
+                        <label class="btn btns-form m-1" for="instagramConheceu"
+                            data-i18n="contactForm.howFoundOptions.instagram">Instagram</label>
+
+                        <input type="radio" class="btn-check" name="conheceu" id="anuncio" autocomplete="off"
+                            value="Anúncio" />
+                        <label class="btn btns-form m-1" for="anuncio"
+                            data-i18n="contactForm.howFoundOptions.ad">Anúncio</label>
+
+                        <input type="radio" class="btn-check" name="conheceu" id="recomendacao"
+                            autocomplete="off" value="Recomendação" />
+                        <label class="btn btns-form m-1" for="recomendacao"
+                            data-i18n="contactForm.howFoundOptions.recommendation">Recomendação</label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" data-i18n="contactForm.servicesLabel">Quais serviços deseja
+                        contratar?</label>
+                    <div class="btn-group-toggle d-flex flex-wrap" data-toggle="buttons">
+                        <input type="checkbox" class="btn-check" name="servicos" id="identidade-visual"
+                            autocomplete="off" value="Identidade visual" />
+                        <label class="btn btns-form m-1" for="identidade-visual"
+                            data-i18n="contactForm.servicesOptions.visualIdentity">Identidade visual</label>
+
+                        <input type="checkbox" class="btn-check" name="servicos" id="landing-page"
+                            autocomplete="off" value="Landing Page/website" />
+                        <label class="btn btns-form m-1" for="landing-page"
+                            data-i18n="contactForm.servicesOptions.website">Landing Page/website</label>
+
+                        <input type="checkbox" class="btn-check" name="servicos" id="social-media"
+                            autocomplete="off" value="Social Media" />
+                        <label class="btn btns-form m-1" for="social-media"
+                            data-i18n="contactForm.servicesOptions.socialMedia">Social Media</label>
+
+                        <input type="checkbox" class="btn-check" name="servicos" id="embalagem" autocomplete="off"
+                            value="Embalagem" />
+                        <label class="btn btns-form m-1" for="embalagem"
+                            data-i18n="contactForm.servicesOptions.packaging">Embalagem</label>
+
+                        <input type="checkbox" class="btn-check" name="servicos" id="editorial" autocomplete="off"
+                            value="Editorial" />
+                        <label class="btn btns-form m-1" for="editorial"
+                            data-i18n="contactForm.servicesOptions.editorial">Editorial</label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="business" class="form-label" data-i18n="contactForm.businessLabel">Descreva
+                        brevemente sobre seu negócio</label>
+                    <textarea class="form-control" id="business"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-submit" data-i18n="contactForm.submitButton">
+                    Enviar →
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="btn-language">
+        <a href="#" id="br-i18">
+            <img src="img/brazil.png" alt="Portuguese" class="img-fluid" />
+        </a>
+        <a href="#" id="usa-i18">
+            <img src="img/usa.png" alt="English" class="img-fluid" />
+        </a>
+    </div>
+    <!-- Botão flutuante para voltar ao topo -->
+    <a href="#" id="back-to-top" class="btn rounded-circle shadow" title="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

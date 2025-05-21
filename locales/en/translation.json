@@ -14,7 +14,14 @@
   "projects": {
     "title": "RECENT PROJECTS",
     "amana": {
-      "description": "Non-profit organization"
+      "title": "Amana",
+      "description": "Non-profit organization",
+      "descriptionProject": "This visual identity was, above all, a deep immersion into the Muslim world.",
+      "categories": {
+        "branding": "Branding",
+        "strategy": "Brand strategy",
+        "identity": "Visual Identity"
+      }
     },
     "religions": {
       "title": "Religions of Man",
@@ -31,19 +38,19 @@
     "title": "Your journey <br> will be like this",
     "strategy": {
       "title": "Brand strategy",
-      "content": "Explanatory content about brand strategy."
+      "content": "Let's talk, understand your ideas and outline the best path for your brand. With meetings and forms, we structure a solid strategy for the present and future of your project."
     },
     "prototyping": {
       "title": "Prototyping",
-      "content": "Explanatory content about prototyping."
+      "content": "Here, we transform strategy into identity. Our team combines creativity and purpose to bring your brand to life, creating a design that truly makes sense to you."
     },
     "presentation": {
       "title": "Presentation",
-      "content": "Explanatory content about the presentation."
+      "content": "It's time to see your brand take shape! We present the project clearly, whether in person or online, ensuring that everything is aligned with your vision."
     },
     "delivery": {
       "title": "Delivery",
-      "content": "Explanatory content about final delivery."
+      "content": "Once everything is approved, we organize the files in a secure directory, so that you always have easy and protected access to your brand identity."
     }
   },
   "brands": {

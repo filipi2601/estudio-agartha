@@ -14,7 +14,14 @@
   "projects": {
     "title": "PROJETOS RECENTES",
     "amana": {
-      "description": "Organização sem fins lucrativos"
+      "title": "Amana",
+      "description": "Organização sem fins lucrativos",
+      "descriptionProject": "Essa identidade visual foi, acima de tudo, uma imersão profunda no universo muçulmano.",
+      "categories": {
+        "branding": "Branding",
+        "strategy": "Estratégia de marca",
+        "identity": "Identidade visual"
+      }
     },
     "religions": {
       "title": "Religiões do Homem",
@@ -31,19 +38,19 @@
     "title": "Sua jornada <br> será assim",
     "strategy": {
       "title": "Estratégia de marca",
-      "content": "Conteúdo explicativo sobre a estratégia de marca."
+      "content": "Vamos conversar, entender suas ideias e traçar o melhor caminho para sua marca. Com reuniões e formulários, estruturamos uma estratégia sólida para o presente e o futuro do seu projeto."
     },
     "prototyping": {
       "title": "Prototipação",
-      "content": "Conteúdo explicativo sobre prototipação."
+      "content": "Aqui, transformamos estratégia em identidade. Nossa equipe une criatividade e propósito para dar vida à sua marca, criando um design que realmente faça sentido para você."
     },
     "presentation": {
       "title": "Apresentação",
-      "content": "Conteúdo explicativo sobre a apresentação."
+      "content": "Chegou a hora de ver sua marca ganhar forma! Apresentamos o projeto de maneira clara, seja presencialmente ou online, garantindo que tudo esteja alinhado com sua visão."
     },
     "delivery": {
       "title": "Entrega",
-      "content": "Conteúdo explicativo sobre a entrega final."
+      "content": "Com tudo aprovado, organizamos os arquivos em um diretório seguro, para que você sempre tenha acesso fácil e protegido à identidade da sua marca."
     }
   },
   "brands": {

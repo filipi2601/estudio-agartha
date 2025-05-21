@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title data-i18n="title">Estúdio Agartha</title>
-    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="css/app.css" />
@@ -34,27 +34,21 @@
                             <a class="nav-link" href="#" data-i18n="menu.home">Início</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-i18n="menu.projects">Projetos</a>
+                            <a class="nav-link" href="#projetos" data-i18n="menu.projects">Projetos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-i18n="menu.services">Serviços</a>
+                            <a class="nav-link" href="#servicos" data-i18n="menu.services">Serviços</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-i18n="menu.about">Sobre nós</a>
+                            <a class="nav-link" href="#footer" data-i18n="menu.about">Sobre nós</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-i18n="menu.contact" data-bs-toggle="offcanvas"
                                 data-bs-target="#contactOffcanvas" aria-controls="contactOffcanvas">Contato</a>
                         </li>
                     </ul>
-                    <div class="d-none d-lg-flex">
-                        <span class="text-teal me-2 d-none d-lg-block" style="color: #00a69c"
-                            data-i18n="studioName">Estúdio Agartha</span>
-                        <select name="lang" id="lang" onchange="changeLanguage(this.value)">
-                            <option value="pt">🇧🇷</option>
-                            <option value="en">🇺🇸</option>
-                        </select>
-                    </div>
+                    <span class="text-teal me-2 d-none d-lg-block" style="color: #00a69c" data-i18n="studioName">Estúdio
+                        Agartha</span>
                 </div>
                 <div class="collapse navbar-collapse d-lg-none" id="navbarSupportedContent">
                     <ul class="navbar-nav flex-lg-row">
@@ -62,13 +56,13 @@
                             <a class="nav-link" href="#" data-i18n="menu.home">Início</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-i18n="menu.projects">Projetos</a>
+                            <a class="nav-link" href="#projetos" data-i18n="menu.projects">Projetos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-i18n="menu.services">Serviços</a>
+                            <a class="nav-link" href="#servicos" data-i18n="menu.services">Serviços</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-i18n="menu.about">Sobre nós</a>
+                            <a class="nav-link" href="#footer" data-i18n="menu.about">Sobre nós</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-i18n="menu.contact" data-bs-toggle="offcanvas"
@@ -87,7 +81,8 @@
                 Criamos projetos que combinam beleza <br />
                 estratégica e alta performance.
             </p>
-            <button class="cta-button" data-i18n="ctaButton">
+            <button class="cta-button" data-i18n="ctaButton" data-bs-toggle="offcanvas"
+                data-bs-target="#contactOffcanvas" aria-controls="contactOffcanvas">
                 Vamos conversar?
             </button>
             <div class="arrow-down">
@@ -95,21 +90,21 @@
             </div>
         </section>
 
-        <section id="projetos" class="py-5 px-3 px-md-5 bg-light rounded-4 my-5">
+        <section id="projetos" class="py-5 px-3 px-md-5 bg--light rounded-4 my-5">
             <div class="container text-start">
                 <h2 class="primary--color mb-4" data-i18n="projects.title">
                     PROJETOS RECENTES
                 </h2>
                 <div class="row g-4">
                     <div class="col-md-4">
-                        <div class="card h-100 shadow-sm border-0 rounded-4">
+                        <div class="card h-100 shadow-sm border-0 rounded-5">
                             <img src="img/projetos/amana-logo.png" class="card-img-top" alt="Projeto Amana" />
                             <div class="card-body text-center">
                                 <h5 class="mb-1 primary--color">Amana</h5>
                                 <p class="mb-1 small" data-i18n="projects.amana.description">
                                     Organização sem fins lucrativos
                                 </p>
-                                <a href="#" class="text-decoration-none text-muted small">
+                                <a href="project.html?id=1" class="text-decoration-none text-muted small">
                                     <span data-i18n="projects.moreDetails">Mais detalhes</span>
                                     <i class="fas fa-chevron-right small"></i>
                                 </a>
@@ -118,7 +113,7 @@
                     </div>
 
                     <div class="col-md-4">
-                        <div class="card h-100 shadow-sm border-0 rounded-4">
+                        <div class="card h-100 shadow-sm border-0 rounded-5">
                             <img src="img/projetos/religioes-logo.png" class="card-img-top"
                                 alt="Religiões do Homem" />
                             <div class="card-body text-center">
@@ -137,7 +132,7 @@
                     </div>
 
                     <div class="col-md-4">
-                        <div class="card h-100 shadow-sm border-0 rounded-4">
+                        <div class="card h-100 shadow-sm border-0 rounded-5">
                             <img src="img/projetos/stella-maris-logo.png" class="card-img-top" alt="Stella Maris" />
                             <div class="card-body text-center">
                                 <h5 class="mb-1 primary--color" data-i18n="projects.stella.title">
@@ -164,7 +159,7 @@
         </section>
 
         <section id="jornada" class="py-5">
-            <div class="container bg-light rounded-4 p-4 p-md-5">
+            <div class="container bg--light rounded-4 p-4 p-md-5">
                 <div class="row align-items-center">
                     <div class="col-md-6 mb-4 mb-md-0">
                         <h2 class="mb-0 text-center text-md-start">
@@ -190,7 +185,9 @@
                                 <div id="jornada1" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionJornada">
                                     <div class="accordion-body px-0 pt-0" data-i18n="journey.strategy.content">
-                                        Conteúdo explicativo sobre a estratégia de marca.
+                                        Vamos conversar, entender suas ideias e traçar o melhor caminho para sua marca.
+                                        Com reuniões e formulários, estruturamos uma estratégia sólida para o presente e
+                                        o futuro do seu projeto.
                                     </div>
                                 </div>
                             </div>
@@ -206,7 +203,9 @@
                                 <div id="jornada2" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionJornada">
                                     <div class="accordion-body px-0 pt-0" data-i18n="journey.prototyping.content">
-                                        Conteúdo explicativo sobre prototipação.
+                                        Aqui, transformamos estratégia em identidade. Nossa equipe une criatividade e
+                                        propósito para dar vida à sua marca, criando um design que realmente faça
+                                        sentido para você.
                                     </div>
                                 </div>
                             </div>
@@ -222,7 +221,9 @@
                                 <div id="jornada3" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionJornada">
                                     <div class="accordion-body px-0 pt-0" data-i18n="journey.presentation.content">
-                                        Conteúdo explicativo sobre a apresentação.
+                                        Chegou a hora de ver sua marca ganhar forma! Apresentamos o projeto de maneira
+                                        clara, seja presencialmente ou online, garantindo que tudo esteja alinhado com
+                                        sua visão.
                                     </div>
                                 </div>
                             </div>
@@ -238,7 +239,8 @@
                                 <div id="jornada4" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionJornada">
                                     <div class="accordion-body px-0 pt-0" data-i18n="journey.delivery.content">
-                                        Conteúdo explicativo sobre a entrega final.
+                                        Com tudo aprovado, organizamos os arquivos em um diretório seguro, para que você
+                                        sempre tenha acesso fácil e protegido à identidade da sua marca.
                                     </div>
                                 </div>
                             </div>
@@ -249,33 +251,30 @@
         </section>
 
         <section id="marcas" class="py-5">
-            <div class="container bg-light rounded-4 p-4 p-md-5 text-center">
+            <div class="container bg--light rounded-4 p-4 p-md-5 text-center">
                 <h2 class="mb-5" data-i18n="brands.title">
                     Marcas que já transformaram suas ideias em <br />
                     projetos incríveis com o Estúdio Agartha!
                 </h2>
                 <div class="row justify-content-xl-center text-center align-items-center gy-4">
-                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                        <img src="img/marcas/netflix.png" alt="Netflix" class="img-fluid" />
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <img src="img/marcas/luan-cavalcanti.png" alt="Luan Cavalcanti" class="img-fluid" />
                     </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                        <img src="img/marcas/buffer.png" alt="Buffer" class="img-fluid" />
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <img src="img/marcas/st-anthony.png" alt="St. Anthony Books & Gifts" class="img-fluid" />
                     </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                        <img src="img/marcas/framer.png" alt="Framer" class="img-fluid" />
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <img src="img/marcas/sheldon.png" alt="Sheldon - Calçados em Couro" class="img-fluid" />
                     </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                        <img src="img/marcas/hubspot.png" alt="Hubspot" class="img-fluid" />
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                        <img src="img/marcas/dropbox.png" alt="Dropbox" class="img-fluid" />
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <img src="img/marcas/ternario.png" alt="O Ternário da Vida Espiritual" class="img-fluid" />
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="servicos" class="py-5">
-            <div class="container bg-light rounded-4 p-4 p-md-5">
+            <div class="container bg--light rounded-4 p-4 p-md-5">
                 <div class="row align-items-center">
                     <div class="col-md-6 mb-4 mb-md-0">
                         <h2 class="mb-md-0 text-center text-md-start" data-i18n="services.title">
@@ -339,7 +338,7 @@
         </section>
 
         <section id="galeria" class="py-5">
-            <div class="container bg-light rounded-4 p-4 p-md-5 text-center">
+            <div class="container bg--light rounded-4 p-4 p-md-5 text-center">
                 <h2 data-i18n="gallery.title">Galeria</h2>
                 <p data-i18n="gallery.subtitle">
                     Criamos obras visuais e estratégicas para negócios que <br />
@@ -350,12 +349,14 @@
             </div>
         </section>
 
-        <footer class="bg-white rounded-4 mt-5 py-5 px-4">
+        <footer id="footer" class="bg-white rounded-4 mt-5 py-5 px-4">
             <div class="text-center bg--primary rounded-3 p-4 mb-5">
                 <h3 class="mb-3 text-white" data-i18n="footer.cta.title">
                     Transforme sua ideia em<br />algo incrível.
                 </h3>
-                <a href="#contato" class="btn btn-light px-4" data-i18n="footer.cta.button">Vamos conversar?</a>
+                <a href="#" class="btn btn-light px-4" data-i18n="footer.cta.button"
+                    data-bs-toggle="offcanvas" data-bs-target="#contactOffcanvas"
+                    aria-controls="contactOffcanvas">Vamos conversar?</a>
             </div>
 
             <div class="row text-center text-md-start align-items-start">
@@ -367,8 +368,10 @@
                         ignorar.
                     </p>
                     <div class="social-icons">
-                        <a href="#" class="text-decoration-none"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-decoration-none"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/agarthaestudio/" class="text-decoration-none"
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/paulo-ricardo-930a72219" class="text-decoration-none"
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
@@ -384,10 +387,10 @@
                             <a href="#projetos" class="text-decoration-none" data-i18n="menu.projects">Projetos</a>
                         </li>
                         <li>
-                            <a href="#serviços" class="text-decoration-none" data-i18n="menu.services">Serviços</a>
+                            <a href="#servicos" class="text-decoration-none" data-i18n="menu.services">Serviços</a>
                         </li>
                         <li>
-                            <a href="#sobre" class="text-decoration-none" data-i18n="menu.about">Sobre Nós</a>
+                            <a href="#footer" class="text-decoration-none" data-i18n="menu.about">Sobre Nós</a>
                         </li>
                     </ul>
                 </div>
@@ -398,7 +401,8 @@
                     </h6>
                     <ul class="list-unstyled small">
                         <li>
-                            <a href="https://behance.net" class="text-decoration-none" target="_blank">Behance</a>
+                            <a href="https://www.behance.net/estudioagartha" class="text-decoration-none"
+                                target="_blank" rel="noopener noreferrer">Behance</a>
                         </li>
                     </ul>
                 </div>
@@ -408,10 +412,16 @@
                         Contato
                     </h6>
                     <p class="small mb-2">
-                        <i class="fas fa-envelope me-2"></i>contact@brix.com
+                        <a href="mailto:contato@estudioagartha.com" class="text-decoration-none" target="_blank"
+                            rel="noopener noreferrer">
+                            <i class="fas fa-envelope me-2"></i>contato@estudioagartha.com
+                        </a>
                     </p>
                     <p class="small mb-0">
-                        <i class="fas fa-phone me-2"></i>(74) 687 - 5892
+                        <a href="https://wa.me/5574999396200?text=Ol%C3%A1%21+Gostaria+de+solicitar+um+or%C3%A7amento"
+                            class="text-decoration-none" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fw-bold fa-whatsapp me-2"></i>+55 (74) 99939-6200
+                        </a>
                     </p>
                 </div>
             </div>
@@ -537,74 +547,22 @@
             </form>
         </div>
     </div>
+
+    <div class="btn-language">
+        <a href="#" id="br-i18">
+            <img src="img/brazil.png" alt="Portuguese" class="img-fluid" />
+        </a>
+        <a href="#" id="usa-i18">
+            <img src="img/usa.png" alt="English" class="img-fluid" />
+        </a>
+    </div>
     <!-- Botão flutuante para voltar ao topo -->
     <a href="#" id="back-to-top" class="btn rounded-circle shadow" title="Voltar ao topo">
         <i class="fas fa-chevron-up"></i>
     </a>
 
     <script src="js/bootstrap.min.js"></script>
-    <script>
-        // Configuração do i18next
-        i18next
-            .use(i18nextBrowserLanguageDetector)
-            .use(i18nextHttpBackend)
-            .init({
-                    fallbackLng: "pt",
-                    debug: false,
-                    ns: ["translation"],
-                    defaultNS: "translation",
-                    backend: {
-                        loadPath: "locales/{{ lng }}/{{ ns }}.json",
-                    },
-                    interpolation: {
-                        escapeValue: false,
-                    },
-                },
-                function(err, t) {
-                    // Inicializa a tradução quando estiver pronta
-                    updateContent();
-                }
-            );
-
-        function updateContent() {
-            // Atualiza todos os elementos com atributo data-i18n
-            document.querySelectorAll("[data-i18n]").forEach((element) => {
-                const key = element.getAttribute("data-i18n");
-                element.innerHTML = i18next.t(key);
-            });
-        }
-
-        function changeLanguage(lng) {
-            i18next.changeLanguage(lng, () => {
-                updateContent();
-            });
-        }
-
-        // Observa mudanças de idioma
-        i18next.on("languageChanged", () => {
-            updateContent();
-        });
-
-        // Botão flutuante para voltar ao topo
-        window.addEventListener("scroll", function() {
-            var backToTopButton = document.getElementById("back-to-top");
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add("show");
-            } else {
-                backToTopButton.classList.remove("show");
-            }
-        });
-
-        document
-            .getElementById("back-to-top")
-            .addEventListener("click", function(e) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-            });
-    </script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
