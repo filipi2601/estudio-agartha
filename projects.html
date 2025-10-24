@@ -9,6 +9,10 @@
         content="Design criativo que transforma marcas. Especialistas em identidade visual, branding, websites, embalagens e conteúdos para redes sociais." />
     <meta name="keywords"
         content="Estúdio Agartha, Design gráfico, Branding, Identidade visual, Logotipo, Criação de site, Embalagem e rótulo, Conteúdo para redes sociais, Designer de marcas, Estratégia visual" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="Portuguese" />
+    <meta name="author" content="Estúdio Agartha" />
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/all.min.css" />
@@ -32,7 +36,7 @@
                     </div>
                     <ul class="navbar-nav flex-lg-row d-none d-lg-flex">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Início</a>
+                            <a class="nav-link" href="index.html#">Início</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.html#projetos">Projetos</a>
@@ -45,8 +49,7 @@
                                 data-bs-target="#contactOffcanvas" aria-controls="contactOffcanvas">Contato</a>
                         </li>
                     </ul>
-                    <span class="text-teal me-2 d-none d-lg-block" style="color: #00a69c">Estúdio
-                        Agartha</span>
+                    <span class="text-teal me-2 d-none d-lg-block" style="color: #00a69c">Estúdio Agartha</span>
                 </div>
                 <div class="collapse navbar-collapse d-lg-none" id="navbarSupportedContent">
                     <ul class="navbar-nav flex-lg-row">
@@ -68,13 +71,10 @@
             </nav>
         </header>
 
-        <section id="project" class="project pt-5">
-            <h2 id="project-title" class="mb-4"></h2>
-            <div id="categories" class="d-flex justify-content-center mb-4"></div>
-            <p id="project-description" style="max-width: 500px" class="mb-4 mx-auto"></p>
-            <div id="project-images"></div>
-            <div class="text-center mt-4">
-                <a href="projects.html" class="btn btn-custom px-4 py-2">Ver mais</a>
+        <section id="projetos" class="py-5 px-3 px-md-5">
+            <div class="container text-start">
+                <h2 class="primary--color mb-4">PROJETOS</h2>
+                <div class="row g-4" id="projects-list"></div>
             </div>
         </section>
 
@@ -104,26 +104,22 @@
                 </div>
 
                 <div class="col-md-3 mb-4">
-                    <h6 class="primary--color">
-                        Páginas
-                    </h6>
+                    <h6 class="primary--color">Páginas</h6>
                     <ul class="list-unstyled small">
                         <li>
-                            <a href="index.html" class="text-decoration-none">Início</a>
+                            <a href="#inicio" class="text-decoration-none">Início</a>
                         </li>
                         <li>
-                            <a href="index.html#projetos" class="text-decoration-none">Projetos</a>
+                            <a href="#projetos" class="text-decoration-none">Projetos</a>
                         </li>
                         <li>
-                            <a href="index.html#servicos" class="text-decoration-none">Serviços</a>
+                            <a href="#servicos" class="text-decoration-none">Serviços</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="col-md-3 mb-4">
-                    <h6 class="primary--color">
-                        Portfolio
-                    </h6>
+                    <h6 class="primary--color">Portfolio</h6>
                     <ul class="list-unstyled small">
                         <li>
                             <a href="https://www.behance.net/estudioagartha" class="text-decoration-none"
@@ -133,9 +129,7 @@
                 </div>
 
                 <div class="col-md-3 mb-4">
-                    <h6 class="primary--color">
-                        Contato
-                    </h6>
+                    <h6 class="primary--color">Contato</h6>
                     <p class="small mb-2">
                         <a href="mailto:contato@estudioagartha.com" class="text-decoration-none" target="_blank"
                             rel="noopener noreferrer">
@@ -160,9 +154,7 @@
     <div class="offcanvas offcanvas-end offcanvas-end-custom" tabindex="-1" id="contactOffcanvas"
         aria-labelledby="contactOffcanvasLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="contactOffcanvasLabel">
-                Fale conosco
-            </h5>
+            <h5 class="offcanvas-title" id="contactOffcanvasLabel">Fale conosco</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
@@ -196,8 +188,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="instagram" class="form-label">Qual Instagram
-                        da sua empresa?</label>
+                    <label for="instagram" class="form-label">Qual Instagram da sua empresa?</label>
                     <input type="text" class="form-control" name="instagram" id="instagram"
                         placeholder="@agarthaestudio" />
                 </div>
@@ -224,8 +215,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Quais serviços deseja
-                        contratar?</label>
+                    <label class="form-label">Quais serviços deseja contratar?</label>
                     <div class="btn-group-toggle d-flex flex-wrap" data-toggle="buttons">
                         <input type="checkbox" class="btn-check" name="servicos" id="identidade-visual"
                             autocomplete="off" value="Identidade visual" />
@@ -250,14 +240,12 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="business" name="descricao" class="form-label">Descreva
-                        brevemente sobre seu negócio</label>
+                    <label for="business" name="descricao" class="form-label">Descreva brevemente sobre seu
+                        negócio</label>
                     <textarea class="form-control" id="business"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-submit">
-                    Enviar →
-                </button>
+                <button type="submit" class="btn btn-submit">Enviar →</button>
             </form>
         </div>
     </div>
@@ -272,8 +260,36 @@
     </a>
 
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/project.js"></script>
     <script src="js/app.js"></script>
+    <script>
+        // projects.js
+        fetch("projects.json")
+            .then((response) => response.json())
+            .then((projects) => {
+                const container = document.getElementById("projects-list");
+
+                projects.forEach((project) => {
+                    const card = document.createElement("div");
+                    card.className = "col-md-4 mb-4";
+                    card.innerHTML = `
+        <div class="card h-100 shadow-sm border-0 rounded-5">
+          <img src="${project.cover}" class="card-img-top" alt="${project.title}" />
+          <div class="card-body text-center">
+            <h5 class="mb-1 primary--color">${project.title}</h5>
+            <p class="mb-1 small text-truncate">${project.descriptionProject}</p>
+            <a href="project.html?id=${project.id}" class="text-decoration-none text-muted small">
+              <span>Mais detalhes</span>
+              <i class="fas fa-chevron-right small"></i>
+            </a>
+          </div>
+        </div>
+      `;
+
+                    container.appendChild(card);
+                });
+            })
+            .catch((error) => console.error("Erro ao carregar projetos:", error));
+    </script>
 </body>
 
 </html>

@@ -1,9 +1,10 @@
 [
   {
     "id": 1,
-    "title": "projects.amana.title",
-    "descriptionProject": "projects.amana.descriptionProject",
-    "categories": ["projects.amana.categories.identity", "projects.amana.categories.branding", "projects.amana.categories.strategy"],
+    "title": "Amana",
+    "descriptionProject": "Essa identidade visual foi, acima de tudo, uma imersão profunda no universo muçulmano.",
+    "categories": ["Identidade Visual", "Branding", "Estratégia de Marca"],
+    "cover": "img/projetos/amana/1.png",
     "images": [
       "img/projetos/amana/1.png",
       "img/projetos/amana/2.png",
@@ -14,5 +15,69 @@
       "img/projetos/amana/7.png",
       "img/projetos/amana/8.png"
     ]
+  },
+  {
+    "id": 2,
+    "title": "Luan Cavalcanti",
+    "descriptionProject": "Esta marca é uma expressão autêntica do profissionalismo, comprometimento e expertise que o Dr. Luan Cavalcanti traz ao seu trabalho no mundo jurídico.",
+    "categories": ["Branding", "Estratégia de Marca", "Identidade Visual"],
+    "cover": "img/projetos/luan-cavalcanti/1.png",
+    "images": [
+      "img/projetos/luan-cavalcanti/1.png",
+      "img/projetos/luan-cavalcanti/2.png",
+      "img/projetos/luan-cavalcanti/3.png",
+      "img/projetos/luan-cavalcanti/4.png",
+      "img/projetos/luan-cavalcanti/5.png",
+      "img/projetos/luan-cavalcanti/6.png",
+      "img/projetos/luan-cavalcanti/7.png"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "O Romance da Alma",
+    "descriptionProject": "Foi uma experiência verdadeiramente inspiradora criar a capa e diagramar o livro O Romance da Alma, de Lilian Staveley. Cada detalhe — das cores e ornamentos medievais à harmonia tipográfica — buscou refletir a beleza e a profundidade espiritual dessa obra, que convida o leitor a um encontro íntimo com o divino.",
+    "categories": ["Livros", "Capa", "Design Editorial"],
+    "cover": "img/projetos/romance/cover.png",
+    "images": ["img/projetos/romance/1.png", "img/projetos/romance/2.png"]
+  },
+  {
+    "id": 4,
+    "title": "A Alma do Índio",
+    "descriptionProject": "Diagramar o miolo e criar a capa de A Alma do Índio foi uma experiência profundamente transcultural. Para representar visualmente a espiritualidade dos povos das planícies norte-americanas, mergulhei em seus símbolos, formas e silêncios.",
+    "categories": ["Livros", "Capa", "Design Editorial"],
+    "cover": "img/projetos/alma/cover.png",
+    "images": ["img/projetos/alma/1.png", "img/projetos/alma/2.png"]
+  },
+  {
+    "id": 5,
+    "title": "Sheldon Calçados",
+    "descriptionProject": "Trabalhar com a Sheldon Calçados foi simplesmente magnífico! Cada etapa do processo foi marcada por profissionalismo, bom gosto e uma energia incrível. É inspirador colaborar com uma marca que valoriza tanto a qualidade, o estilo e o conforto, sempre buscando entregar o melhor para seus clientes.",
+    "categories": ["Branding", "Estratégia de Marca", "Identidade Visual"],
+    "cover": "img/projetos/sheldon/cover.png",
+    "images": [
+      "img/projetos/sheldon/1.png",
+      "img/projetos/sheldon/2.png",
+      "img/projetos/sheldon/3.png",
+      "img/projetos/sheldon/4.png",
+      "img/projetos/sheldon/5.png",
+      "img/projetos/sheldon/6.png",
+      "img/projetos/sheldon/7.png"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Raízes da Condição Humana",
+    "descriptionProject": "Diagramar Raízes da Condição Humana foi um exercício de equilíbrio entre clareza e transcendência. A obra reúne artigos que exploram metafísica, espiritualidade e tradição sob múltiplas perspectivas, exigindo um projeto gráfico que expressasse profundidade intelectual e serenidade visual.",
+    "categories": ["Livros", "Capa", "Design Editorial"],
+    "cover": "img/projetos/raizes/1.png",
+    "images": ["img/projetos/raizes/1.png", "img/projetos/raizes/2.png"]
+  },
+  {
+    "id": 7,
+    "title": "Resumo da Metafísica Integral",
+    "descriptionProject": "Criar o projeto gráfico de Resumo de Metafísica Integral foi um exercício de síntese visual e rigor conceitual. A obra, que apresenta de forma concisa os fundamentos da metafísica tradicional, exigia um design à altura de seu conteúdo — simples, claro e contemplativo.",
+    "categories": ["Livros", "Capa", "Design Editorial"],
+    "cover": "img/projetos/resumo/1.png",
+    "images": ["img/projetos/resumo/1.png", "img/projetos/resumo/2.png"]
   }
 ]

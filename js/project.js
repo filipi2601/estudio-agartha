@@ -8,8 +8,7 @@ fetch("projects.json")
 
     if (project) {
       // Título
-      document.getElementById("project-title").textContent = i18next.t(project.title);
-      console.log(i18next.t(project.categories));
+      document.getElementById("project-title").textContent =project.title;
 
       // Categorias
       const categoriesContainer = document.getElementById("categories");
@@ -17,19 +16,19 @@ fetch("projects.json")
         const button = document.createElement("button");
         button.type = "button";
         button.className = "btn btn-custom me-2";
-        button.textContent = i18next.t(category);
+        button.textContent = category;
         categoriesContainer.appendChild(button);
       });
 
       // Descrição
-      document.getElementById("project-description").textContent = i18next.t(project.descriptionProject);
+      document.getElementById("project-description").textContent = project.descriptionProject;
 
       // Imagens
       const imagesContainer = document.getElementById("project-images");
       project.images.forEach((imgSrc) => {
         const img = document.createElement("img");
         img.src = imgSrc;
-        img.alt = i18next.t(project.titleKey);
+        img.alt = project.titleKey;
         img.className = "img-fluid mb-4";
         imagesContainer.appendChild(img);
       });
