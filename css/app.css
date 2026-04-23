@@ -103,7 +103,6 @@ h2 {
 }
 
 .navbar-nav.d-lg-flex {
-  position: fixed;
   justify-self: anchor-center;
   z-index: 1;
 }
