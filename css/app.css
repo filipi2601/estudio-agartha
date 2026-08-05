@@ -226,6 +226,13 @@ h2 {
   color: #6d758f;
 }
 
+#jornada .accordion-item,
+#jornada .accordion-collapse,
+#jornada .accordion-body,
+#jornada .accordion-button,
+#jornada .accordion-button:not(.collapsed) {
+    background: #f8faff !important;
+}
 /* project */
 .project {
   text-align: center;
