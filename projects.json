@@ -56,7 +56,6 @@
     "cover": "img/projetos/sheldon/cover.png",
     "images": [
       "img/projetos/sheldon/1.png",
-      "img/projetos/sheldon/2.png",
       "img/projetos/sheldon/3.png",
       "img/projetos/sheldon/4.png",
       "img/projetos/sheldon/5.png",
@@ -79,5 +78,13 @@
     "categories": ["Livros", "Capa", "Design Editorial"],
     "cover": "img/projetos/resumo/cover.png",
     "images": ["img/projetos/resumo/1.png", "img/projetos/resumo/2.png"]
-  }
+  },
+  {
+    "id": 8,
+    "title": "Ecos do Japão",
+    "descriptionProject": "A capa de Ecos do Japão foi criada para evocar a serenidade e a elegância da estética tradicional japonesa. Sua composição busca traduzir, de forma simples e contemplativa, o espírito da obra e o convite a uma jornada pela cultura do Japão.",
+    "categories": ["Livros", "Capa", "Design Editorial"],
+    "cover": "img/projetos/ecos/cover 1.png",
+    "images": ["img/projetos/ecos/img 1.png", "img/projetos/ecos/img 2.png"]
+  }  
 ]
