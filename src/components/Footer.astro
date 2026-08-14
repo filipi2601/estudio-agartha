@@ -1,0 +1,123 @@
+---
+import { Mail, MessageCircle } from "@lucide/astro";
+import Logo from "../assets/img/logo.png";
+import { Image } from "astro:assets";
+---
+<footer id="footer" class="mt-5 rounded-3xl bg-white px-4 py-5 sm:px-6">
+
+    <!-- CTA -->
+    <div class="mb-12 rounded-2xl bg-[#00a69c] p-8 text-center sm:p-10">
+        <h3 class="mb-6 text-2xl font-semibold leading-tight text-white sm:text-3xl">
+            Transforme sua ideia em<br />
+            algo incrível.
+        </h3>
+
+        <button type="button"
+            class="js-open-contact rounded-xl bg-white px-6 py-3 font-medium text-[#333] transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-100">
+            Vamos conversar?
+        </button>
+    </div>
+
+
+    <!-- Conteúdo -->
+    <div class="grid gap-8 text-center sm:grid-cols-2 md:grid-cols-4 md:text-left">
+
+        <!-- Logo -->
+        <div>
+
+            <Image src={Logo} alt="Estúdio Agartha" class="mx-auto mb-3 h-10 w-auto md:mx-0" />
+
+            <p class="max-w-xs text-sm leading-relaxed text-gray-600 md:max-w-none">
+                Assim como o javali, nosso design é original e impossível de ignorar.
+            </p>
+
+            <div class="mt-4 flex justify-center gap-4 md:justify-start">
+                <a href="https://www.instagram.com/agarthaestudio/" target="_blank" rel="noopener noreferrer"
+                    aria-label="Instagram" class="text-gray-600 transition-colors hover:text-[#00a69c]">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/paulo-ricardo-930a72219" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn" class="text-gray-600 transition-colors hover:text-[#00a69c]">
+                    <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+            </div>
+        </div>
+
+
+        <!-- Páginas -->
+        <div>
+            <h6 class="mb-3 font-semibold text-[#00a69c]">
+                Páginas
+            </h6>
+
+            <ul class="space-y-2 text-sm">
+                <li>
+                    <a href="#inicio" class="text-gray-600 transition-colors hover:text-[#00a69c]">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#projetos" class="text-gray-600 transition-colors hover:text-[#00a69c]">
+                        Projetos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#servicos" class="text-gray-600 transition-colors hover:text-[#00a69c]">
+                        Serviços
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- Portfolio -->
+        <div>
+            <h6 class="mb-3 font-semibold text-[#00a69c]">
+                Portfolio
+            </h6>
+
+            <ul class="space-y-2 text-sm">
+                <li>
+                    <a href="https://www.behance.net/estudioagartha" target="_blank" rel="noopener noreferrer"
+                        class="text-gray-600 transition-colors hover:text-[#00a69c]">
+                        Behance
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- Contato -->
+        <div>
+            <h6 class="mb-3 font-semibold text-[#00a69c]">
+                Contato
+            </h6>
+
+            <div class="space-y-3 text-sm">
+
+                <a href="mailto:contato@estudioagartha.com"
+                    class="flex items-center justify-center gap-2 text-gray-600 transition-colors hover:text-[#00a69c] md:justify-start">
+                    <Mail class="w-4 h-4" />
+                    <span>contato@estudioagartha.com</span>
+                </a>
+
+                <a href="https://wa.me/5574999396200?text=Ol%C3%A1%21+Gostaria+de+solicitar+um+or%C3%A7amento"
+                    target="_blank" rel="noopener noreferrer"
+                    class="flex items-center justify-center gap-2 text-gray-600 transition-colors hover:text-[#00a69c] md:justify-start">
+                    <MessageCircle class="w-4 h-4" />
+                    <span>+55 (74) 99939-6200</span>
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-8 border-t border-gray-100 pt-5 text-center text-xs font-semibold text-[#00a69c]">
+        © 2026 ESTÚDIO AGARTHA | TODOS OS DIREITOS RESERVADOS
+    </div>
+
+</footer>

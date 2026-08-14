@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { Image } from "astro:assets";
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+
+  return projects.map((project) => ({
+    params: {
+      slug: project.id,
+    },
+    props: {
+      project,
+    },
+  }));
+}
+
+const { project } = Astro.props;
+const { title, description, categories, images } = project.data;
+---
+
+<Layout title={title} description={description}>
+    <main class="mx-auto max-w-6xl px-6 py-16">
+
+        <!-- Cabeçalho -->
+        <header class="mx-auto max-w-3xl text-center">
+
+            <h1 class="text-4xl font-semibold tracking-tight text-gray-900 md:text-5xl">
+                {title}
+            </h1>
+
+            <!-- Categorias -->
+            <div class="mt-6 flex flex-wrap justify-center gap-2">
+                {categories.map((category) => (
+                <span class="rounded-full bg-[#009186] border border-gray-300 px-4 py-2 text-sm text-white">
+                    {category}
+                </span>
+                ))}
+            </div>
+
+            <!-- Descrição -->
+            <p class="mx-auto mt-8 max-w-xl text-lg leading-8 text-gray-600">
+                {description}
+            </p>
+
+        </header>
+
+
+        <!-- Imagens -->
+        <section class="mt-16">
+            <div class="flex flex-col gap-8">
+
+                {images.length > 0 && (
+                <div class="flex flex-col gap-8">
+                    {images.map((image) => (
+                    <Image src={image} alt={title} loading="lazy" class="w-full rounded-lg object-cover" />
+                    ))}
+                </div>
+                )}
+
+            </div>
+        </section>
+
+
+        <!-- Voltar -->
+        <div class="mt-12 text-center">
+            <a href="/projects"
+                class="inline-block rounded-md bg-gray-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-gray-700">
+                Ver mais projetos
+            </a>
+        </div>
+
+    </main>
+</Layout>

@@ -1,0 +1,263 @@
+<!-- Overlay -->
+<div id="contactOverlay"
+    class="pointer-events-none fixed inset-0 z-40 bg-black/40 opacity-0 backdrop-blur-[2px] transition-opacity duration-300"
+    aria-hidden="true"></div>
+
+
+<!-- Drawer de contato -->
+<aside id="contactOffcanvas"
+    class="fixed top-0 right-0 z-50 flex h-dvh w-full max-w-lg translate-x-full flex-col bg-white shadow-2xl transition-transform duration-300 ease-out"
+    aria-hidden="true">
+
+    <!-- Header -->
+    <div class="flex shrink-0 items-center justify-between border-b border-gray-100 px-6 py-5">
+
+        <h5 class="text-xl font-semibold text-[#333]">
+            Fale conosco
+        </h5>
+
+        <button type="button" id="closeContact"
+            class="rounded-lg p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-[#333]"
+            aria-label="Fechar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+            </svg>
+        </button>
+
+    </div>
+
+
+    <!-- Body -->
+    <div class="overflow-y-auto px-6 py-6">
+
+        <p class="mb-6 text-sm leading-relaxed text-gray-600">
+            Este formulário é uma etapa inicial crucial para assegurar que
+            entendamos claramente o seu projeto.
+        </p>
+
+
+        <form id="contactForm">
+
+            <!-- Nome -->
+            <div class="mb-5">
+                <label for="name" class="mb-2 block text-sm font-medium text-[#333]">
+                    Nome
+                </label>
+
+                <input type="text" name="nome" id="name" placeholder="Lucas"
+                    class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none transition-all placeholder:text-gray-400 focus:border-[#00a69c] focus:ring-2 focus:ring-[#00a69c]/10" />
+            </div>
+
+
+            <!-- Email -->
+            <div class="mb-5">
+                <label for="email" class="mb-2 block text-sm font-medium text-[#333]">
+                    Email
+                </label>
+
+                <input type="email" name="email" id="email" placeholder="example@youremail.com"
+                    class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none transition-all placeholder:text-gray-400 focus:border-[#00a69c] focus:ring-2 focus:ring-[#00a69c]/10" />
+            </div>
+
+
+            <!-- Telefone -->
+            <div class="mb-5">
+                <label for="phone" class="mb-2 block text-sm font-medium text-[#333]">
+                    Telefone
+                </label>
+
+                <input type="tel" name="telefone" id="phone" placeholder="(123) 456 - 7890"
+                    class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none transition-all placeholder:text-gray-400 focus:border-[#00a69c] focus:ring-2 focus:ring-[#00a69c]/10" />
+            </div>
+
+
+            <!-- Empresa -->
+            <div class="mb-5">
+                <label for="company" class="mb-2 block text-sm font-medium text-[#333]">
+                    Nome da sua empresa
+                </label>
+
+                <input type="text" name="agencia" id="company" placeholder="Sua agência"
+                    class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none transition-all placeholder:text-gray-400 focus:border-[#00a69c] focus:ring-2 focus:ring-[#00a69c]/10" />
+            </div>
+
+
+            <!-- Instagram -->
+            <div class="mb-5">
+                <label for="instagram" class="mb-2 block text-sm font-medium text-[#333]">
+                    Qual Instagram da sua empresa?
+                </label>
+
+                <input type="text" name="instagram" id="instagram" placeholder="@agarthaestudio"
+                    class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none transition-all placeholder:text-gray-400 focus:border-[#00a69c] focus:ring-2 focus:ring-[#00a69c]/10" />
+            </div>
+
+
+            <!-- Como conheceu -->
+            <div class="mb-6">
+
+                <label class="mb-3 block text-sm font-medium text-[#333]">
+                    Como nos conheceu?
+                </label>
+
+                <div class="flex flex-wrap gap-2">
+
+                    <input type="radio" name="conheceu" id="behance" value="Behance" class="peer/behance hidden" />
+                    <label for="behance"
+                        class="cursor-pointer rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-600 transition-all hover:border-[#00a69c] hover:text-[#00a69c] peer-checked/behance:border-[#00a69c] peer-checked/behance:bg-[#00a69c] peer-checked/behance:text-white">
+                        Behance
+                    </label>
+
+
+                    <input type="radio" name="conheceu" id="instagramConheceu" value="Instagram"
+                        class="peer/instagram hidden" />
+                    <label for="instagramConheceu"
+                        class="cursor-pointer rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-600 transition-all hover:border-[#00a69c] hover:text-[#00a69c] peer-checked/instagram:border-[#00a69c] peer-checked/instagram:bg-[#00a69c] peer-checked/instagram:text-white">
+                        Instagram
+                    </label>
+
+
+                    <input type="radio" name="conheceu" id="anuncio" value="Anúncio" class="peer/anuncio hidden" />
+                    <label for="anuncio"
+                        class="cursor-pointer rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-600 transition-all hover:border-[#00a69c] hover:text-[#00a69c] peer-checked/anuncio:border-[#00a69c] peer-checked/anuncio:bg-[#00a69c] peer-checked/anuncio:text-white">
+                        Anúncio
+                    </label>
+
+
+                    <input type="radio" name="conheceu" id="recomendacao" value="Recomendação"
+                        class="peer/recomendacao hidden" />
+                    <label for="recomendacao"
+                        class="cursor-pointer rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-600 transition-all hover:border-[#00a69c] hover:text-[#00a69c] peer-checked/recomendacao:border-[#00a69c] peer-checked/recomendacao:bg-[#00a69c] peer-checked/recomendacao:text-white">
+                        Recomendação
+                    </label>
+
+                </div>
+            </div>
+
+
+            <!-- Serviços -->
+            <div class="mb-6">
+
+                <label class="mb-3 block text-sm font-medium text-[#333]">
+                    Quais serviços deseja contratar?
+                </label>
+
+                <div class="flex flex-wrap gap-2">
+
+                    <input type="checkbox" name="servicos" id="identidade-visual" value="Identidade visual"
+                        class="peer/identidade hidden" />
+                    <label for="identidade-visual"
+                        class="cursor-pointer rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-600 transition-all hover:border-[#00a69c] hover:text-[#00a69c] peer-checked/identidade:border-[#00a69c] peer-checked/identidade:bg-[#00a69c] peer-checked/identidade:text-white">
+                        Identidade visual
+                    </label>
+
+
+                    <input type="checkbox" name="servicos" id="landing-page" value="Landing Page/website"
+                        class="peer/landing hidden" />
+                    <label for="landing-page"
+                        class="cursor-pointer rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-600 transition-all hover:border-[#00a69c] hover:text-[#00a69c] peer-checked/landing:border-[#00a69c] peer-checked/landing:bg-[#00a69c] peer-checked/landing:text-white">
+                        Landing Page/website
+                    </label>
+
+
+                    <input type="checkbox" name="servicos" id="social-media" value="Social Media"
+                        class="peer/social hidden" />
+                    <label for="social-media"
+                        class="cursor-pointer rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-600 transition-all hover:border-[#00a69c] hover:text-[#00a69c] peer-checked/social:border-[#00a69c] peer-checked/social:bg-[#00a69c] peer-checked/social:text-white">
+                        Social Media
+                    </label>
+
+
+                    <input type="checkbox" name="servicos" id="embalagem" value="Embalagem"
+                        class="peer/embalagem hidden" />
+                    <label for="embalagem"
+                        class="cursor-pointer rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-600 transition-all hover:border-[#00a69c] hover:text-[#00a69c] peer-checked/embalagem:border-[#00a69c] peer-checked/embalagem:bg-[#00a69c] peer-checked/embalagem:text-white">
+                        Embalagem
+                    </label>
+
+
+                    <input type="checkbox" name="servicos" id="editorial" value="Editorial"
+                        class="peer/editorial hidden" />
+                    <label for="editorial"
+                        class="cursor-pointer rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-600 transition-all hover:border-[#00a69c] hover:text-[#00a69c] peer-checked/editorial:border-[#00a69c] peer-checked/editorial:bg-[#00a69c] peer-checked/editorial:text-white">
+                        Editorial
+                    </label>
+
+                </div>
+            </div>
+
+
+            <!-- Descrição -->
+            <div class="mb-6">
+
+                <label for="business" class="mb-2 block text-sm font-medium text-[#333]">
+                    Descreva brevemente sobre seu negócio
+                </label>
+
+                <textarea name="descricao" id="business" rows="4"
+                    class="w-full resize-none rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none transition-all placeholder:text-gray-400 focus:border-[#00a69c] focus:ring-2 focus:ring-[#00a69c]/10"></textarea>
+
+            </div>
+
+
+            <!-- Submit -->
+            <button type="submit"
+                class="w-full rounded-xl bg-[#00a69c] px-5 py-3.5 font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#008f87] hover:shadow-lg">
+                Enviar →
+            </button>
+
+        </form>
+
+    </div>
+
+</aside>
+
+<script>
+    const contactButtons = document.querySelectorAll('.js-open-contact');
+    const closeContact = document.getElementById('closeContact');
+    const contactOffcanvas = document.getElementById('contactOffcanvas');
+    const contactOverlay = document.getElementById('contactOverlay');
+
+    function openContactDrawer() {
+        contactOffcanvas?.classList.remove('translate-x-full');
+
+        contactOverlay?.classList.remove(
+            'opacity-0',
+            'pointer-events-none'
+        );
+
+        contactOffcanvas?.setAttribute('aria-hidden', 'false');
+        contactOverlay?.setAttribute('aria-hidden', 'false');
+
+        document.body.classList.add('overflow-hidden');
+    }
+
+    function closeContactDrawer() {
+        contactOffcanvas?.classList.add('translate-x-full');
+
+        contactOverlay?.classList.add(
+            'opacity-0',
+            'pointer-events-none'
+        );
+
+        contactOffcanvas?.setAttribute('aria-hidden', 'true');
+        contactOverlay?.setAttribute('aria-hidden', 'true');
+
+        document.body.classList.remove('overflow-hidden');
+    }
+
+    contactButtons.forEach((button) => {
+        button.addEventListener('click', openContactDrawer);
+    });
+
+    closeContact?.addEventListener('click', closeContactDrawer);
+    contactOverlay?.addEventListener('click', closeContactDrawer);
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeContactDrawer();
+        }
+    });
+</script>

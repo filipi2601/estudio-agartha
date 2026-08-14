@@ -1,0 +1,347 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {ArrowDown} from "@lucide/astro";
+const journey = [
+	{
+		title: 'Estratégia de marca',
+		text:
+			'Vamos conversar, entender suas ideias e traçar o melhor caminho para sua marca. Com reuniões e formulários, estruturamos uma estratégia sólida para o presente e o futuro do seu projeto.'
+	},
+	{
+		title: 'Prototipação',
+		text:
+			'Aqui, transformamos estratégia em identidade. Nossa equipe une criatividade e propósito para dar vida à sua marca, criando um design que realmente faça sentido para você.'
+	},
+	{
+		title: 'Apresentação',
+		text:
+			'Chegou a hora de ver sua marca ganhar forma. Apresentamos o projeto de maneira clara, seja presencialmente ou online, garantindo que tudo esteja alinhado com sua visão.'
+	},
+	{
+		title: 'Entrega',
+		text:
+			'Com tudo aprovado, organizamos os arquivos em um diretório seguro, para que você sempre tenha acesso fácil e protegido à identidade da sua marca.'
+	}
+];
+
+const brands = [
+	{ src: '/img/marcas/luan-cavalcanti.png', alt: 'Luan Cavalcanti' },
+	{ src: '/img/marcas/st-anthony.png', alt: 'St. Anthony Books & Gifts' },
+	{ src: '/img/marcas/sheldon.png', alt: 'Sheldon - Calçados em Couro' },
+	{ src: '/img/marcas/ternario.png', alt: 'O Ternário da Vida Espiritual' }
+];
+
+const services = [
+	{
+		title: 'Identidade Visual',
+		text:
+			'Conjunto de elementos gráficos que representa uma marca, incluindo logotipo, cores e tipografia, criando uma imagem coesa que transmite os valores e a personalidade da empresa.'
+	},
+	{
+		title: 'Desenvolvimento e criação de website',
+		text:
+			'Criamos websites personalizados, unindo design moderno, navegação intuitiva e otimização para uma experiência eficiente e profissional.'
+	},
+	{
+		title: 'Embalagem & Rótulo',
+		text:
+			'Desenvolvemos embalagens que oferecem uma experiência agradável e inesquecível aos clientes, comunicando a mensagem da marca de maneira clara e eficaz.'
+	},
+	{
+		title: 'Editorial',
+		text:
+			'Design de publicações impressas e digitais que combina tipografia, imagens e layout, garantindo que o conteúdo seja legível, atraente e visualmente harmonioso para o leitor.'
+	},
+	{
+		title: 'Criativos para Social Media',
+		text:
+			'Criação de conteúdos visuais para plataformas digitais, como postagens e vídeos, visando aumentar o engajamento e promover a marca de forma eficaz e adaptada a cada rede.'
+	}
+];
+
+const gallery = [
+	{ src: '/img/galeria-1.png', alt: 'Galeria do projeto 1', href: '/project.html?id=5' },
+	{ src: '/img/galeria-2.png', alt: 'Galeria do projeto 2', href: '/project.html?id=1' }
+];
+---
+
+<Layout title="Estúdio Agartha"
+    description="Design criativo que transforma marcas. Especialistas em identidade visual, branding, websites, embalagens e conteúdos para redes sociais.">
+    <section class="flex h-[calc(100vh-110px)] flex-col items-center justify-center px-4 py-16 text-center">
+        <h1 class="text-[2.2rem] font-normal leading-[1.2] text-[#00a69c] sm:text-[3.5rem] md:text-[5rem]">
+            A Beleza que <br />
+            Converte
+        </h1>
+
+        <p class="mt-4 text-base text-[#686d85] sm:text-[1.1rem]">
+            Criamos projetos que combinam beleza <br class="hidden sm:block" />
+            estratégica e alta performance.
+        </p>
+
+        <button type="button"
+            class="js-open-contact mt-8 rounded-lg bg-[#00a69c] px-8 py-3 text-white transition-colors duration-200 hover:bg-[#009186]">
+            Vamos conversar?
+        </button>
+
+        <div class="mt-16 text-3xl text-[#686d85]" aria-hidden="true">
+            <ArrowDown class="animate-bounce w-10 h-10" />
+        </div>
+    </section>
+
+    <section id="projetos" class="my-5 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
+        <div class="mx-auto max-w-7xl text-left">
+
+            <!-- Título -->
+            <h2 class="mb-8 text-xl font-semibold text-[#00a69c] sm:text-2xl">
+                PROJETOS RECENTES
+            </h2>
+
+
+            <!-- Projetos -->
+            <div class="grid gap-6 md:grid-cols-3">
+
+                <!-- Projeto 1 -->
+                <article
+                    class="overflow-hidden rounded-[2rem] bg-[#e1e4ed] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <img src="/img/projetos/ecos/cover 1.png" alt="Ecos do Japão"
+                        class="h-[375px] w-full object-cover" />
+
+                    <div class="px-5 py-5 text-center">
+
+                        <h3 class="mb-1 text-base font-semibold text-[#00a69c]">
+                            Ecos do Japão
+                        </h3>
+
+                        <p class="mb-2 text-sm">
+                            Design Editorial
+                        </p>
+
+                        <a href="project.html?id=8"
+                            class="inline-flex items-center gap-1 text-sm text-gray-500 transition-colors hover:text-[#00a69c]">
+                            <span>Mais detalhes</span>
+                            <i class="fas fa-chevron-right text-xs"></i>
+                        </a>
+
+                    </div>
+                </article>
+
+
+                <!-- Projeto 2 -->
+                <article
+                    class="overflow-hidden rounded-[2rem] bg-[#e1e4ed] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <img src="/img/projetos/sheldon/cover.png" alt="Sheldon Calçados"
+                        class="h-[375px] w-full object-cover" />
+
+                    <div class="px-5 py-5 text-center">
+
+                        <h3 class="mb-1 text-base font-semibold text-[#00a69c]">
+                            Sheldon Calçados
+                        </h3>
+
+                        <p class="mb-2 text-sm">
+                            Identidade Visual
+                        </p>
+
+                        <a href="project.html?id=5"
+                            class="inline-flex items-center gap-1 text-sm text-gray-500 transition-colors hover:text-[#00a69c]">
+                            <span>Mais detalhes</span>
+                            <i class="fas fa-chevron-right text-xs"></i>
+                        </a>
+
+                    </div>
+                </article>
+
+
+                <!-- Projeto 3 -->
+                <article
+                    class="overflow-hidden rounded-[2rem] bg-[#e1e4ed] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <img src="/img/projetos/romance/cover.png" alt="O Romance da Alma"
+                        class="h-[375px] w-full object-cover" />
+
+                    <div class="px-5 py-5 text-center">
+
+                        <h3 class="mb-1 text-base font-semibold text-[#00a69c]">
+                            O Romance da Alma
+                        </h3>
+
+                        <p class="mb-2 text-sm">
+                            Design Editorial
+                        </p>
+
+                        <a href="project.html?id=3"
+                            class="inline-flex items-center gap-1 text-sm text-gray-500 transition-colors hover:text-[#00a69c]">
+                            <span>Mais detalhes</span>
+                            <i class="fas fa-chevron-right text-xs"></i>
+                        </a>
+
+                    </div>
+                </article>
+
+            </div>
+
+
+            <!-- Ver mais -->
+            <div class="mt-8 text-center">
+                <a href="projects.html"
+                    class="inline-flex rounded-xl bg-[#00a69c] px-6 py-2.5 font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#009186] hover:shadow-md">
+                    Ver mais
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="jornada" class="my-10 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
+        <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+                <ArrowDown class="w-20 h-20 text-[#00a69c] " style="transform: rotate(-45deg)" />
+                <h2 class="text-[#00a69c] md:mb-0 text-center md:text-start text-3xl tracking-tight sm:text-4xl">
+                    <br />
+                    Sua jornada <br />
+                    será assim
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                {journey.map((step) => (
+                <details
+                    class="group rounded-3xl border border-slate-100 bg-white px-5 py-4 open:shadow-[0_16px_40px_rgba(15,23,42,0.08)]">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg">
+                        <span>{step.title}</span>
+                        <span
+                            class="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 transition group-open:rotate-45 group-open:border-teal-200 group-open:bg-teal-50 group-open:text-teal-700">+</span>
+                    </summary>
+                    <p class="mt-4 max-w-3xl text-sm leading-7">{step.text}</p>
+                </details>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section id="marcas" class="my-10 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
+        <h2 class="text-center mx-auto mb-10 max-w-3xl text-xl leading-tight text-[#00a69c] sm:text-2xl">
+            Marcas que já transformaram suas ideias em
+            <br class="hidden sm:block" />
+            projetos incríveis com o Estúdio Agartha!
+        </h2>
+
+        <div
+            class="mx-auto grid max-w-5xl grid-cols-2 items-center justify-items-center gap-x-6 gap-y-8 md:grid-cols-4">
+
+            <div class="flex h-24 w-full items-center justify-center">
+                <img src="/img/marcas/luan-cavalcanti.png" alt="Luan Cavalcanti"
+                    class="max-h-20 max-w-full object-contain transition-transform duration-300 hover:scale-105" />
+            </div>
+
+            <div class="flex h-24 w-full items-center justify-center">
+                <img src="/img/marcas/st-anthony.png" alt="St. Anthony Books & Gifts"
+                    class="max-h-20 max-w-full object-contain transition-transform duration-300 hover:scale-105" />
+            </div>
+
+            <div class="flex h-24 w-full items-center justify-center">
+                <img src="/img/marcas/sheldon.png" alt="Sheldon - Calçados em Couro"
+                    class="max-h-20 max-w-full object-contain transition-transform duration-300 hover:scale-105" />
+            </div>
+
+            <div class="flex h-24 w-full items-center justify-center">
+                <img src="/img/marcas/ternario.png" alt="O Ternário da Vida Espiritual"
+                    class="max-h-20 max-w-full object-contain transition-transform duration-300 hover:scale-105" />
+            </div>
+
+        </div>
+    </section>
+
+    <section id="servicos" class="my-10 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
+        <div class="grid items-start lg:items-center gap-10 md:grid-cols-2 md:gap-16 lg:gap-24">
+            <div>
+                <ArrowDown class="w-20 h-20 text-[#00a69c]" style="transform: rotate(-45deg)" />
+                <h2 class="text-[#00a69c] md:mb-0 text-center md:text-start text-3xl tracking-tight sm:text-4xl">
+                    <br />
+                    Sua jornada <br />
+                    será assim
+                </h2>
+            </div>
+
+            <div class="space-y-8">
+                <div>
+                    <h3 class="mb-2 text-lg font-semibold text-[#00a69c]">
+                        Identidade Visual
+                    </h3>
+
+                    <p class="text-sm leading-relaxed text-[#686d85] sm:text-base">
+                        Conjunto de elementos gráficos que representa uma marca,
+                        incluindo logotipo, cores e tipografia, criando uma imagem
+                        coesa que transmite os valores e a personalidade da empresa.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="mb-2 text-lg font-semibold text-[#00a69c]">
+                        Desenvolvimento e criação de website
+                    </h3>
+
+                    <p class="text-sm leading-relaxed text-[#686d85] sm:text-base">
+                        Criamos websites personalizados, unindo design moderno,
+                        navegação intuitiva e otimização para uma experiência
+                        eficiente e profissional.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="mb-2 text-lg font-semibold text-[#00a69c]">
+                        Embalagem &amp; Rótulo
+                    </h3>
+
+                    <p class="text-sm leading-relaxed text-[#686d85] sm:text-base">
+                        Desenvolvemos embalagens que oferecem uma experiência
+                        agradável e inesquecível aos clientes, comunicando a mensagem
+                        da marca de maneira clara e eficaz.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="mb-2 text-lg font-semibold text-[#00a69c]">
+                        Editorial
+                    </h3>
+
+                    <p class="text-sm leading-relaxed text-[#686d85] sm:text-base">
+                        Design de publicações impressas e digitais que combina
+                        tipografia, imagens e layout, garantindo que o conteúdo seja
+                        legível, atraente e visualmente harmonioso para o leitor.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="mb-2 text-lg font-semibold text-[#00a69c]">
+                        Criativos para Social Media
+                    </h3>
+
+                    <p class="text-sm leading-relaxed text-[#686d85] sm:text-base">
+                        Criação de conteúdos visuais para plataformas digitais, como
+                        postagens e vídeos, visando aumentar o engajamento e promover
+                        a marca de forma eficaz e adaptada a cada rede.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="galeria"
+        class="mt-8 rounded-4xl border border-white/70 bg-white/75 px-6 py-10 shadow-[0_20px_80px_rgba(15,23,42,0.08)] sm:px-8 lg:px-10">
+        <div class="text-center">
+            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-700">Galeria</p>
+            <h2 class="mt-2 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">Criamos obras visuais e
+                estratégicas para negócios memoráveis.</h2>
+        </div>
+
+        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+            {gallery.map((item) => (
+            <a href={item.href}
+                class="group overflow-hidden rounded-4xl border border-slate-100 bg-white transition hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]">
+                <div class="aspect-16/10 overflow-hidden bg-slate-100">
+                    <img src={item.src} alt={item.alt}
+                        class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                </div>
+            </a>
+            ))}
+        </div>
+    </section>
+</Layout>

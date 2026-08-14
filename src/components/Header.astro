@@ -1,0 +1,146 @@
+---
+import {Menu, X } from "@lucide/astro";
+import { Image } from "astro:assets";
+import Logo from "../assets/img/logo.png";
+---
+
+ <header>
+     <nav class="w-full rounded-b-[18px] bg-white px-8 py-4">
+         <div class="flex w-full items-center justify-between">
+             <a href="" class="w-35">
+                 <Image src={Logo} alt="Logo Estúdio Agartha" class="h-10 w-auto" />
+             </a>
+
+             <button id="openMenu" type="button"
+                 class="rounded-lg p-2 text-[#00a69c] transition-colors hover:bg-[#e5e5e5] lg:hidden"
+                 aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false">
+                 <Menu class="h-6 w-6" />
+             </button>
+
+             <ul class="z-1 -mb-20 hidden flex-row items-center rounded-2xl bg-[#e5e5e5] p-2.5 lg:flex">
+                 <li class="nav-item">
+                     <a href="/"
+                         class="mr-2 rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-[#333] transition-colors hover:bg-gray-100">
+                         Home
+                     </a>
+                 </li>
+
+                 <li class="nav-item">
+                     <a href="/projects"
+                         class="mr-2 rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-[#333] transition-colors hover:bg-gray-100">
+                         Projetos
+                     </a>
+                 </li>
+
+                 <li class="nav-item">
+                     <a href="/#servicos"
+                         class="mr-2 rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-[#333] transition-colors hover:bg-gray-100">
+                         Serviços
+                     </a>
+                 </li>
+
+                 <li class="nav-item">
+                     <a href="#" data-bs-toggle="offcanvas" data-bs-target="#contactOffcanvas"
+                         aria-controls="contactOffcanvas"
+                         class="mr-2 rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-[#333] transition-colors hover:bg-gray-100">
+                         Contato
+                     </a>
+                 </li>
+             </ul>
+
+             <span class="me-2 hidden text-[#00a69c] lg:block">
+                 Estúdio Agartha
+             </span>
+         </div>
+     </nav>
+ </header>
+
+ <div id="menuOverlay"
+     class="pointer-events-none fixed inset-0 z-40 bg-black/40 opacity-0 backdrop-blur-[2px] transition-opacity duration-300"
+     aria-hidden="true"></div>
+
+ <aside id="mobileMenu"
+     class="fixed top-0 right-0 z-50 flex h-dvh w-[85%] max-w-sm translate-x-full flex-col bg-white shadow-2xl transition-transform duration-300 ease-out"
+     aria-hidden="true">
+
+     <div class="flex items-center justify-between border-b border-gray-100 px-6 py-5">
+
+         <span class="text-lg font-medium text-[#00a69c]">
+             Estúdio Agartha
+         </span>
+
+         <button id="closeMenu" type="button" class="rounded-lg p-2 text-[#333] transition-colors hover:bg-[#e5e5e5]"
+             aria-label="Fechar menu">
+             <X class="h-6 w-6" />
+         </button>
+     </div>
+
+     <nav class="flex flex-1 flex-col px-6 py-8">
+         <a href="#"
+             class="mobile-menu-link rounded-xl px-4 py-3.5 text-base font-medium text-[#333] transition-colors hover:bg-[#e5e5e5] hover:text-[#00a69c]">
+             Home
+         </a>
+
+         <a href="#projetos"
+             class="mobile-menu-link rounded-xl px-4 py-3.5 text-base font-medium text-[#333] transition-colors hover:bg-[#e5e5e5] hover:text-[#00a69c]">
+             Projetos
+         </a>
+
+         <a href="#servicos"
+             class="mobile-menu-link rounded-xl px-4 py-3.5 text-base font-medium text-[#333] transition-colors hover:bg-[#e5e5e5] hover:text-[#00a69c]">
+             Serviços
+         </a>
+
+         <a href="#contato"
+             class="mobile-menu-link rounded-xl px-4 py-3.5 text-base font-medium text-[#333] transition-colors hover:bg-[#e5e5e5] hover:text-[#00a69c]">
+             Contato
+         </a>
+     </nav>
+
+     <div class="border-t border-gray-100 px-6 py-6">
+         <p class="text-sm text-gray-400">
+             Design criativo que transforma marcas.
+         </p>
+     </div>
+ </aside>
+ <script>
+     const openMenu = document.getElementById('openMenu');
+     const closeMenu = document.getElementById('closeMenu');
+     const mobileMenu = document.getElementById('mobileMenu');
+     const menuOverlay = document.getElementById('menuOverlay');
+     const menuLinks = document.querySelectorAll('.mobile-menu-link');
+
+     function openMobileMenu() {
+         mobileMenu?.classList.remove('translate-x-full');
+         menuOverlay?.classList.remove('opacity-0', 'pointer-events-none');
+
+         mobileMenu?.setAttribute('aria-hidden', 'false');
+         openMenu?.setAttribute('aria-expanded', 'true');
+
+         document.body.classList.add('overflow-hidden');
+     }
+
+     function closeMobileMenu() {
+         mobileMenu?.classList.add('translate-x-full');
+         menuOverlay?.classList.add('opacity-0', 'pointer-events-none');
+
+         mobileMenu?.setAttribute('aria-hidden', 'true');
+         openMenu?.setAttribute('aria-expanded', 'false');
+
+         document.body.classList.remove('overflow-hidden');
+     }
+
+     openMenu?.addEventListener('click', openMobileMenu);
+     closeMenu?.addEventListener('click', closeMobileMenu);
+     menuOverlay?.addEventListener('click', closeMobileMenu);
+
+     menuLinks.forEach((link) => {
+         link.addEventListener('click', closeMobileMenu);
+     });
+
+     document.addEventListener('keydown', (event) => {
+         if (event.key === 'Escape') {
+             closeMobileMenu();
+         }
+     });
+ </script>

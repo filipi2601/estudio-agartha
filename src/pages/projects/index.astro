@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+---
+
+<Layout title="Projetos" description="Nossos projetos">
+    <section id="projetos" class="my-5 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
+        <div class="mx-auto max-w-7xl text-left">
+
+            <h2 class="mb-8 text-xl font-semibold text-[#00a69c] sm:text-2xl">
+                PROJETOS RECENTES
+            </h2>
+
+            <div class="grid gap-6 md:grid-cols-3">
+
+                {projects.map((project) => (
+                <article
+                    class="overflow-hidden rounded-[2rem] bg-[#e1e4ed] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+
+                    <Image src={project.data.cover} alt={project.data.title} loading="lazy"
+                        class="h-[375px] w-full object-cover" />
+
+                    <div class="px-5 py-5 text-center">
+
+                        <h3 class="mb-1 text-base font-semibold text-[#00a69c]">
+                            {project.data.title}
+                        </h3>
+
+                        <p class="mb-2 text-sm">
+                            {project.data.categories[0]}
+                        </p>
+
+                        <a href={`/projects/${project.id}`}
+                            class="inline-flex items-center gap-1 text-sm text-gray-500 transition-colors hover:text-[#00a69c]">
+                            <span>Mais detalhes</span>
+                            <span class="text-xs">→</span>
+                        </a>
+
+                    </div>
+
+                </article>
+                ))}
+
+            </div>
+
+        </div>
+    </section>
+</Layout>
