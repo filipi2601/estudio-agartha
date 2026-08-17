@@ -3,6 +3,13 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Layout from '../layouts/Layout.astro';
 import {ArrowDown} from "@lucide/astro";
+import Galeria1 from "../assets/img/galeria-1.png";
+import Galeria2 from "../assets/img/galeria-2.png";
+import MarcaLuan from "../assets/img/marcas/luan-cavalcanti.png";
+import MarcaStAnthony from "../assets/img/marcas/st-anthony.png";
+import MarcaSheldon from "../assets/img/marcas/sheldon.png";
+import MarcaTernario from "../assets/img/marcas/ternario.png";
+
 const journey = [
 	{
 		title: 'Estratégia de marca',
@@ -27,8 +34,8 @@ const journey = [
 ];
 
 const gallery = [
-	{ src: '/img/galeria-1.png', alt: 'Projeto Sheldon - Identidade Visual e Branding para Calçados em Couro', href: '/projects/sheldon', title: 'Ver projeto Sheldon' },
-	{ src: '/img/galeria-2.png', alt: 'Projeto Amana - Design e Estratégia de Marca', href: '/projects/amana', title: 'Ver projeto Amana' }
+	{ src: Galeria1, alt: 'Projeto Sheldon - Identidade Visual e Branding para Calçados em Couro', href: '/projects/sheldon', title: 'Ver projeto Sheldon' },
+	{ src: Galeria2, alt: 'Projeto Amana - Design e Estratégia de Marca', href: '/projects/amana', title: 'Ver projeto Amana' }
 ];
 
 const projects = (await getCollection('projects')).slice(0, 3);
@@ -136,22 +143,22 @@ const projects = (await getCollection('projects')).slice(0, 3);
             class="mx-auto grid max-w-5xl grid-cols-2 items-center justify-items-center gap-x-6 gap-y-8 md:grid-cols-4">
 
             <div class="flex h-24 w-full items-center justify-center">
-                <img src="/img/marcas/luan-cavalcanti.png" alt="Luan Cavalcanti"
+                <Image src={MarcaLuan} alt="Luan Cavalcanti"
                     class="max-h-20 max-w-full object-contain transition-transform duration-300 hover:scale-105" />
             </div>
 
             <div class="flex h-24 w-full items-center justify-center">
-                <img src="/img/marcas/st-anthony.png" alt="St. Anthony Books & Gifts"
+                <Image src={MarcaStAnthony} alt="St. Anthony Books & Gifts"
                     class="max-h-20 max-w-full object-contain transition-transform duration-300 hover:scale-105" />
             </div>
 
             <div class="flex h-24 w-full items-center justify-center">
-                <img src="/img/marcas/sheldon.png" alt="Sheldon - Calçados em Couro"
+                <Image src={MarcaSheldon} alt="Sheldon - Calçados em Couro"
                     class="max-h-20 max-w-full object-contain transition-transform duration-300 hover:scale-105" />
             </div>
 
             <div class="flex h-24 w-full items-center justify-center">
-                <img src="/img/marcas/ternario.png" alt="O Ternário da Vida Espiritual"
+                <Image src={MarcaTernario} alt="O Ternário da Vida Espiritual"
                     class="max-h-20 max-w-full object-contain transition-transform duration-300 hover:scale-105" />
             </div>
 
@@ -241,12 +248,10 @@ const projects = (await getCollection('projects')).slice(0, 3);
 
         <div class="mt-8 grid gap-6 lg:grid-cols-2">
             {gallery.map((item) => (
-            <a href={item.href}
-                title={item.title}
-                aria-label={item.title}
+            <a href={item.href} title={item.title} aria-label={item.title}
                 class="group overflow-hidden rounded-4xl border border-slate-100 bg-white transition hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]">
                 <div class="aspect-16/10 overflow-hidden bg-slate-100">
-                    <img src={item.src} alt={item.alt}
+                    <Image src={item.src} alt={item.alt}
                         class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                 </div>
             </a>
