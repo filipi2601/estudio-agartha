@@ -3,21 +3,46 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import DrawerForm from '../components/DrawerForm.astro';
-const { title = 'Estúdio Agartha', description = 'Design criativo que transforma marcas. Especialistas em identidade visual, branding, websites, embalagens e conteúdos para redes sociais.' } = Astro.props;
+import SEO from '../components/SEO.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  url?: string;
+  type?: 'article' | 'organization' | 'webpage' | 'product';
+  author?: string;
+  publishedDate?: string;
+  modifiedDate?: string;
+  noindex?: boolean;
+}
+
+const { 
+  title = 'Estúdio Agartha',
+  description = 'Design criativo que transforma marcas. Especialistas em identidade visual, branding, websites, embalagens e conteúdos para redes sociais.',
+  url = Astro.url.href,
+  type = 'webpage',
+  author = 'Estúdio Agartha',
+  publishedDate,
+  modifiedDate,
+  noindex = false,
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="pt-BR" class="scroll-smooth">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <SEO 
+      title={title}
+      description={description}
+      url={url}
+      type={type}
+      author={author}
+      publishedDate={publishedDate}
+      modifiedDate={modifiedDate}
+      noindex={noindex}
+    />
     <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
 </head>
 
 <body class="min-h-screen bg-[#e5e5e5] text-slate-900 antialiased">

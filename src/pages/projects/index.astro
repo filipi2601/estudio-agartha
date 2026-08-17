@@ -6,13 +6,34 @@ import { getCollection } from "astro:content";
 const projects = await getCollection("projects");
 ---
 
-<Layout title="Projetos" description="Nossos projetos">
+<Layout 
+  title="Projetos | Estúdio Agartha" 
+  description="Conheça os projetos transformadores realizados pelo Estúdio Agartha. Cases de branding, identidade visual, websites e design que geram resultados."
+  type="webpage"
+>
+    <section class="mx-auto max-w-6xl px-6 py-8">
+        <!-- Breadcrumbs -->
+        <nav class="mb-8 text-sm" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2">
+            <li>
+              <a href="/" class="text-[#00a69c] hover:text-[#009186] transition-colors">
+                Home
+              </a>
+            </li>
+            <li class="text-gray-400">/</li>
+            <li class="text-gray-600" aria-current="page">
+              Projetos
+            </li>
+          </ol>
+        </nav>
+    </section>
+
     <section id="projetos" class="my-5 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
         <div class="mx-auto max-w-7xl text-left">
 
-            <h2 class="mb-8 text-xl font-semibold text-[#00a69c] sm:text-2xl">
-                PROJETOS RECENTES
-            </h2>
+            <h1 class="mb-8 text-2xl font-semibold text-[#00a69c] sm:text-3xl">
+                Projetos de Design e Branding
+            </h1>
 
             <div class="grid gap-6 md:grid-cols-3">
 
@@ -20,14 +41,14 @@ const projects = await getCollection("projects");
                 <article
                     class="overflow-hidden rounded-[2rem] bg-[#e1e4ed] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
 
-                    <Image src={project.data.cover} alt={project.data.title} loading="lazy"
+                    <Image src={project.data.cover} alt={`Projeto ${project.data.title} - ${project.data.categories[0]}`} loading="lazy"
                         class="h-[375px] w-full object-cover" />
 
                     <div class="px-5 py-5 text-center">
 
-                        <h3 class="mb-1 text-base font-semibold text-[#00a69c]">
+                        <h2 class="mb-1 text-base font-semibold text-[#00a69c]">
                             {project.data.title}
-                        </h3>
+                        </h2>
 
                         <p class="mb-2 text-sm">
                             {project.data.categories[0]}
@@ -35,7 +56,7 @@ const projects = await getCollection("projects");
 
                         <a href={`/projects/${project.id}`}
                             class="inline-flex items-center gap-1 text-sm text-gray-500 transition-colors hover:text-[#00a69c]">
-                            <span>Mais detalhes</span>
+                            <span>Ver detalhes do projeto</span>
                             <span class="text-xs">→</span>
                         </a>
 

@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+
+# Sitemap apontando para o índice gerado pelo Astro
+Sitemap: https://studioagartha.com/sitemap-index.xml
+
+# Permitir bots de IA e indexadores principais
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /

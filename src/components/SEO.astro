@@ -1,0 +1,109 @@
+---
+/**
+ * SEO Component
+ * Gerencia todas as meta tags e dados estruturados para uma página
+ * 
+ * Uso:
+ * <SEO 
+ *   title="Página"
+ *   description="Descrição"
+ *   image="/img/projetos/sheldon/1.png"
+ *   url="https://example.com/page"
+ *   type="article|organization|webpage"
+ *   author="Nome do autor"
+ *   publishedDate="2024-01-01"
+ * />
+ */
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  url?: string;
+  type?: 'article' | 'organization' | 'webpage' | 'product';
+  author?: string;
+  publishedDate?: string;
+  modifiedDate?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  image = 'https://studioagartha.com/favicon.ico',
+  url = Astro.url.href,
+  type = 'webpage',
+  author = 'Estúdio Agartha',
+  publishedDate,
+  modifiedDate,
+  noindex = false,
+} = Astro.props;
+
+// Montando dados estruturados JSON-LD
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  'name': 'Estúdio Agartha',
+  'description': 'Design criativo que transforma marcas. Especialistas em identidade visual, branding, websites, embalagens e conteúdos para redes sociais.',
+  'url': 'https://studioagartha.com',
+  'logo': 'https://studioagartha.com/favicon.svg',
+  'sameAs': [
+    'https://www.instagram.com/agarthaestudio/',
+    'https://www.linkedin.com/in/paulo-ricardo-930a72219'
+  ],
+  'contactPoint': {
+    '@type': 'ContactPoint',
+    'contactType': 'Customer Service',
+    'availableLanguage': ['pt-BR']
+  }
+};
+---
+
+<!-- Meta Tags Essenciais -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<meta name="description" content={description} />
+<meta name="author" content={author} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={url} />
+
+<!-- Robots -->
+<meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+
+<!-- Open Graph (Facebook, LinkedIn, etc) -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image.startsWith('http') ? image : `https://studioagartha.com${image}`} />
+<meta property="og:url" content={url} />
+<meta property="og:type" content={type === 'article' ? 'article' : 'website'} />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:site_name" content="Estúdio Agartha" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image.startsWith('http') ? image : `https://studioagartha.com${image}`} />
+
+<!-- WhatsApp e mensageiros -->
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Metadata adicional para artigos -->
+{publishedDate && <meta property="article:published_time" content={publishedDate} />}
+{modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
+{author && <meta property="article:author" content={author} />}
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+
+<!-- Structured Data JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+<!-- Preconnect para performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="dns-prefetch" href="https://fonts.googleapis.com" />

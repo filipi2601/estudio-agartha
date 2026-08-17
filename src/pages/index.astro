@@ -1,68 +1,37 @@
 ---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import Layout from '../layouts/Layout.astro';
 import {ArrowDown} from "@lucide/astro";
 const journey = [
 	{
 		title: 'Estratégia de marca',
 		text:
-			'Vamos conversar, entender suas ideias e traçar o melhor caminho para sua marca. Com reuniões e formulários, estruturamos uma estratégia sólida para o presente e o futuro do seu projeto.'
+			'Iniciamos com uma conversa profunda para entender suas ideias, desafios e objetivos. Através de reuniões estratégicas e análise detalhada, estruturamos um plano sólido que guia presente e futuro do seu projeto, garantindo consistência e impacto no mercado.'
 	},
 	{
 		title: 'Prototipação',
 		text:
-			'Aqui, transformamos estratégia em identidade. Nossa equipe une criatividade e propósito para dar vida à sua marca, criando um design que realmente faça sentido para você.'
+			'Transformamos a estratégia em identidade visual tangível. Nossa equipe criativa alia conceito artístico com propósito comercial, criando designs originais que comunicam sua marca de forma clara, diferenciada e memorável.'
 	},
 	{
 		title: 'Apresentação',
 		text:
-			'Chegou a hora de ver sua marca ganhar forma. Apresentamos o projeto de maneira clara, seja presencialmente ou online, garantindo que tudo esteja alinhado com sua visão.'
+			'Apresentamos o projeto final com clareza e profissionalismo, seja presencialmente ou online. Explicamos as decisões de design, garantindo que cada elemento reflita sua visão e estejam alinhados com seus objetivos comerciais.'
 	},
 	{
 		title: 'Entrega',
 		text:
-			'Com tudo aprovado, organizamos os arquivos em um diretório seguro, para que você sempre tenha acesso fácil e protegido à identidade da sua marca.'
-	}
-];
-
-const brands = [
-	{ src: '/img/marcas/luan-cavalcanti.png', alt: 'Luan Cavalcanti' },
-	{ src: '/img/marcas/st-anthony.png', alt: 'St. Anthony Books & Gifts' },
-	{ src: '/img/marcas/sheldon.png', alt: 'Sheldon - Calçados em Couro' },
-	{ src: '/img/marcas/ternario.png', alt: 'O Ternário da Vida Espiritual' }
-];
-
-const services = [
-	{
-		title: 'Identidade Visual',
-		text:
-			'Conjunto de elementos gráficos que representa uma marca, incluindo logotipo, cores e tipografia, criando uma imagem coesa que transmite os valores e a personalidade da empresa.'
-	},
-	{
-		title: 'Desenvolvimento e criação de website',
-		text:
-			'Criamos websites personalizados, unindo design moderno, navegação intuitiva e otimização para uma experiência eficiente e profissional.'
-	},
-	{
-		title: 'Embalagem & Rótulo',
-		text:
-			'Desenvolvemos embalagens que oferecem uma experiência agradável e inesquecível aos clientes, comunicando a mensagem da marca de maneira clara e eficaz.'
-	},
-	{
-		title: 'Editorial',
-		text:
-			'Design de publicações impressas e digitais que combina tipografia, imagens e layout, garantindo que o conteúdo seja legível, atraente e visualmente harmonioso para o leitor.'
-	},
-	{
-		title: 'Criativos para Social Media',
-		text:
-			'Criação de conteúdos visuais para plataformas digitais, como postagens e vídeos, visando aumentar o engajamento e promover a marca de forma eficaz e adaptada a cada rede.'
+			'Com o projeto aprovado, organizamos todos os arquivos em um diretório seguro e bem estruturado. Você recebe documentação completa e suporte, garantindo que tenha acesso fácil e protegido à identidade da sua marca para sempre.'
 	}
 ];
 
 const gallery = [
-	{ src: '/img/galeria-1.png', alt: 'Galeria do projeto 1', href: '/project.html?id=5' },
-	{ src: '/img/galeria-2.png', alt: 'Galeria do projeto 2', href: '/project.html?id=1' }
+	{ src: '/img/galeria-1.png', alt: 'Projeto Sheldon - Identidade Visual e Branding para Calçados em Couro', href: '/projects/sheldon', title: 'Ver projeto Sheldon' },
+	{ src: '/img/galeria-2.png', alt: 'Projeto Amana - Design e Estratégia de Marca', href: '/projects/amana', title: 'Ver projeto Amana' }
 ];
+
+const projects = (await getCollection('projects')).slice(0, 3);
 ---
 
 <Layout title="Estúdio Agartha"
@@ -90,104 +59,42 @@ const gallery = [
 
     <section id="projetos" class="my-5 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
         <div class="mx-auto max-w-7xl text-left">
-
-            <!-- Título -->
-            <h2 class="mb-8 text-xl font-semibold text-[#00a69c] sm:text-2xl">
+            <h2 class="mb-8 text-xl sm:text-3xl text-[#00a69c]">
                 PROJETOS RECENTES
             </h2>
 
-
-            <!-- Projetos -->
             <div class="grid gap-6 md:grid-cols-3">
-
-                <!-- Projeto 1 -->
+                {projects.map((project) => (
                 <article
-                    class="overflow-hidden rounded-[2rem] bg-[#e1e4ed] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                    <img src="/img/projetos/ecos/cover 1.png" alt="Ecos do Japão"
-                        class="h-[375px] w-full object-cover" />
+                    class="overflow-hidden rounded-4xl bg-[#e1e4ed] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <Image src={project.data.cover} alt={`Projeto ${project.data.title}`} loading="lazy"
+                        class="h-93.75 w-full object-cover" />
 
                     <div class="px-5 py-5 text-center">
-
                         <h3 class="mb-1 text-base font-semibold text-[#00a69c]">
-                            Ecos do Japão
+                            {project.data.title}
                         </h3>
 
                         <p class="mb-2 text-sm">
-                            Design Editorial
+                            {project.data.categories[0]}
                         </p>
 
-                        <a href="project.html?id=8"
+                        <a href={`/projects/${project.id}`}
                             class="inline-flex items-center gap-1 text-sm text-gray-500 transition-colors hover:text-[#00a69c]">
-                            <span>Mais detalhes</span>
-                            <i class="fas fa-chevron-right text-xs"></i>
+                            <span>Conhecer projeto</span>
+                            <span class="text-xs">→</span>
                         </a>
-
                     </div>
                 </article>
-
-
-                <!-- Projeto 2 -->
-                <article
-                    class="overflow-hidden rounded-[2rem] bg-[#e1e4ed] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                    <img src="/img/projetos/sheldon/cover.png" alt="Sheldon Calçados"
-                        class="h-[375px] w-full object-cover" />
-
-                    <div class="px-5 py-5 text-center">
-
-                        <h3 class="mb-1 text-base font-semibold text-[#00a69c]">
-                            Sheldon Calçados
-                        </h3>
-
-                        <p class="mb-2 text-sm">
-                            Identidade Visual
-                        </p>
-
-                        <a href="project.html?id=5"
-                            class="inline-flex items-center gap-1 text-sm text-gray-500 transition-colors hover:text-[#00a69c]">
-                            <span>Mais detalhes</span>
-                            <i class="fas fa-chevron-right text-xs"></i>
-                        </a>
-
-                    </div>
-                </article>
-
-
-                <!-- Projeto 3 -->
-                <article
-                    class="overflow-hidden rounded-[2rem] bg-[#e1e4ed] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-                    <img src="/img/projetos/romance/cover.png" alt="O Romance da Alma"
-                        class="h-[375px] w-full object-cover" />
-
-                    <div class="px-5 py-5 text-center">
-
-                        <h3 class="mb-1 text-base font-semibold text-[#00a69c]">
-                            O Romance da Alma
-                        </h3>
-
-                        <p class="mb-2 text-sm">
-                            Design Editorial
-                        </p>
-
-                        <a href="project.html?id=3"
-                            class="inline-flex items-center gap-1 text-sm text-gray-500 transition-colors hover:text-[#00a69c]">
-                            <span>Mais detalhes</span>
-                            <i class="fas fa-chevron-right text-xs"></i>
-                        </a>
-
-                    </div>
-                </article>
-
+                ))}
             </div>
 
-
-            <!-- Ver mais -->
             <div class="mt-8 text-center">
-                <a href="projects.html"
+                <a href="/projects"
                     class="inline-flex rounded-xl bg-[#00a69c] px-6 py-2.5 font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#009186] hover:shadow-md">
-                    Ver mais
+                    Ver todos os projetos
                 </a>
             </div>
-
         </div>
     </section>
 
@@ -219,7 +126,7 @@ const gallery = [
     </section>
 
     <section id="marcas" class="my-10 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
-        <h2 class="text-center mx-auto mb-10 max-w-3xl text-xl leading-tight text-[#00a69c] sm:text-2xl">
+        <h2 class="text-center mx-auto mb-10 max-w-3xl text-xl leading-tight text-[#00a69c] sm:text-3xl">
             Marcas que já transformaram suas ideias em
             <br class="hidden sm:block" />
             projetos incríveis com o Estúdio Agartha!
@@ -257,14 +164,14 @@ const gallery = [
                 <ArrowDown class="w-20 h-20 text-[#00a69c]" style="transform: rotate(-45deg)" />
                 <h2 class="text-[#00a69c] md:mb-0 text-center md:text-start text-3xl tracking-tight sm:text-4xl">
                     <br />
-                    Sua jornada <br />
-                    será assim
+                    Quais serviços <br />
+                    ofereçemos?
                 </h2>
             </div>
 
             <div class="space-y-8">
                 <div>
-                    <h3 class="mb-2 text-lg font-semibold text-[#00a69c]">
+                    <h3 class="mb-2 text-lg text-[#00a69c]">
                         Identidade Visual
                     </h3>
 
@@ -275,7 +182,7 @@ const gallery = [
                     </p>
                 </div>
                 <div>
-                    <h3 class="mb-2 text-lg font-semibold text-[#00a69c]">
+                    <h3 class="mb-2 text-lg text-[#00a69c]">
                         Desenvolvimento e criação de website
                     </h3>
 
@@ -286,7 +193,7 @@ const gallery = [
                     </p>
                 </div>
                 <div>
-                    <h3 class="mb-2 text-lg font-semibold text-[#00a69c]">
+                    <h3 class="mb-2 text-lg text-[#00a69c]">
                         Embalagem &amp; Rótulo
                     </h3>
 
@@ -297,7 +204,7 @@ const gallery = [
                     </p>
                 </div>
                 <div>
-                    <h3 class="mb-2 text-lg font-semibold text-[#00a69c]">
+                    <h3 class="mb-2 text-lg text-[#00a69c]">
                         Editorial
                     </h3>
 
@@ -308,7 +215,7 @@ const gallery = [
                     </p>
                 </div>
                 <div>
-                    <h3 class="mb-2 text-lg font-semibold text-[#00a69c]">
+                    <h3 class="mb-2 text-lg text-[#00a69c]">
                         Criativos para Social Media
                     </h3>
 
@@ -327,14 +234,16 @@ const gallery = [
     <section id="galeria"
         class="mt-8 rounded-4xl border border-white/70 bg-white/75 px-6 py-10 shadow-[0_20px_80px_rgba(15,23,42,0.08)] sm:px-8 lg:px-10">
         <div class="text-center">
-            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-teal-700">Galeria</p>
-            <h2 class="mt-2 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">Criamos obras visuais e
+            <p class="text-sm uppercase tracking-[0.22em] text-teal-700">Galeria</p>
+            <h2 class="mt-2 text-3xl tracking-tight text-slate-950 sm:text-4xl">Criamos obras visuais e
                 estratégicas para negócios memoráveis.</h2>
         </div>
 
         <div class="mt-8 grid gap-6 lg:grid-cols-2">
             {gallery.map((item) => (
             <a href={item.href}
+                title={item.title}
+                aria-label={item.title}
                 class="group overflow-hidden rounded-4xl border border-slate-100 bg-white transition hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]">
                 <div class="aspect-16/10 overflow-hidden bg-slate-100">
                     <img src={item.src} alt={item.alt}

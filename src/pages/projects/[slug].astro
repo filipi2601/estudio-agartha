@@ -17,11 +17,42 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
-const { title, description, categories, images } = project.data;
+const { title, description, categories, images, cover } = project.data;
+
+// Usar a imagem cover para OG image
+const projectUrl = `https://studioagartha.com/projects/${project.id}`;
 ---
 
-<Layout title={title} description={description}>
+<Layout 
+  title={`${title} | Estúdio Agartha`}
+  description={description}
+  image={cover.src}
+  url={projectUrl}
+  type="article"
+  author="Estúdio Agartha"
+>
     <main class="mx-auto max-w-6xl px-6 py-16">
+
+        <!-- Breadcrumbs -->
+        <nav class="mb-8 text-sm" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2">
+            <li>
+              <a href="/" class="text-[#00a69c] hover:text-[#009186] transition-colors">
+                Home
+              </a>
+            </li>
+            <li class="text-gray-400">/</li>
+            <li>
+              <a href="/projects" class="text-[#00a69c] hover:text-[#009186] transition-colors">
+                Projetos
+              </a>
+            </li>
+            <li class="text-gray-400">/</li>
+            <li class="text-gray-600" aria-current="page">
+              {title}
+            </li>
+          </ol>
+        </nav>
 
         <!-- Cabeçalho -->
         <header class="mx-auto max-w-3xl text-center">
@@ -48,13 +79,20 @@ const { title, description, categories, images } = project.data;
 
 
         <!-- Imagens -->
-        <section class="mt-16">
+        <section class="mt-16" aria-label="Galeria do projeto">
             <div class="flex flex-col gap-8">
 
                 {images.length > 0 && (
                 <div class="flex flex-col gap-8">
-                    {images.map((image) => (
-                    <Image src={image} alt={title} loading="lazy" class="w-full rounded-lg object-cover" />
+                    {images.map((image, index) => (
+                    <Image 
+                      src={image} 
+                      alt={`${title} - Imagem ${index + 1}`}
+                      loading={index === 0 ? "eager" : "lazy"} 
+                      class="w-full rounded-lg object-cover"
+                      width={1200}
+                      height={800}
+                    />
                     ))}
                 </div>
                 )}
@@ -72,4 +110,30 @@ const { title, description, categories, images } = project.data;
         </div>
 
     </main>
+
+    <!-- Schema.org Structured Data for BreadcrumbList -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://studioagartha.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projetos",
+          "item": "https://studioagartha.com/projects"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": title,
+          "item": projectUrl
+        }
+      ]
+    })}></script>
 </Layout>
