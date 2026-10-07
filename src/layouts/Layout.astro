@@ -1,0 +1,64 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import DrawerForm from '../components/DrawerForm.astro';
+import SEO from '../components/SEO.astro';
+import { ui, type Locale } from '../i18n/ui';
+
+interface Props {
+  title?: string;
+  description?: string;
+  url?: string;
+  type?: 'article' | 'organization' | 'webpage' | 'product';
+  author?: string;
+  publishedDate?: string;
+  modifiedDate?: string;
+  noindex?: boolean;
+  locale?: Locale;
+}
+
+const { 
+  title = 'Estúdio Agartha',
+  locale = 'pt',
+  description = ui[locale].seoDescription,
+  url = Astro.url.href,
+  type = 'webpage',
+  author = 'Estúdio Agartha',
+  publishedDate,
+  modifiedDate,
+  noindex = false,
+} = Astro.props;
+const copy = ui[locale];
+---
+
+<!doctype html>
+<html lang={copy.htmlLang} class="scroll-smooth">
+
+<head>
+    <SEO 
+      title={title}
+      description={description}
+      url={url}
+      type={type}
+      author={author}
+      publishedDate={publishedDate}
+      modifiedDate={modifiedDate}
+      noindex={noindex}
+      locale={locale}
+    />
+    <title>{title}</title>
+</head>
+
+<body class="min-h-screen bg-[#e5e5e5] text-slate-900 antialiased">
+    <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Header locale={locale} pathname={Astro.url.pathname} />
+        <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+            <slot />
+        </main>
+        <Footer locale={locale} />
+    </div>
+    <DrawerForm locale={locale} />
+</body>
+
+</html>

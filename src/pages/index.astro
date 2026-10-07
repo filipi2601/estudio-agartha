@@ -1,0 +1,189 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import Layout from '../layouts/Layout.astro';
+import {ArrowDown} from "@lucide/astro";
+import Galeria1 from "../assets/img/galeria-1.png";
+import Galeria2 from "../assets/img/galeria-2.png";
+import MarcaLuan from "../assets/img/marcas/luan-cavalcanti.png";
+import MarcaStAnthony from "../assets/img/marcas/st-anthony.png";
+import MarcaSheldon from "../assets/img/marcas/sheldon.png";
+import MarcaTernario from "../assets/img/marcas/ternario.png";
+import { localePath, localizeProject, ui, type Locale } from '../i18n/ui';
+
+interface Props { locale?: Locale }
+const { locale = 'pt' } = Astro.props;
+const copy = ui[locale];
+const journey = copy.journey.map(([title, text]) => ({ title, text }));
+
+const gallery = [
+	{ src: Galeria1, alt: 'Sheldon', href: localePath(locale, 'projects/sheldon'), title: 'Sheldon' },
+	{ src: Galeria2, alt: 'Amana', href: localePath(locale, 'projects/amana'), title: 'Amana' }
+];
+
+const projects = (await getCollection('projects')).slice(0, 3);
+const projectCategory = (project: (typeof projects)[number]) =>
+    localizeProject(locale, project.id, project.data.description, project.data.categories).categories[0];
+---
+
+<Layout title="Estúdio Agartha" description={copy.seoDescription} locale={locale}>
+    <section class="flex h-[calc(100vh-110px)] flex-col items-center justify-center px-4 py-16 text-center">
+        <h1 class="text-[2.2rem] font-normal leading-[1.2] text-[#00a69c] sm:text-[3.5rem] md:text-[5rem]">
+            {copy.heroTitle} <br />
+            {copy.heroTitle2}
+        </h1>
+
+        <p class="mt-4 text-base text-[#686d85] sm:text-[1.1rem]">
+            {copy.heroText}
+        </p>
+
+        <button type="button"
+            class="js-open-contact mt-8 rounded-lg bg-[#00a69c] px-8 py-3 text-white transition-colors duration-200 hover:bg-[#009186]">
+            {copy.talk}
+        </button>
+
+        <div class="mt-16 text-3xl text-[#686d85]" aria-hidden="true">
+            <ArrowDown class="animate-bounce w-10 h-10" />
+        </div>
+    </section>
+
+    <section id="projetos" class="my-5 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
+        <div class="mx-auto max-w-7xl text-left">
+            <h2 class="mb-8 text-xl sm:text-3xl text-[#00a69c]">
+                {copy.recentProjects}
+            </h2>
+
+            <div class="grid gap-6 md:grid-cols-3">
+                {projects.map((project) => (
+                <article
+                    class="overflow-hidden rounded-4xl bg-[#e1e4ed] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <Image src={project.data.cover} alt={`Projeto ${project.data.title}`} loading="lazy"
+                        class="h-93.75 w-full object-cover" />
+
+                    <div class="px-5 py-5 text-center">
+                        <h3 class="mb-1 text-base font-semibold text-[#00a69c]">
+                            {project.data.title}
+                        </h3>
+
+                        <p class="mb-2 text-sm">
+                            {projectCategory(project)}
+                        </p>
+
+                        <a href={localePath(locale, `projects/${project.id}`)}
+                            class="inline-flex items-center gap-1 text-sm text-gray-500 transition-colors hover:text-[#00a69c]">
+                            <span>{copy.knowProject}</span>
+                            <span class="text-xs">→</span>
+                        </a>
+                    </div>
+                </article>
+                ))}
+            </div>
+
+            <div class="mt-8 text-center">
+                <a href={localePath(locale, 'projects')}
+                    class="inline-flex rounded-xl bg-[#00a69c] px-6 py-2.5 font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#009186] hover:shadow-md">
+                    {copy.allProjects}
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="jornada" class="my-10 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
+        <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+                <ArrowDown class="w-20 h-20 text-[#00a69c] " style="transform: rotate(-45deg)" />
+                <h2 class="text-[#00a69c] md:mb-0 text-center md:text-start text-3xl tracking-tight sm:text-4xl">
+                    <br />
+                    {copy.journeyTitle}
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                {journey.map((step) => (
+                <details
+                    class="group rounded-3xl border border-slate-100 bg-white px-5 py-4 open:shadow-[0_16px_40px_rgba(15,23,42,0.08)]">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg">
+                        <span>{step.title}</span>
+                        <span
+                            class="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 transition group-open:rotate-45 group-open:border-teal-200 group-open:bg-teal-50 group-open:text-teal-700">+</span>
+                    </summary>
+                    <p class="mt-4 max-w-3xl text-sm leading-7">{step.text}</p>
+                </details>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section id="marcas" class="my-10 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
+        <h2 class="text-center mx-auto mb-10 max-w-3xl text-xl leading-tight text-[#00a69c] sm:text-3xl">
+            {copy.brandsTitle}
+        </h2>
+
+        <div
+            class="mx-auto grid max-w-5xl grid-cols-2 items-center justify-items-center gap-x-6 gap-y-8 md:grid-cols-4">
+
+            <div class="flex h-24 w-full items-center justify-center">
+                <Image src={MarcaLuan} alt="Luan Cavalcanti"
+                    class="max-h-20 max-w-full object-contain transition-transform duration-300 hover:scale-105" />
+            </div>
+
+            <div class="flex h-24 w-full items-center justify-center">
+                <Image src={MarcaStAnthony} alt="St. Anthony Books & Gifts"
+                    class="max-h-20 max-w-full object-contain transition-transform duration-300 hover:scale-105" />
+            </div>
+
+            <div class="flex h-24 w-full items-center justify-center">
+                <Image src={MarcaSheldon} alt="Sheldon - Calçados em Couro"
+                    class="max-h-20 max-w-full object-contain transition-transform duration-300 hover:scale-105" />
+            </div>
+
+            <div class="flex h-24 w-full items-center justify-center">
+                <Image src={MarcaTernario} alt="O Ternário da Vida Espiritual"
+                    class="max-h-20 max-w-full object-contain transition-transform duration-300 hover:scale-105" />
+            </div>
+
+        </div>
+    </section>
+
+    <section id="servicos" class="my-10 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
+        <div class="grid items-start lg:items-center gap-10 md:grid-cols-2 md:gap-16 lg:gap-24">
+            <div>
+                <ArrowDown class="w-20 h-20 text-[#00a69c]" style="transform: rotate(-45deg)" />
+                <h2 class="text-[#00a69c] md:mb-0 text-center md:text-start text-3xl tracking-tight sm:text-4xl">
+                    <br />
+                    {copy.servicesTitle}
+                </h2>
+            </div>
+
+            <div class="space-y-8">
+                {copy.serviceItems.map(([title, text]) => (
+                    <div>
+                        <h3 class="mb-2 text-lg text-[#00a69c]">{title}</h3>
+                        <p class="text-sm leading-relaxed text-[#686d85] sm:text-base">{text}</p>
+                    </div>
+                ))}
+            </div>
+
+        </div>
+    </section>
+
+    <section id="galeria"
+        class="mt-8 rounded-4xl border border-white/70 bg-white/75 px-6 py-10 shadow-[0_20px_80px_rgba(15,23,42,0.08)] sm:px-8 lg:px-10">
+        <div class="text-center">
+            <p class="text-sm uppercase tracking-[0.22em] text-teal-700">{copy.gallery}</p>
+            <h2 class="mt-2 text-3xl tracking-tight text-slate-950 sm:text-4xl">{copy.galleryTitle}</h2>
+        </div>
+
+        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+            {gallery.map((item) => (
+            <a href={item.href} title={item.title} aria-label={item.title}
+                class="group overflow-hidden rounded-4xl border border-slate-100 bg-white transition hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]">
+                <div class="aspect-16/10 overflow-hidden bg-slate-100">
+                    <Image src={item.src} alt={item.alt}
+                        class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                </div>
+            </a>
+            ))}
+        </div>
+    </section>
+</Layout>

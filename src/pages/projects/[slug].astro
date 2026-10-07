@@ -1,0 +1,141 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { Image } from "astro:assets";
+import { localePath, localizeProject, ui, type Locale } from '../../i18n/ui';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+
+  return projects.map((project) => ({
+    params: {
+      slug: project.id,
+    },
+    props: {
+      project,
+    },
+  }));
+}
+
+const { project, locale = 'pt' } = Astro.props as { project: any; locale?: Locale };
+const copy = ui[locale];
+const { title, images, cover } = project.data;
+const { description, categories } = localizeProject(locale, project.id, project.data.description, project.data.categories);
+
+// Usar a imagem cover para OG image
+const projectUrl = new URL(localePath(locale, `projects/${project.id}`), 'https://studioagartha.com').href;
+---
+
+<Layout 
+  title={`${title} | Estúdio Agartha`}
+  description={description}
+  image={cover.src}
+  url={projectUrl}
+  type="article"
+  author="Estúdio Agartha"
+  locale={locale}
+>
+    <main class="mx-auto max-w-6xl px-6 py-16">
+
+        <!-- Breadcrumbs -->
+        <nav class="mb-8 text-sm" aria-label={copy.breadcrumb}>
+          <ol class="flex items-center gap-2">
+            <li>
+              <a href={localePath(locale)} class="text-[#00a69c] hover:text-[#009186] transition-colors">
+                {copy.home}
+              </a>
+            </li>
+            <li class="text-gray-400">/</li>
+            <li>
+              <a href={localePath(locale, 'projects')} class="text-[#00a69c] hover:text-[#009186] transition-colors">
+                {copy.projects}
+              </a>
+            </li>
+            <li class="text-gray-400">/</li>
+            <li class="text-gray-600" aria-current="page">
+              {title}
+            </li>
+          </ol>
+        </nav>
+
+        <!-- Cabeçalho -->
+        <header class="mx-auto max-w-3xl text-center">
+
+            <h1 class="text-4xl font-semibold tracking-normal text-gray-900 md:text-5xl">
+                {title}
+            </h1>
+
+            <!-- Categorias -->
+            <div class="mt-6 flex flex-wrap justify-center gap-2">
+                {categories.map((category) => (
+                <span class="rounded-full bg-[#009186] border border-gray-300 px-4 py-2 text-sm text-white">
+                    {category}
+                </span>
+                ))}
+            </div>
+
+            <!-- Descrição -->
+            <p class="mx-auto mt-8 max-w-xl text-lg leading-8 text-gray-600">
+                {description}
+            </p>
+
+        </header>
+
+
+        <!-- Imagens -->
+        <section class="mt-16" aria-label={copy.projectGallery}>
+            <div class="flex flex-col gap-8">
+
+                {images.length > 0 && (
+                <div class="flex flex-col gap-8">
+                    {images.map((image, index) => (
+                    <Image 
+                      src={image} 
+                      alt={`${title} - ${copy.image} ${index + 1}`}
+                      loading={index === 0 ? "eager" : "lazy"} 
+                      class="h-auto w-full rounded-lg"
+                    />
+                    ))}
+                </div>
+                )}
+
+            </div>
+        </section>
+
+
+        <!-- Voltar -->
+        <div class="mt-12 text-center">
+            <a href={localePath(locale, 'projects')}
+                class="inline-block rounded-md bg-gray-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-gray-700">
+                {copy.moreProjects}
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Schema.org Structured Data for BreadcrumbList -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": copy.home,
+          "item": new URL(localePath(locale), 'https://studioagartha.com').href
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": copy.projects,
+          "item": new URL(localePath(locale, 'projects'), 'https://studioagartha.com').href
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": title,
+          "item": projectUrl
+        }
+      ]
+    })}></script>
+</Layout>
