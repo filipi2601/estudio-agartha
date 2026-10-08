@@ -1,0 +1,72 @@
+---
+import { localePath, type Locale } from '../i18n/ui';
+const { locale } = Astro.props as { locale: Locale };
+const copy = {
+  pt: { settings: 'Preferências de cookies', text: 'Podemos usar cookies do Google Analytics para entender as visitas e os contatos recebidos? Você pode recusar e continuar usando o site normalmente.', accept: 'Aceitar', reject: 'Recusar', privacy: 'Privacidade' },
+  en: { settings: 'Cookie preferences', text: 'May we use Google Analytics cookies to understand visits and enquiries? You can decline and continue using the website normally.', accept: 'Accept', reject: 'Decline', privacy: 'Privacy' },
+  es: { settings: 'Preferencias de cookies', text: '¿Podemos usar cookies de Google Analytics para entender las visitas y las consultas? Puedes rechazarlas y seguir usando el sitio con normalidad.', accept: 'Aceptar', reject: 'Rechazar', privacy: 'Privacidad' },
+}[locale];
+---
+<div class="pb-6 text-center">
+  <button id="analytics-settings" type="button" class="text-xs text-[#686d85] underline">{copy.settings}</button>
+</div>
+<aside id="analytics-consent" hidden aria-label={copy.settings} class="fixed inset-x-4 bottom-4 z-[100] mx-auto max-w-xl rounded-2xl border border-gray-200 bg-white p-5 shadow-lg">
+  <p class="text-sm leading-6 text-[#686d85]">{copy.text} <a href={localePath(locale, 'privacy')} class="text-[#008f87] underline">{copy.privacy}</a>.</p>
+  <div class="mt-4 flex gap-3">
+    <button id="analytics-accept" type="button" class="rounded-lg border border-[#008f87] px-5 py-2 text-sm text-[#008f87]">{copy.accept}</button>
+    <button id="analytics-reject" type="button" class="rounded-lg border border-[#008f87] px-5 py-2 text-sm text-[#008f87]">{copy.reject}</button>
+  </div>
+</aside>
+<script is:inline>
+(() => {
+  const id = 'G-BK38XHQQYC';
+  const key = 'agartha-analytics-consent';
+  const banner = document.getElementById('analytics-consent');
+  let consent = null;
+  let loaded = false;
+  try { consent = localStorage.getItem(key); } catch {}
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+  gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+
+  function enable() {
+    gtag('consent', 'update', { analytics_storage: 'granted' });
+    if (loaded) return;
+    loaded = true;
+    gtag('js', new Date());
+    gtag('config', id, {
+      page_location: location.origin + location.pathname,
+      page_referrer: document.referrer.split('?')[0].split('#')[0],
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false,
+      send_page_view: true
+    });
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+    document.head.appendChild(script);
+  }
+  function choose(value) {
+    consent = value;
+    try { localStorage.setItem(key, value); } catch {}
+    if (value === 'granted') enable();
+    else {
+      gtag('consent', 'update', { analytics_storage: 'denied' });
+      // Reload after revocation so the already-loaded tag stops running.
+      if (loaded) location.reload();
+    }
+    banner.hidden = true;
+  }
+  function track(name) {
+    if (consent !== 'granted') return;
+    gtag('event', name, { send_to: id, site_language: document.documentElement.lang, page_location: location.origin + location.pathname });
+  }
+  if (consent === 'granted') enable();
+  else banner.hidden = consent === 'denied';
+  document.getElementById('analytics-accept').addEventListener('click', () => choose('granted'));
+  document.getElementById('analytics-reject').addEventListener('click', () => choose('denied'));
+  document.getElementById('analytics-settings').addEventListener('click', () => { banner.hidden = false; document.getElementById('analytics-accept').focus(); });
+  document.addEventListener('contact-opened', () => track('contact_open'));
+  document.addEventListener('contact-submitted', () => track('generate_lead'));
+})();
+</script>

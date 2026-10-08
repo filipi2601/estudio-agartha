@@ -76,6 +76,7 @@ const messages = {
   }[document.documentElement.lang.startsWith('es') ? 'es' : document.documentElement.lang.startsWith('en') ? 'en' : 'pt'];
 
   function openContactDrawer() {
+    document.dispatchEvent(new CustomEvent('contact-opened'));
     previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     drawer?.classList.remove('translate-x-full');
     overlay?.classList.remove('opacity-0', 'pointer-events-none');
