@@ -51,9 +51,9 @@ const scripts = [...pages.map(([file]) => file), ...readdirSync('dist/_astro')
   .join('\n');
 
 const testimonialExcerpts = {
-  '': ['mídias sociais', 'Recomendo muitíssimo.'],
-  'en/': ['social media', 'highly recommend'],
-  'es/': ['redes sociales', 'recomiendo muchísimo'],
+  '': ['mídias sociais', 'Recomendo muitíssimo.', 'Moedas antigas'],
+  'en/': ['social media', 'highly recommend', 'Ancient coins'],
+  'es/': ['redes sociales', 'recomiendo muchísimo', 'Monedas antiguas'],
 };
 
 for (const localePrefix of ['', 'en/', 'es/']) {
