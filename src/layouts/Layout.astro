@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import DrawerForm from '../components/DrawerForm.astro';
 import SEO from '../components/SEO.astro';
 import Analytics from '../components/Analytics.astro';
+import { ArrowUp } from '@lucide/astro';
 import { ui, type Locale } from '../i18n/ui';
 
 interface Props {
@@ -33,6 +34,7 @@ const {
   noindex = false,
 } = Astro.props;
 const copy = ui[locale];
+const backToTopLabel = { pt: 'Voltar ao início', en: 'Back to top', es: 'Volver al inicio' }[locale];
 ---
 
 <!doctype html>
@@ -71,6 +73,10 @@ const copy = ui[locale];
     </div>
     <DrawerForm locale={locale} />
     <Analytics locale={locale} />
+    <button type="button" data-back-to-top inert aria-hidden="true" aria-label={backToTopLabel}
+        class="pointer-events-none fixed bottom-5 right-5 z-30 grid h-12 w-12 translate-y-3 place-items-center rounded-full border border-white/25 bg-brand-strong/90 text-white opacity-0 shadow-lg backdrop-blur-sm transition-[opacity,transform,background-color] duration-300 hover:bg-brand-strong focus-visible:outline-white sm:bottom-8 sm:right-8">
+        <ArrowUp class="h-5 w-5" aria-hidden="true" />
+    </button>
     <script>
         document.querySelectorAll<HTMLAnchorElement>('[data-language-choice]').forEach((link) => {
             link.addEventListener('click', () => {
@@ -78,6 +84,21 @@ const copy = ui[locale];
             });
         });
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const backToTop = document.querySelector<HTMLButtonElement>('[data-back-to-top]');
+        const updateBackToTop = () => {
+            if (!backToTop) return;
+            const remaining = document.documentElement.scrollHeight - window.scrollY - window.innerHeight;
+            const visible = window.scrollY > window.innerHeight && remaining < window.innerHeight * 1.25;
+            backToTop.classList.toggle('opacity-0', !visible);
+            backToTop.classList.toggle('translate-y-3', !visible);
+            backToTop.classList.toggle('pointer-events-none', !visible);
+            backToTop.toggleAttribute('inert', !visible);
+            backToTop.setAttribute('aria-hidden', String(!visible));
+        };
+        window.addEventListener('scroll', updateBackToTop, { passive: true });
+        window.addEventListener('resize', updateBackToTop);
+        backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
+        updateBackToTop();
         const revealTargets = document.querySelectorAll<HTMLElement>('[data-reveal], main > section, main > article');
 
         revealTargets.forEach((target) => target.dataset.reveal = '');

@@ -31,7 +31,7 @@ interface Props {
 const {
   title,
   description,
-  image = '/social-preview.png',
+  image = '/social-preview-v2.png',
   url = Astro.url.href,
   type = 'webpage',
   author = 'Estúdio Agartha',
@@ -44,7 +44,7 @@ const {
 import { locales, localizedPath, ui } from '../i18n/ui';
 const copy = ui[locale];
 const socialImage = new URL(image, Astro.site).href;
-const isDefaultImage = image === '/social-preview.png';
+const isDefaultImage = image === '/social-preview-v2.png';
 
 // Montando dados estruturados JSON-LD
 const structuredData = {

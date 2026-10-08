@@ -17,7 +17,7 @@ const pages = [
 ];
 
 assert.ok(!readFileSync('dist/sitemap-0.xml', 'utf8').includes('/design-system/'), 'internal design system should not appear in the sitemap');
-const socialPreview = readFileSync('dist/social-preview.png');
+const socialPreview = readFileSync('dist/social-preview-v2.png');
 assert.equal(socialPreview.readUInt32BE(16), 1200, 'social preview should be 1200px wide');
 assert.equal(socialPreview.readUInt32BE(20), 630, 'social preview should be 630px high');
 
@@ -59,16 +59,19 @@ const testimonialExcerpts = {
   'es/': ['redes sociales', 'recomiendo muchísimo', 'Monedas antiguas'],
 };
 
+const backToTopLabels = { '': 'Voltar ao início', 'en/': 'Back to top', 'es/': 'Volver al inicio' };
 for (const localePrefix of ['', 'en/', 'es/']) {
   const home = readFileSync(`dist/${localePrefix}index.html`, 'utf8');
-  assert.ok(home.includes('property="og:image" content="https://studioagartha.com/social-preview.png"'), `${localePrefix}home should use the studio social preview`);
+  assert.ok(home.includes('property="og:image" content="https://studioagartha.com/social-preview-v2.png"'), `${localePrefix}home should use the studio social preview`);
+  assert.ok(home.includes(`data-back-to-top inert aria-hidden="true" aria-label="${backToTopLabels[localePrefix]}"`), `${localePrefix}home should offer a localized back-to-top control`);
+  assert.ok(home.includes('whitespace-nowrap') && home.includes('>Estúdio Agartha</span>'), `${localePrefix}header should show the studio name on one line`);
   for (const marker of ['testimonials-track', 'Aline', 'Beatriz Becker', 'Demetrius Coin', '/img/testimonials/demetrius-coin.svg', 'instagram.com/arcikleinjoias/', 'linkedin.com/in/beatriz-becker-writer/', 'instagram.com/demetriusmoedas', ...testimonialExcerpts[localePrefix]]) {
     assert.ok(home.includes(marker), `${localePrefix}home should include testimonial marker ${marker}`);
   }
   assert.ok(!home.includes('example.com'), `${localePrefix}home should not publish sample testimonial links`);
   for (const slug of ['a-doutrina-sufi', 'arte-cavalheiresca-do-arqueiro-zen']) {
     const project = readFileSync(`dist/${localePrefix}projects/${slug}/index.html`, 'utf8');
-    assert.ok(!project.includes('property="og:image" content="https://studioagartha.com/social-preview.png"'), `${localePrefix}${slug} should retain its project preview`);
+    assert.ok(!project.includes('property="og:image" content="https://studioagartha.com/social-preview-v2.png"'), `${localePrefix}${slug} should retain its project preview`);
     assert.ok(home.includes(`/projects/${slug}`), `${localePrefix}home should show ${slug}`);
     assert.ok(project.includes('capa-contracapa') && project.includes('diagramacao'), `${localePrefix}${slug} should show only the requested gallery images`);
   }

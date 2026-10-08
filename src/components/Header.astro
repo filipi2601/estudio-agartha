@@ -12,8 +12,9 @@ const copy = ui[locale];
  <header>
      <nav class="w-full rounded-b-[18px] bg-white px-8 py-4">
          <div class="flex w-full items-center justify-between">
-             <a href={localePath(locale)} class="w-35">
-                 <Image src={Logo} alt="Logo Estúdio Agartha" class="h-10 w-auto" />
+             <a href={localePath(locale)} class="inline-flex shrink-0 items-center gap-2 whitespace-nowrap">
+                 <Image src={Logo} alt="" class="h-10 w-auto" />
+                 <span class="text-base font-semibold leading-none text-brand sm:text-lg">Estúdio Agartha</span>
              </a>
 
              <button id="openMenu" type="button"
