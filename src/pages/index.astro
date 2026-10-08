@@ -22,7 +22,7 @@ const gallery = [
 	{ src: Galeria2, alt: 'Amana', href: localePath(locale, 'projects/amana'), title: 'Amana' }
 ];
 
-const recentProjectIds = ['a-doutrina-sufi', 'arte-cavalheiresca-do-arqueiro-zen', 'a-alma-do-indio'];
+const recentProjectIds = ['a-doutrina-sufi', 'arte-cavalheiresca-do-arqueiro-zen', 'ecos-do-japao'];
 const allProjects = await getCollection('projects');
 const projects = recentProjectIds.flatMap((id) => allProjects.filter((project) => project.id === id));
 const projectCategory = (project: (typeof projects)[number]) =>
