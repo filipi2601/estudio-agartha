@@ -41,14 +41,14 @@ const content = {
 ---
 <Layout locale={locale} title={`${content.title} | Estúdio Agartha`} description={content.intro}>
   <article class="my-8 rounded-3xl bg-white px-6 py-10 sm:px-10 lg:px-16">
-    <h1 class="text-3xl text-[#00a69c] sm:text-4xl">{content.title}</h1>
-    <p class="mt-5 max-w-3xl leading-7 text-[#686d85]">{content.intro}</p>
+    <h1 class="text-3xl text-brand sm:text-4xl">{content.title}</h1>
+    <p class="mt-5 max-w-3xl leading-7 text-ink-muted">{content.intro}</p>
     {content.headings.map((heading, index) => (
       <section class="mt-9 max-w-3xl">
-        <h2 class="text-xl text-[#00a69c]">{heading}</h2>
-        <p class="mt-3 leading-7 text-[#686d85]">{content.paragraphs[index]}</p>
+        <h2 class="text-xl text-brand">{heading}</h2>
+        <p class="mt-3 leading-7 text-ink-muted">{content.paragraphs[index]}</p>
       </section>
     ))}
-    <a class="mt-8 inline-block text-[#008f87] underline" href="mailto:contatos@studioagartha.com">contatos@studioagartha.com</a>
+    <a class="mt-8 inline-block text-brand-strong underline" href="mailto:contatos@studioagartha.com">contatos@studioagartha.com</a>
   </article>
 </Layout>

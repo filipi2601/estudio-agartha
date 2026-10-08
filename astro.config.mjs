@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: "https://studioagartha.com",
-  integrations: [react(), icon(), sitemap()],
+  integrations: [react(), icon(), sitemap({ filter: (page) => new URL(page).pathname !== '/design-system/' })],
   i18n: {
     locales: ['pt', 'en', 'es'],
     defaultLocale: 'pt',

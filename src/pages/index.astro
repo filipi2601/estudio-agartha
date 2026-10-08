@@ -53,21 +53,21 @@ const serviceIcon = (title: string) => {
 
 <Layout title={pageTitles[locale]} description={copy.seoDescription} locale={locale}>
     <section class="flex min-h-[calc(100vh-110px)] flex-col items-center justify-center px-4 py-16 text-center">
-        <h1 data-reveal class="text-[2.2rem] font-normal leading-[1.2] text-[#00a69c] sm:text-[3.5rem] md:text-[5rem]">
+        <h1 data-reveal class="text-[2.2rem] font-normal leading-[1.2] text-brand sm:text-[3.5rem] md:text-[5rem]">
             {copy.heroTitle} <br />
             {copy.heroTitle2}
         </h1>
 
-        <p data-reveal style="--reveal-delay: 100ms" class="mt-4 max-w-3xl text-base text-[#686d85] sm:text-[1.1rem]">
+        <p data-reveal style="--reveal-delay: 100ms" class="mt-4 max-w-3xl text-base text-ink-muted sm:text-[1.1rem]">
             {copy.heroText}
         </p>
 
         <button type="button"
-            class="js-open-contact mt-8 rounded-lg bg-[#00a69c] px-8 py-3 text-white transition-colors duration-200 hover:bg-[#009186]">
+            class="js-open-contact mt-8 rounded-lg bg-brand-strong px-8 py-3 text-white transition-colors duration-200 hover:bg-brand-active">
             {copy.talk}
         </button>
 
-        <div class="mt-16 text-3xl text-[#686d85]" aria-hidden="true">
+        <div class="mt-16 text-3xl text-ink-muted" aria-hidden="true">
             <ArrowDown class="animate-bounce w-10 h-10" />
         </div>
     </section>
@@ -75,11 +75,11 @@ const serviceIcon = (title: string) => {
       <section data-reveal class="my-10 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
         <div class="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
           <div>
-            <p class="mb-2 text-sm uppercase tracking-[0.18em] text-[#00a69c]">{specialty.label}</p>
-            <h2 class="text-2xl text-[#00a69c] sm:text-3xl">{specialty.title}</h2>
-            <p class="mt-3 max-w-2xl leading-relaxed text-[#686d85]">{specialty.text}</p>
+            <p class="mb-2 text-sm uppercase tracking-[0.18em] text-brand">{specialty.label}</p>
+            <h2 class="text-2xl text-brand sm:text-3xl">{specialty.title}</h2>
+            <p class="mt-3 max-w-2xl leading-relaxed text-ink-muted">{specialty.text}</p>
           </div>
-          <a href={localePath(locale, 'diseno-editorial')} class="inline-flex items-center gap-2 rounded-xl bg-[#00a69c] px-6 py-3 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#009186] hover:shadow-md">
+          <a href={localePath(locale, 'diseno-editorial')} class="inline-flex items-center gap-2 rounded-xl bg-brand-strong px-6 py-3 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-brand-active hover:shadow-md">
             {specialty.cta}<ArrowRight class="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
@@ -87,18 +87,18 @@ const serviceIcon = (title: string) => {
 
     <section id="projetos" data-reveal class="my-5 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
         <div class="mx-auto max-w-7xl text-left">
-            <h2 class="mb-8 text-xl sm:text-3xl text-[#00a69c]">
+            <h2 class="mb-8 text-xl sm:text-3xl text-brand">
                 {copy.recentProjects}
             </h2>
 
             <div class="grid gap-6 md:grid-cols-3">
                 {projects.map((project) => (
                 <article
-                    class="overflow-hidden rounded-4xl bg-[#e1e4ed] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    class="overflow-hidden rounded-4xl bg-surface-muted shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
                     <ProjectThumbnail src={project.data.cover} alt={`Projeto ${project.data.title}`} />
 
                     <div class="px-5 py-5 text-center">
-                        <h3 class="mb-1 text-base font-semibold text-[#00a69c]">
+                        <h3 class="mb-1 text-base font-semibold text-brand">
                             {project.data.title}
                         </h3>
 
@@ -107,7 +107,7 @@ const serviceIcon = (title: string) => {
                         </p>
 
                         <a href={localePath(locale, `projects/${project.id}`)}
-                            class="inline-flex items-center gap-1 text-sm text-gray-500 transition-colors hover:text-[#00a69c]">
+                            class="inline-flex items-center gap-1 text-sm text-gray-500 transition-colors hover:text-brand">
                             <span>{copy.knowProject}</span>
                             <ArrowRight class="h-3.5 w-3.5" aria-hidden="true" />
                         </a>
@@ -118,7 +118,7 @@ const serviceIcon = (title: string) => {
 
             <div class="mt-8 text-center">
                 <a href={localePath(locale, 'projects')}
-                    class="inline-flex rounded-xl bg-[#00a69c] px-6 py-2.5 font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#009186] hover:shadow-md">
+                    class="inline-flex rounded-xl bg-brand-strong px-6 py-2.5 font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-active hover:shadow-md">
                     {copy.allProjects}
                 </a>
             </div>
@@ -128,8 +128,8 @@ const serviceIcon = (title: string) => {
     <section id="jornada" data-reveal class="my-10 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
         <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
-                <ArrowDown class="w-20 h-20 text-[#00a69c] " style="transform: rotate(-45deg)" />
-                <h2 class="text-[#00a69c] md:mb-0 text-center md:text-start text-3xl tracking-tight sm:text-4xl">
+                <ArrowDown class="w-20 h-20 text-brand " style="transform: rotate(-45deg)" />
+                <h2 class="text-brand md:mb-0 text-center md:text-start text-3xl tracking-tight sm:text-4xl">
                     <br />
                     {copy.journeyTitle}
                 </h2>
@@ -152,7 +152,7 @@ const serviceIcon = (title: string) => {
     </section>
 
     <section id="marcas" data-reveal class="my-10 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
-        <h2 class="text-center mx-auto mb-10 max-w-3xl text-xl leading-tight text-[#00a69c] sm:text-3xl">
+        <h2 class="text-center mx-auto mb-10 max-w-3xl text-xl leading-tight text-brand sm:text-3xl">
             {copy.brandsTitle}
         </h2>
 
@@ -185,24 +185,24 @@ const serviceIcon = (title: string) => {
     <section id="servicos" data-reveal class="my-10 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
         <div class="mb-7 flex items-end justify-between gap-6">
             <div>
-                <p class="mb-2 text-sm uppercase tracking-[0.18em] text-[#00a69c]">{copy.services}</p>
-                <h2 class="text-3xl text-[#00a69c] sm:text-4xl">{copy.servicesTitle}</h2>
+                <p class="mb-2 text-sm uppercase tracking-[0.18em] text-brand">{copy.services}</p>
+                <h2 class="text-3xl text-brand sm:text-4xl">{copy.servicesTitle}</h2>
             </div>
-            <ArrowDown class="hidden h-14 w-14 rotate-[-45deg] text-[#00a69c] sm:block" aria-hidden="true" />
+            <ArrowDown class="hidden h-14 w-14 rotate-[-45deg] text-brand sm:block" aria-hidden="true" />
         </div>
 
         <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {copy.serviceItems.map(([title, text]) => {
                 const ServiceIcon = serviceIcon(title);
                 return (
-                    <article class="group rounded-2xl border border-slate-100 bg-[#f7f8fa] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#00a69c]/30 hover:bg-white hover:shadow-[0_14px_35px_rgba(15,23,42,0.08)]">
-                        <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-[#00a69c]/10 text-[#00a69c] transition-transform duration-300 group-hover:rotate-[-4deg] group-hover:scale-105">
+                    <article class="group rounded-2xl border border-slate-100 bg-surface-soft p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brand/30 hover:bg-white hover:shadow-[0_14px_35px_rgba(15,23,42,0.08)]">
+                        <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-brand/10 text-brand transition-transform duration-300 group-hover:rotate-[-4deg] group-hover:scale-105">
                             <ServiceIcon class="h-5 w-5" aria-hidden="true" />
                         </div>
-                        <h3 class="mb-2 text-lg text-[#00a69c]">{title}</h3>
-                        <p class="text-sm leading-6 text-[#686d85]">{text}</p>
-                        {/editorial/i.test(title) && <a href={localePath(locale, 'diseno-editorial')} class="mt-3 inline-flex text-sm text-[#008f87] underline">{locale === 'es' ? 'Conocer el servicio' : locale === 'en' ? 'Explore this service' : 'Conhecer o serviço'}</a>}
-                        {/identidade visual|visual identity|identidad visual/i.test(title) && <a href={localePath(locale, 'branding')} class="mt-3 inline-flex text-sm text-[#008f87] underline">{locale === 'es' ? 'Conocer el servicio' : locale === 'en' ? 'Explore this service' : 'Conhecer o serviço'}</a>}
+                        <h3 class="mb-2 text-lg text-brand">{title}</h3>
+                        <p class="text-sm leading-[1.55] text-ink-muted">{text}</p>
+                        {/editorial/i.test(title) && <a href={localePath(locale, 'diseno-editorial')} class="mt-3 inline-flex text-sm text-brand-strong underline">{locale === 'es' ? 'Conocer el servicio' : locale === 'en' ? 'Explore this service' : 'Conhecer o serviço'}</a>}
+                        {/identidade visual|visual identity|identidad visual/i.test(title) && <a href={localePath(locale, 'branding')} class="mt-3 inline-flex text-sm text-brand-strong underline">{locale === 'es' ? 'Conocer el servicio' : locale === 'en' ? 'Explore this service' : 'Conhecer o serviço'}</a>}
                     </article>
                 );
             })}
@@ -212,10 +212,10 @@ const serviceIcon = (title: string) => {
     <section data-reveal class="my-10 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
         <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div>
-                <h2 class="text-2xl text-[#00a69c] sm:text-3xl">{contactPrompt.title}</h2>
-                <p class="mt-3 max-w-3xl leading-relaxed text-[#686d85]">{contactPrompt.text}</p>
+                <h2 class="text-2xl text-brand sm:text-3xl">{contactPrompt.title}</h2>
+                <p class="mt-3 max-w-3xl leading-relaxed text-ink-muted">{contactPrompt.text}</p>
             </div>
-            <button type="button" class="js-open-contact shrink-0 self-start rounded-xl bg-[#00a69c] px-6 py-3 font-medium text-white transition-colors hover:bg-[#009186]">
+            <button type="button" class="js-open-contact shrink-0 self-start rounded-xl bg-brand-strong px-6 py-3 font-medium text-white transition-colors hover:bg-brand-active">
                 {contactPrompt.cta}
             </button>
         </div>

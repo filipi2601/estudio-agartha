@@ -17,36 +17,36 @@ const copy = ui[locale];
              </a>
 
              <button id="openMenu" type="button"
-                 class="rounded-lg p-2 text-[#00a69c] transition-colors hover:bg-[#e5e5e5] lg:hidden"
+                 class="rounded-lg p-2 text-brand transition-colors hover:bg-canvas lg:hidden"
                  aria-label={copy.openMenu} aria-controls="mobileMenu" aria-expanded="false">
                  <Menu class="h-6 w-6" />
              </button>
 
-             <ul class="z-1 -mb-20 hidden flex-row items-center rounded-2xl bg-[#e5e5e5] p-2.5 lg:flex">
+             <ul class="z-1 -mb-20 hidden flex-row items-center rounded-2xl bg-canvas p-2.5 lg:flex">
                  <li class="nav-item">
                      <a href={localePath(locale)}
-                         class="mr-2 rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-[#333] transition-colors hover:bg-gray-100">
+                         class="mr-2 rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-ink transition-colors hover:bg-gray-100">
                          {copy.home}
                      </a>
                  </li>
 
                  <li class="nav-item">
                      <a href={localePath(locale, 'projects')}
-                         class="mr-2 rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-[#333] transition-colors hover:bg-gray-100">
+                         class="mr-2 rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-ink transition-colors hover:bg-gray-100">
                          {copy.projects}
                      </a>
                  </li>
 
                  <li class="nav-item">
                      <a href={`${localePath(locale)}#servicos`}
-                         class="mr-2 rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-[#333] transition-colors hover:bg-gray-100">
+                         class="mr-2 rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-ink transition-colors hover:bg-gray-100">
                          {copy.services}
                      </a>
                  </li>
 
                  <li class="nav-item">
                      <button type="button" aria-controls="contactOffcanvas"
-                         class="mr-2 rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-[#333] transition-colors hover:bg-gray-100">
+                         class="mr-2 rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-ink transition-colors hover:bg-gray-100">
                          {copy.contact}
                      </button>
                  </li>
@@ -56,7 +56,7 @@ const copy = ui[locale];
                  {locales.map((item) => (
                      <a href={localizedPath(pathname, item)} hreflang={ui[item].htmlLang} lang={ui[item].htmlLang}
                          aria-current={item === locale ? 'page' : undefined}
-                         class:list={["rounded-md px-2 py-1 text-xs transition-colors", item === locale ? "bg-[#00a69c] text-white" : "text-[#00a69c] hover:bg-[#e5e5e5]"]}>
+                         class:list={["rounded-md px-2 py-1 text-xs transition-colors", item === locale ? "bg-brand-strong text-white" : "text-brand hover:bg-canvas"]}>
                          {languageNames[item]}
                      </a>
                  ))}
@@ -75,11 +75,11 @@ const copy = ui[locale];
 
      <div class="flex items-center justify-between border-b border-gray-100 px-6 py-5">
 
-         <span class="text-lg font-medium text-[#00a69c]">
+         <span class="text-lg font-medium text-brand">
              Estúdio Agartha
          </span>
 
-         <button id="closeMenu" type="button" class="rounded-lg p-2 text-[#333] transition-colors hover:bg-[#e5e5e5]"
+         <button id="closeMenu" type="button" class="rounded-lg p-2 text-ink transition-colors hover:bg-canvas"
              aria-label={copy.closeMenu}>
              <X class="h-6 w-6" />
          </button>
@@ -87,28 +87,28 @@ const copy = ui[locale];
 
      <nav class="flex flex-1 flex-col px-6 py-8">
          <a href={localePath(locale)}
-             class="mobile-menu-link rounded-xl px-4 py-3.5 text-base font-medium text-[#333] transition-colors hover:bg-[#e5e5e5] hover:text-[#00a69c]">
+             class="mobile-menu-link rounded-xl px-4 py-3.5 text-base font-medium text-ink transition-colors hover:bg-canvas hover:text-brand">
              {copy.home}
          </a>
 
          <a href={`${localePath(locale)}#projetos`}
-             class="mobile-menu-link rounded-xl px-4 py-3.5 text-base font-medium text-[#333] transition-colors hover:bg-[#e5e5e5] hover:text-[#00a69c]">
+             class="mobile-menu-link rounded-xl px-4 py-3.5 text-base font-medium text-ink transition-colors hover:bg-canvas hover:text-brand">
              {copy.projects}
          </a>
 
          <a href={`${localePath(locale)}#servicos`}
-             class="mobile-menu-link rounded-xl px-4 py-3.5 text-base font-medium text-[#333] transition-colors hover:bg-[#e5e5e5] hover:text-[#00a69c]">
+             class="mobile-menu-link rounded-xl px-4 py-3.5 text-base font-medium text-ink transition-colors hover:bg-canvas hover:text-brand">
              {copy.services}
          </a>
 
          <button type="button" aria-controls="contactOffcanvas"
-             class="mobile-menu-link flex w-full justify-start rounded-xl px-4 py-3.5 text-left text-base font-medium text-[#333] transition-colors hover:bg-[#e5e5e5] hover:text-[#00a69c]">
+             class="mobile-menu-link flex w-full justify-start rounded-xl px-4 py-3.5 text-left text-base font-medium text-ink transition-colors hover:bg-canvas hover:text-brand">
              {copy.contact}
          </button>
          <div class="mt-4 flex gap-2 border-t border-gray-100 pt-5">
              {locales.map((item) => (
                  <a href={localizedPath(pathname, item)} hreflang={ui[item].htmlLang} lang={ui[item].htmlLang}
-                     class:list={["rounded-lg px-3 py-2 text-sm", item === locale ? "bg-[#00a69c] text-white" : "bg-gray-100 text-gray-600"]}>
+                     class:list={["rounded-lg px-3 py-2 text-sm", item === locale ? "bg-brand-strong text-white" : "bg-gray-100 text-gray-600"]}>
                      {languageNames[item]}
                  </a>
              ))}

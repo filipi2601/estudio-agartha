@@ -14,8 +14,8 @@ const messages = {
 <div id="contactOverlay" class="pointer-events-none fixed inset-0 z-40 bg-black/40 opacity-0 backdrop-blur-[2px] transition-opacity duration-300" aria-hidden="true"></div>
 <aside id="contactOffcanvas" role="dialog" aria-modal="true" class="fixed top-0 right-0 z-50 flex h-dvh w-full max-w-lg translate-x-full flex-col bg-white shadow-2xl transition-transform duration-300 ease-out" aria-hidden="true" aria-labelledby="contactTitle">
   <div class="flex shrink-0 items-center justify-between border-b border-gray-100 px-6 py-5">
-    <h2 id="contactTitle" class="text-xl font-semibold text-[#333]">{copy.formTitle}</h2>
-    <button type="button" id="closeContact" class="rounded-lg p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-[#333]" aria-label={copy.closeMenu}>
+    <h2 id="contactTitle" class="text-xl font-semibold text-ink">{copy.formTitle}</h2>
+    <button type="button" id="closeContact" class="rounded-lg p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-ink" aria-label={copy.closeMenu}>
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
     </button>
   </div>
@@ -26,37 +26,37 @@ const messages = {
       <input type="hidden" name="_url" value={Astro.url.href} />
       <input type="hidden" name="idioma" value={locale} />
       <div class="mb-5">
-        <label for="contactName" class="mb-2 block text-sm font-medium text-[#333]">{copy.name}</label>
-        <input id="contactName" name="nome" type="text" autocomplete="name" required maxlength="120" class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#00a69c] focus:ring-2 focus:ring-[#00a69c]/10" />
+        <label for="contactName" class="mb-2 block text-sm font-medium text-ink">{copy.name}</label>
+        <input id="contactName" name="nome" type="text" autocomplete="name" required maxlength="120" class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/10" />
       </div>
       <div class="mb-5">
-        <label for="contactEmail" class="mb-2 block text-sm font-medium text-[#333]">Email</label>
-        <input id="contactEmail" name="email" type="email" autocomplete="email" required maxlength="254" class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#00a69c] focus:ring-2 focus:ring-[#00a69c]/10" />
+        <label for="contactEmail" class="mb-2 block text-sm font-medium text-ink">Email</label>
+        <input id="contactEmail" name="email" type="email" autocomplete="email" required maxlength="254" class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/10" />
       </div>
       <fieldset class="mb-5">
-        <legend class="mb-2 block text-sm font-medium text-[#333]">{copy.desiredServices}</legend>
+        <legend class="mb-2 block text-sm font-medium text-ink">{copy.desiredServices}</legend>
         <div class="flex flex-wrap gap-2">
           {copy.serviceItems.map(([service]) => (
-            <label class="cursor-pointer rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-600 has-checked:border-[#00a69c] has-checked:bg-[#00a69c] has-checked:text-white focus-within:ring-2 focus-within:ring-[#00a69c]">
+            <label class="cursor-pointer rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-600 has-checked:border-brand has-checked:bg-brand-strong has-checked:text-white focus-within:ring-2 focus-within:ring-brand">
               <input class="sr-only" type="checkbox" name="servicos" value={service} />{service}
             </label>
           ))}
         </div>
       </fieldset>
       <div class="mb-5">
-        <label for="contactProject" class="mb-2 block text-sm font-medium text-[#333]">{messages.project}</label>
-        <textarea id="contactProject" name="projeto" rows="5" required maxlength="4000" class="w-full resize-y rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#00a69c] focus:ring-2 focus:ring-[#00a69c]/10"></textarea>
+        <label for="contactProject" class="mb-2 block text-sm font-medium text-ink">{messages.project}</label>
+        <textarea id="contactProject" name="projeto" rows="5" required maxlength="4000" class="w-full resize-y rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand/10"></textarea>
       </div>
       <div class="mb-5 grid gap-4 sm:grid-cols-2">
-        <div><label for="contactDeadline" class="mb-2 block text-sm font-medium text-[#333]">{messages.deadline}</label><input id="contactDeadline" name="prazo" type="text" maxlength="100" class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#00a69c]" /></div>
-        <div><label for="contactBudget" class="mb-2 block text-sm font-medium text-[#333]">{messages.budget}</label><input id="contactBudget" name="orcamento" type="text" maxlength="100" class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#00a69c]" /></div>
+        <div><label for="contactDeadline" class="mb-2 block text-sm font-medium text-ink">{messages.deadline}</label><input id="contactDeadline" name="prazo" type="text" maxlength="100" class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-brand" /></div>
+        <div><label for="contactBudget" class="mb-2 block text-sm font-medium text-ink">{messages.budget}</label><input id="contactBudget" name="orcamento" type="text" maxlength="100" class="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm outline-none focus:border-brand" /></div>
       </div>
-      <p class="mb-5 text-xs leading-relaxed text-gray-600">{messages.privacy} <a class="text-[#008f87] underline" href={localePath(locale, 'privacy')}>{messages.privacyLink}</a>.</p>
+      <p class="mb-5 text-xs leading-relaxed text-gray-600">{messages.privacy} <a class="text-brand-strong underline" href={localePath(locale, 'privacy')}>{messages.privacyLink}</a>.</p>
       <p id="contactStatus" class="mb-4 hidden text-sm" role="status" aria-live="polite"></p>
-      <button id="contactSubmit" type="submit" class="flex w-full items-center justify-center gap-2 rounded-xl bg-[#00a69c] px-5 py-3.5 font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#008f87] disabled:cursor-wait disabled:opacity-70">
+      <button id="contactSubmit" type="submit" class="flex w-full items-center justify-center gap-2 rounded-xl bg-brand-strong px-5 py-3.5 font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-strong disabled:cursor-wait disabled:opacity-70">
         <span id="contactSubmitLabel">{copy.send}</span><ArrowRight class="h-4 w-4" aria-hidden="true" />
       </button>
-      <p class="mt-4 text-center text-xs text-gray-600"><a href="mailto:contatos@studioagartha.com" class="text-[#008f87] underline">contatos@studioagartha.com</a></p>
+      <p class="mt-4 text-center text-xs text-gray-600"><a href="mailto:contatos@studioagartha.com" class="text-brand-strong underline">contatos@studioagartha.com</a></p>
     </form>
   </div>
 </aside>
@@ -116,7 +116,7 @@ const messages = {
       if (!response.ok || String(result.success) !== 'true') throw new Error('Submission failed');
       form.reset();
       status.textContent = messages.success;
-      status.className = 'mb-4 text-sm text-[#008f87]';
+      status.className = 'mb-4 text-sm text-brand-strong';
       document.dispatchEvent(new CustomEvent('contact-submitted'));
     } catch {
       status.textContent = messages.error;

@@ -1,0 +1,119 @@
+---
+import { ArrowUpRight, ChevronLeft, ChevronRight, Quote, UserRound } from '@lucide/astro';
+import type { Locale } from '../i18n/ui';
+const { locale = 'pt' } = Astro.props as { locale?: Locale };
+const copy = {
+  pt: { title: 'Depoimentos', intro: 'O que nossos clientes dizem sobre trabalhar com o Estúdio Agartha.', preview: 'Prévia de layout: textos e nomes de exemplo, pendentes de confirmação.', previous: 'Anterior', next: 'Próximo', select: 'Destacar e pausar; clique novamente para continuar', name: 'Nome do cliente', role: 'Cargo ou empresa' },
+  en: { title: 'Testimonials', intro: 'What our clients say about working with Estúdio Agartha.', preview: 'Layout preview: sample text and names awaiting confirmation.', previous: 'Previous', next: 'Next', select: 'Highlight and pause; click again to resume', name: 'Client name', role: 'Role or company' },
+  es: { title: 'Testimonios', intro: 'Lo que nuestros clientes dicen sobre trabajar con Estúdio Agartha.', preview: 'Vista previa: textos y nombres de ejemplo pendientes de confirmación.', previous: 'Anterior', next: 'Siguiente', select: 'Destacar y pausar; pulsa de nuevo para continuar', name: 'Nombre del cliente', role: 'Cargo o empresa' },
+}[locale];
+// Local wireframe examples only; replace before publishing.
+const reviews = [
+  { name: 'Luiza Guimarães', role: 'Gestora da Luxo & Modas', text: 'O Studio Agartha foi essencial para fortalecer a identidade da nossa marca. O trabalho trouxe mais profissionalismo e coerência visual, com um resultado que se conecta com o nosso público.' },
+  { name: copy.name, role: copy.role, text: 'A equipe soube transformar nossas ideias em uma linguagem visual clara, elegante e consistente. Todo o processo foi conduzido com cuidado e atenção aos detalhes.' },
+  { name: copy.name, role: copy.role, text: 'Além da qualidade do projeto, valorizamos a organização e o diálogo ao longo do trabalho. O resultado final expressou exatamente o que buscávamos.' },
+];
+const previewLink = 'https://example.com';
+---
+<section id="depoimentos" class="testimonials my-10 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12" aria-labelledby="testimonials-title" data-testimonials>
+  <header class="testimonials-header">
+    <div>
+      <h2 id="testimonials-title" class="text-2xl text-brand sm:text-3xl">{copy.title}</h2>
+      <p class="mt-3 text-sm leading-6 text-ink-muted">{copy.intro}</p>
+      <p class="mt-2 text-xs text-ink-muted">{copy.preview}</p>
+    </div>
+  </header>
+  <div class="testimonials-track" data-track>
+    {reviews.map((review) => (
+      <article class="testimonial-card" data-selected="false">
+        <button type="button" class="testimonial-select" aria-pressed="false" aria-label={`${copy.select}: ${review.name}`}></button>
+        <Quote class="testimonial-quote" aria-hidden="true" />
+        <blockquote lang="pt-BR">{review.text}</blockquote>
+        <footer class="testimonial-person">
+          <span class="testimonial-avatar" aria-hidden="true"><UserRound /></span>
+          <div><p class="testimonial-name">{review.name}</p><p class="testimonial-role"><a href={previewLink} target="_blank" rel="noopener noreferrer" aria-label={`${review.role} (${locale === 'pt' ? 'link de exemplo, abre em outra aba' : locale === 'es' ? 'enlace de ejemplo, abre en otra pestaña' : 'sample link, opens in a new tab'})`}>{review.role}<ArrowUpRight aria-hidden="true" /></a></p></div>
+        </footer>
+      </article>
+    ))}
+  </div>
+  <div class="testimonials-controls">
+    <button type="button" data-previous aria-label={copy.previous}><ChevronLeft aria-hidden="true" /></button>
+    <button type="button" data-next aria-label={copy.next}><ChevronRight aria-hidden="true" /></button>
+  </div>
+  <p class="testimonials-count" data-count aria-live="off"></p>
+</section>
+<style>
+  .testimonials { display: grid; grid-template-columns: 1fr auto; }
+  .testimonials-header { grid-column: 1 / -1; grid-row: 1; margin-bottom: 22px; }
+  .testimonials-controls { grid-column: 2; grid-row: 1; align-self: end; display: flex; gap: 4px; margin-bottom: 22px; }
+  .testimonials-controls button { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: var(--color-ink-muted); transition: background 200ms, color 200ms; }
+  .testimonials-controls button:hover { background: var(--color-surface-soft); color: var(--color-brand-strong); }
+  .testimonials-controls svg { width: 15px; height: 15px; }
+  .testimonials-track { grid-column: 1 / -1; grid-row: 2; display: grid; grid-auto-columns: calc((100% - 24px) / 2); grid-auto-flow: column; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 12px 8px 16px; }
+  .testimonials-track::-webkit-scrollbar { display: none; }
+  .testimonial-card { position: relative; scroll-snap-align: start; border: 1px solid var(--color-line); border-radius: 16px; background: var(--color-surface-soft); padding: 24px; min-height: 280px; display: flex; flex-direction: column; transform-origin: center; transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease; }
+  .testimonial-select { position: absolute; inset: 0; border-radius: inherit; cursor: pointer; }
+  .testimonial-card > :not(.testimonial-select) { pointer-events: none; }
+  .testimonial-card[data-selected="true"] { transform: scale(1.018); border-color: var(--color-brand); box-shadow: var(--shadow-selected); }
+  .testimonial-select:focus-visible, .testimonials-controls button:focus-visible { outline: 2px solid var(--color-brand-strong); outline-offset: 3px; }
+  .testimonial-quote { width: 32px; height: 32px; color: var(--color-brand); opacity: 0.4; stroke-width: 1.25; flex-shrink: 0; }
+  blockquote { margin: 16px 0 24px; font-size: 14px; line-height: 1.7; color: var(--color-ink-muted); }
+  .testimonial-person { border-top: 1px solid var(--color-line); padding-top: 20px; margin-top: auto; display: flex; gap: 14px; align-items: center; }
+  .testimonial-avatar { width: 56px; height: 56px; border-radius: 14px; background: var(--color-brand-tint); color: var(--color-brand); display: grid; place-items: center; flex-shrink: 0; }
+  .testimonial-avatar svg { width: 26px; height: 26px; }
+  .testimonial-name { color: var(--color-brand-strong); font-size: 15px; text-transform: uppercase; }
+  .testimonial-role { margin-top: 4px; color: var(--color-ink-muted); font-size: 13px; }
+  .testimonial-role a { position: relative; display: inline-flex; align-items: center; gap: 4px; pointer-events: auto; text-decoration: underline; text-underline-offset: 3px; }
+  .testimonial-role a:hover { color: var(--color-brand-strong); }
+  .testimonial-role svg { width: 13px; height: 13px; }
+  .testimonials-count { grid-column: 2; grid-row: 3; margin-top: 8px; text-align: right; font-size: 13px; color: var(--color-ink-muted); }
+  @media (max-width: 740px) {
+    .testimonials-controls { grid-column: 1; grid-row: 3; align-self: center; margin: 8px 0 0; }
+    .testimonials-count { align-self: center; }
+    .testimonials-track { grid-auto-columns: 100%; gap: 16px; }
+    .testimonial-card { padding: 20px; min-height: 280px; }
+  }
+  @media (pointer: coarse) { .testimonials-controls button { width: 44px; height: 44px; } }
+  @media (prefers-reduced-motion: reduce) { .testimonial-card { transition: none; } }
+</style>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-testimonials]').forEach((section) => {
+    const track = section.querySelector<HTMLElement>('[data-track]')!;
+    const cards = [...track.querySelectorAll<HTMLElement>('.testimonial-card')];
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let paused = false;
+    let inView = false;
+    const current = () => cards.reduce((nearest, card, index) => Math.abs(card.offsetLeft - cards[0].offsetLeft - track.scrollLeft) < Math.abs(cards[nearest].offsetLeft - cards[0].offsetLeft - track.scrollLeft) ? index : nearest, 0);
+    const last = () => cards.length - (window.matchMedia('(max-width: 740px)').matches ? 1 : 2);
+    function update() {
+      section.querySelector<HTMLElement>('[data-count]')!.textContent = `${Math.min(current(), last()) + 1} / ${last() + 1}`;
+    }
+    function move(direction: number) {
+      const index = (Math.min(current(), last()) + direction + last() + 1) % (last() + 1);
+      track.scrollTo({ left: cards[index].offsetLeft - cards[0].offsetLeft, behavior: motion.matches ? 'instant' : 'smooth' });
+    }
+    function select(card: HTMLElement) {
+      const selected = card.dataset.selected !== 'true';
+      cards.forEach((item) => {
+        item.dataset.selected = String(selected && item === card);
+        item.querySelector('button')!.setAttribute('aria-pressed', item.dataset.selected);
+      });
+      paused = selected;
+      update();
+    }
+    cards.forEach((card) => {
+      card.querySelector('button')!.addEventListener('click', () => select(card));
+    });
+    for (const [selector, direction] of [['[data-previous]', -1], ['[data-next]', 1]] as const) {
+      section.querySelector(selector)!.addEventListener('click', () => move(direction));
+    }
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    const observer = new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; }, { threshold: 0.2 });
+    observer.observe(section);
+    window.setInterval(() => {
+      if (!paused && !motion.matches && inView && !document.hidden) move(1);
+    }, 6000);
+    update();
+  });
+</script>

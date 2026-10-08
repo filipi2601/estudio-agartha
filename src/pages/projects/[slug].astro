@@ -59,13 +59,13 @@ const projectUrl = new URL(localePath(locale, `projects/${project.id}`), 'https:
         <nav class="mb-8 text-center text-sm" aria-label={copy.breadcrumb}>
           <ol class="flex flex-wrap items-center justify-center gap-2">
             <li>
-              <a href={localePath(locale)} class="text-[#00a69c] hover:text-[#009186] transition-colors">
+              <a href={localePath(locale)} class="text-brand hover:text-brand-active transition-colors">
                 {copy.home}
               </a>
             </li>
             <li class="text-gray-400">/</li>
             <li>
-              <a href={localePath(locale, 'projects')} class="text-[#00a69c] hover:text-[#009186] transition-colors">
+              <a href={localePath(locale, 'projects')} class="text-brand hover:text-brand-active transition-colors">
                 {copy.projects}
               </a>
             </li>
@@ -86,7 +86,7 @@ const projectUrl = new URL(localePath(locale, `projects/${project.id}`), 'https:
             <!-- Categorias -->
             <div class="mt-6 flex flex-wrap justify-center gap-2">
                 {categories.map((category) => (
-                <span class="rounded-full bg-[#009186] border border-gray-300 px-4 py-2 text-sm text-white">
+                <span class="rounded-full bg-brand-active border border-gray-300 px-4 py-2 text-sm text-white">
                     {category}
                 </span>
                 ))}
@@ -102,11 +102,11 @@ const projectUrl = new URL(localePath(locale, `projects/${project.id}`), 'https:
         {note && (
           <section class="mx-auto mt-12 grid max-w-4xl gap-6 rounded-3xl bg-white p-6 sm:grid-cols-2 sm:p-8" aria-label={locale === 'es' ? 'Detalles del proyecto' : locale === 'en' ? 'Project details' : 'Detalhes do projeto'}>
             <div>
-              <h2 class="text-lg text-[#00a69c]">{locale === 'es' ? 'El reto' : locale === 'en' ? 'The brief' : 'O desafio'}</h2>
+              <h2 class="text-lg text-brand">{locale === 'es' ? 'El reto' : locale === 'en' ? 'The brief' : 'O desafio'}</h2>
               <p class="mt-2 leading-7 text-gray-600">{note[0]}</p>
             </div>
             <div>
-              <h2 class="text-lg text-[#00a69c]">{locale === 'es' ? 'La solución' : locale === 'en' ? 'The approach' : 'A solução'}</h2>
+              <h2 class="text-lg text-brand">{locale === 'es' ? 'La solución' : locale === 'en' ? 'The approach' : 'A solução'}</h2>
               <p class="mt-2 leading-7 text-gray-600">{note[1]}</p>
             </div>
           </section>
@@ -136,7 +136,7 @@ const projectUrl = new URL(localePath(locale, `projects/${project.id}`), 'https:
 
         <!-- Voltar -->
         <div class="mt-12 text-center">
-            <button type="button" class="js-open-contact mb-5 block mx-auto rounded-xl bg-[#00a69c] px-6 py-3 text-sm font-medium text-white hover:bg-[#009186]">
+            <button type="button" class="js-open-contact mb-5 block mx-auto rounded-xl bg-brand-strong px-6 py-3 text-sm font-medium text-white hover:bg-brand-active">
                 {locale === 'es' ? '¿Tienes un proyecto similar? Hablemos' : locale === 'en' ? 'Have a similar project? Let’s talk' : 'Tem um projeto parecido? Vamos conversar'}
             </button>
             <a href={localePath(locale, 'projects')}

@@ -9,13 +9,13 @@ const { locale = 'pt' } = Astro.props;
 const copy = ui[locale];
 ---
 <footer id="footer" data-reveal class="mt-5 rounded-3xl bg-white px-4 py-5 sm:px-6">
-    <div class="mb-12 rounded-2xl bg-[#00a69c] p-8 text-center sm:p-10">
+    <div class="mb-12 rounded-2xl bg-brand p-8 text-center sm:p-10">
         <h3 class="mb-6 text-2xl leading-tight text-white sm:text-3xl">
             {copy.footerTitle}
         </h3>
 
         <button type="button"
-            class="js-open-contact rounded-xl bg-white px-6 py-3 font-medium text-[#333] transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-100">
+            class="js-open-contact rounded-xl bg-white px-6 py-3 font-medium text-ink transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-100">
             {copy.talk}
         </button>
     </div>
@@ -30,57 +30,57 @@ const copy = ui[locale];
 
             <div class="mt-4 flex justify-start gap-4">
                 <a href="https://www.instagram.com/agarthaestudio/" target="_blank" rel="noopener noreferrer"
-                    aria-label="Instagram" class="text-gray-600 transition-colors hover:text-[#00a69c]">
+                    aria-label="Instagram" class="text-gray-600 transition-colors hover:text-brand">
                     <Icon name="mdi:instagram" />
                 </a>
 
                 <a href="https://www.linkedin.com/in/paulo-ricardo-930a72219" target="_blank" rel="noopener noreferrer"
-                    aria-label="LinkedIn" class="text-gray-600 transition-colors hover:text-[#00a69c]">
+                    aria-label="LinkedIn" class="text-gray-600 transition-colors hover:text-brand">
                     <Icon name="mdi:linkedin" />
                 </a>
 
                 <a href="https://t.me/Studioagartha" target="_blank" rel="noopener noreferrer"
-                    aria-label="Telegram" class="text-gray-600 transition-colors hover:text-[#00a69c]">
+                    aria-label="Telegram" class="text-gray-600 transition-colors hover:text-brand">
                     <Icon name="mdi:telegram" />
                 </a>
             </div>
         </div>
 
         <div>
-            <h6 class="mb-3 font-semibold text-[#00a69c]">
+            <h6 class="mb-3 font-semibold text-brand">
                 {copy.pages}
             </h6>
 
             <ul class="space-y-2 text-sm">
                 <li>
-                    <a href={localePath(locale)} class="text-gray-600 transition-colors hover:text-[#00a69c]">
+                    <a href={localePath(locale)} class="text-gray-600 transition-colors hover:text-brand">
                         {copy.home}
                     </a>
                 </li>
 
                 <li>
-                    <a href={`${localePath(locale)}#projetos`} class="text-gray-600 transition-colors hover:text-[#00a69c]">
+                    <a href={`${localePath(locale)}#projetos`} class="text-gray-600 transition-colors hover:text-brand">
                         {copy.projects}
                     </a>
                 </li>
 
                 <li>
-                    <a href={`${localePath(locale)}#servicos`} class="text-gray-600 transition-colors hover:text-[#00a69c]">
+                    <a href={`${localePath(locale)}#servicos`} class="text-gray-600 transition-colors hover:text-brand">
                         {copy.services}
                     </a>
                 </li>
                 <li>
-                    <a href={localePath(locale, 'diseno-editorial')} class="text-gray-600 transition-colors hover:text-[#00a69c]">
+                    <a href={localePath(locale, 'diseno-editorial')} class="text-gray-600 transition-colors hover:text-brand">
                         {copy.serviceItems.find(([title]) => /editorial/i.test(title))?.[0]}
                     </a>
                 </li>
                 <li>
-                    <a href={localePath(locale, 'branding')} class="text-gray-600 transition-colors hover:text-[#00a69c]">
+                    <a href={localePath(locale, 'branding')} class="text-gray-600 transition-colors hover:text-brand">
                         {copy.serviceItems.find(([title]) => /identidade visual|visual identity|identidad visual/i.test(title))?.[0]}
                     </a>
                 </li>
                 <li>
-                    <a href={localePath(locale, 'privacy')} class="text-gray-600 transition-colors hover:text-[#00a69c]">
+                    <a href={localePath(locale, 'privacy')} class="text-gray-600 transition-colors hover:text-brand">
                         {locale === 'pt' ? 'Política de Privacidade' : locale === 'en' ? 'Privacy Policy' : 'Política de privacidad'}
                     </a>
                 </li>
@@ -88,14 +88,14 @@ const copy = ui[locale];
         </div>
 
         <div>
-            <h6 class="mb-3 font-semibold text-[#00a69c]">
+            <h6 class="mb-3 font-semibold text-brand">
                 {copy.portfolio}
             </h6>
 
             <ul class="space-y-2 text-sm">
                 <li>
                     <a href="https://www.behance.net/estudioagartha" target="_blank" rel="noopener noreferrer"
-                        class="text-gray-600 transition-colors hover:text-[#00a69c]">
+                        class="text-gray-600 transition-colors hover:text-brand">
                         Behance
                     </a>
                 </li>
@@ -103,21 +103,21 @@ const copy = ui[locale];
         </div>
 
         <div>
-            <h6 class="mb-3 font-semibold text-[#00a69c]">
+            <h6 class="mb-3 font-semibold text-brand">
                 {copy.contact}
             </h6>
 
             <div class="space-y-3 text-sm">
 
                 <a href="mailto:contatos@studioagartha.com"
-                    class="flex items-center justify-start gap-2 text-gray-600 transition-colors hover:text-[#00a69c]">
+                    class="flex items-center justify-start gap-2 text-gray-600 transition-colors hover:text-brand">
                     <Mail class="w-4 h-4" />
                     <span>contatos@studioagartha.com</span>
                 </a>
 
                 <a href={`https://wa.me/5574999396200?text=${encodeURIComponent(locale === 'es' ? 'Hola, me gustaría solicitar un presupuesto.' : locale === 'en' ? 'Hello, I would like to request a quote.' : 'Olá! Gostaria de solicitar um orçamento.')}`}
                     target="_blank" rel="noopener noreferrer"
-                    class="flex items-center justify-start gap-2 text-gray-600 transition-colors hover:text-[#00a69c]">
+                    class="flex items-center justify-start gap-2 text-gray-600 transition-colors hover:text-brand">
                     <MessageCircle class="w-4 h-4" />
                     <span>+55 (74) 99939-6200</span>
                 </a>
@@ -127,7 +127,7 @@ const copy = ui[locale];
 
     </div>
 
-    <div class="mt-8 border-t border-gray-100 pt-5 text-left text-xs font-semibold text-[#00a69c] lg:text-center">
+    <div class="mt-8 border-t border-gray-100 pt-5 text-center text-xs font-semibold text-brand sm:text-left lg:text-center">
         © {new Date().getFullYear()} ESTÚDIO AGARTHA | {copy.rights}
     </div>
 </footer>

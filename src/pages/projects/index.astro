@@ -26,10 +26,10 @@ const filters = [
 >
     <section class="mx-auto max-w-6xl px-6 py-8">
         <!-- Breadcrumbs -->
-        <nav class="mb-8 text-sm" aria-label={copy.breadcrumb}>
-          <ol class="flex items-center gap-2">
+        <nav class="mb-8 text-center text-sm" aria-label={copy.breadcrumb}>
+          <ol class="flex flex-wrap items-center justify-center gap-2">
             <li>
-              <a href={localePath(locale)} class="text-[#00a69c] hover:text-[#009186] transition-colors">
+              <a href={localePath(locale)} class="text-brand hover:text-brand-active transition-colors">
                 {copy.home}
               </a>
             </li>
@@ -44,14 +44,14 @@ const filters = [
     <section id="projetos" class="my-5 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
         <div class="mx-auto max-w-7xl text-left">
 
-            <h1 class="mb-8 text-2xl font-semibold text-[#00a69c] sm:text-3xl">
+            <h1 class="mb-8 text-2xl font-semibold text-brand sm:text-3xl">
                 {copy.projectListTitle}
             </h1>
 
             <div class="mb-8 flex flex-wrap gap-2" role="group" aria-label={locale === 'es' ? 'Filtrar proyectos' : locale === 'en' ? 'Filter projects' : 'Filtrar projetos'}>
                 {filters.map((filter, index) => (
                   <button type="button" data-project-filter={filter.value} aria-pressed={index === 0 ? 'true' : 'false'}
-                    class:list={['rounded-xl border px-4 py-2 text-sm transition-colors', index === 0 ? 'border-[#00a69c] bg-[#00a69c] text-white' : 'border-gray-200 text-[#333] hover:border-[#00a69c]']}>
+                    class:list={['rounded-xl border px-4 py-2 text-sm transition-colors', index === 0 ? 'border-brand bg-brand-strong text-white' : 'border-gray-200 text-ink hover:border-brand']}>
                     {filter.label}
                   </button>
                 ))}
@@ -61,13 +61,13 @@ const filters = [
 
                 {projects.map((project) => (
                 <article data-project-type={project.data.categories.includes('Design Editorial') ? 'editorial' : 'identity'}
-                    class="overflow-hidden rounded-[2rem] bg-[#e1e4ed] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    class="overflow-hidden rounded-[2rem] bg-surface-muted shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
 
                     <ProjectThumbnail src={project.data.cover} alt={`${project.data.title} - ${projectCategory(project)}`} />
 
                     <div class="px-5 py-5 text-center">
 
-                        <h2 class="mb-1 text-base font-semibold text-[#00a69c]">
+                        <h2 class="mb-1 text-base font-semibold text-brand">
                             {project.data.title}
                         </h2>
 
@@ -76,7 +76,7 @@ const filters = [
                         </p>
 
                         <a href={localePath(locale, `projects/${project.id}`)}
-                            class="inline-flex items-center gap-1 text-sm text-gray-500 transition-colors hover:text-[#00a69c]">
+                            class="inline-flex items-center gap-1 text-sm text-gray-500 transition-colors hover:text-brand">
                             <span>{copy.projectDetails}</span>
                             <ArrowRight class="h-3.5 w-3.5" aria-hidden="true" />
                         </a>
@@ -98,11 +98,11 @@ const filters = [
     buttons.forEach((item) => {
       const active = item === button;
       item.setAttribute('aria-pressed', String(active));
-      item.classList.toggle('border-[#00a69c]', active);
-      item.classList.toggle('bg-[#00a69c]', active);
+      item.classList.toggle('border-brand', active);
+      item.classList.toggle('bg-brand-strong', active);
       item.classList.toggle('text-white', active);
       item.classList.toggle('border-gray-200', !active);
-      item.classList.toggle('text-[#333]', !active);
+      item.classList.toggle('text-ink', !active);
     });
     cards.forEach((card) => card.classList.toggle('hidden', selected !== 'all' && card.dataset.projectType !== selected));
   }));

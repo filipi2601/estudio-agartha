@@ -4,6 +4,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const pages = [
+  ['dist/design-system/index.html', 'Design system | Estúdio Agartha', 'noindex, nofollow', 'Poppins', 'Cores com função', 'Componentes em contexto'],
   ['dist/index.html', 'lang="pt-BR"', 'Design gráfico para marcas,', 'Design editorial e muito mais'],
   ['dist/en/index.html', 'lang="en"', 'Graphic design for brands,', 'Editorial design and much more'],
   ['dist/es/index.html', 'lang="es"', 'Diseño gráfico para marcas,'],
@@ -13,6 +14,8 @@ const pages = [
   ['dist/es/branding/index.html', 'Identidad visual y branding'],
   ['dist/es/privacy/index.html', 'Política de privacidad'],
 ];
+
+assert.ok(!readFileSync('dist/sitemap-0.xml', 'utf8').includes('/design-system/'), 'internal design system should not appear in the sitemap');
 
 for (const [file, ...expected] of pages) {
   const html = readFileSync(file, 'utf8');
@@ -27,6 +30,7 @@ const scripts = [...pages.map(([file]) => file), ...readdirSync('dist/_astro')
 
 for (const localePrefix of ['', 'en/', 'es/']) {
   const home = readFileSync(`dist/${localePrefix}index.html`, 'utf8');
+  assert.ok(!home.includes('testimonials-track'), `${localePrefix}home should not publish sample testimonials`);
   for (const slug of ['a-doutrina-sufi', 'arte-cavalheiresca-do-arqueiro-zen']) {
     const project = readFileSync(`dist/${localePrefix}projects/${slug}/index.html`, 'utf8');
     assert.ok(home.includes(`/projects/${slug}`), `${localePrefix}home should show ${slug}`);

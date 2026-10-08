@@ -8,13 +8,13 @@ const copy = {
 }[locale];
 ---
 <div class="pb-6 text-center">
-  <button id="analytics-settings" type="button" class="text-xs text-[#686d85] underline">{copy.settings}</button>
+  <button id="analytics-settings" type="button" class="text-xs text-ink-muted underline">{copy.settings}</button>
 </div>
 <aside id="analytics-consent" hidden aria-label={copy.settings} class="fixed inset-x-4 bottom-4 z-[100] mx-auto max-w-xl rounded-2xl border border-gray-200 bg-white p-5 shadow-lg">
-  <p class="text-sm leading-6 text-[#686d85]">{copy.text} <a href={localePath(locale, 'privacy')} class="text-[#008f87] underline">{copy.privacy}</a>.</p>
+  <p class="text-sm leading-6 text-ink-muted">{copy.text} <a href={localePath(locale, 'privacy')} class="text-brand-strong underline">{copy.privacy}</a>.</p>
   <div class="mt-4 flex gap-3">
-    <button id="analytics-accept" type="button" class="rounded-lg border border-[#008f87] px-5 py-2 text-sm text-[#008f87]">{copy.accept}</button>
-    <button id="analytics-reject" type="button" class="rounded-lg border border-[#008f87] px-5 py-2 text-sm text-[#008f87]">{copy.reject}</button>
+    <button id="analytics-accept" type="button" class="rounded-lg border border-brand-strong px-5 py-2 text-sm text-brand-strong">{copy.accept}</button>
+    <button id="analytics-reject" type="button" class="rounded-lg border border-brand-strong px-5 py-2 text-sm text-brand-strong">{copy.reject}</button>
   </div>
 </aside>
 <script is:inline>
