@@ -50,9 +50,18 @@ const scripts = [...pages.map(([file]) => file), ...readdirSync('dist/_astro')
   .map((file) => readFileSync(file, 'utf8'))
   .join('\n');
 
+const testimonialExcerpts = {
+  '': ['mídias sociais', 'Recomendo muitíssimo.'],
+  'en/': ['social media', 'highly recommend'],
+  'es/': ['redes sociales', 'recomiendo muchísimo'],
+};
+
 for (const localePrefix of ['', 'en/', 'es/']) {
   const home = readFileSync(`dist/${localePrefix}index.html`, 'utf8');
-  assert.ok(!home.includes('testimonials-track'), `${localePrefix}home should not publish sample testimonials`);
+  for (const marker of ['testimonials-track', 'Aline', 'Beatriz Becker', 'Demetrius Coin', '/img/testimonials/demetrius-coin.svg', 'instagram.com/arcikleinjoias/', 'linkedin.com/in/beatriz-becker-writer/', 'instagram.com/demetriusmoedas', ...testimonialExcerpts[localePrefix]]) {
+    assert.ok(home.includes(marker), `${localePrefix}home should include testimonial marker ${marker}`);
+  }
+  assert.ok(!home.includes('example.com'), `${localePrefix}home should not publish sample testimonial links`);
   for (const slug of ['a-doutrina-sufi', 'arte-cavalheiresca-do-arqueiro-zen']) {
     const project = readFileSync(`dist/${localePrefix}projects/${slug}/index.html`, 'utf8');
     assert.ok(home.includes(`/projects/${slug}`), `${localePrefix}home should show ${slug}`);

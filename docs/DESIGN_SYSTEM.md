@@ -155,7 +155,7 @@ Use `200–300ms` em hover/estado e `650ms` somente no reveal de seções. Não 
 | Imagem do card e variantes | `src/components/ProjectThumbnail.astro` | Listagem e destaque preservam sua regra de enquadramento |
 | Breadcrumb, projeto e galeria | `src/pages/projects/[slug].astro` | Caminho centrado, mídia e detalhes do projeto |
 | Logos de marcas e galeria da home | `src/pages/index.astro` | Logos com `object-contain`; imagens de galeria com recorte |
-| Carrossel de depoimentos (aguardando conteúdo real; não publicado na home) | `src/components/Testimonials.astro` | Autoavanço, pausa por seleção e movimento reduzido |
+| Carrossel de depoimentos | `src/components/Testimonials.astro` | Depoimentos reais em PT/EN/ES, autoavanço, pausa por seleção e movimento reduzido |
 | Formulário e gaveta de contato | `src/components/DrawerForm.astro` | Campos, status, validação e foco no painel |
 | Consentimento analítico | `src/components/Analytics.astro` | Escolha explícita e ajuste posterior |
 | Rodapé e redes sociais | `src/components/Footer.astro` | CTA, logo, navegação, contato e SVGs sociais |
@@ -167,7 +167,7 @@ Use `200–300ms` em hover/estado e `650ms` somente no reveal de seções. Não 
 - Entrada das seções: opacidade de 0 a 1 e deslocamento vertical de 24px a 0 em 650ms, com `--ease-reveal` e atrasos curtos quando necessário. A página do design system reproduz esse comportamento.
 - Cards de portfólio e serviço: subida de 4px em 300ms; a imagem da galeria amplia até 1,05 em 500ms. Botões e links mudam cor em cerca de 200–300ms.
 - Menus e gaveta de contato: translação lateral e overlay em 300ms; abertura e fechamento continuam acessíveis por teclado.
-- Depoimentos (quando publicados): avanço automático a cada 6s quando visíveis, pausa ao clicar em um cartão e ampliação discreta da seleção.
+- Depoimentos: avanço automático a cada 6s quando visíveis, pausa ao clicar em um cartão e ampliação discreta da seleção.
 - Com `prefers-reduced-motion: reduce`, conteúdo aparece sem reveal e depoimentos não avançam automaticamente. Nunca dependa do movimento para comunicar uma informação.
 
 ## Acessibilidade

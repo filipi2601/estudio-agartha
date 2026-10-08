@@ -1,26 +1,50 @@
 ---
-import { ArrowUpRight, ChevronLeft, ChevronRight, Quote, UserRound } from '@lucide/astro';
-import type { Locale } from '../i18n/ui';
+import { Image } from 'astro:assets';
+import { ArrowUpRight, ChevronLeft, ChevronRight, Quote } from '@lucide/astro';
+import AlinePhoto from '../assets/img/testimonials/aline.jpg';
+import BeatrizPhoto from '../assets/img/testimonials/beatriz.jpg';
+import { ui, type Locale } from '../i18n/ui';
 const { locale = 'pt' } = Astro.props as { locale?: Locale };
 const copy = {
-  pt: { title: 'Depoimentos', intro: 'O que nossos clientes dizem sobre trabalhar com o Estúdio Agartha.', preview: 'Prévia de layout: textos e nomes de exemplo, pendentes de confirmação.', previous: 'Anterior', next: 'Próximo', select: 'Destacar e pausar; clique novamente para continuar', name: 'Nome do cliente', role: 'Cargo ou empresa' },
-  en: { title: 'Testimonials', intro: 'What our clients say about working with Estúdio Agartha.', preview: 'Layout preview: sample text and names awaiting confirmation.', previous: 'Previous', next: 'Next', select: 'Highlight and pause; click again to resume', name: 'Client name', role: 'Role or company' },
-  es: { title: 'Testimonios', intro: 'Lo que nuestros clientes dicen sobre trabajar con Estúdio Agartha.', preview: 'Vista previa: textos y nombres de ejemplo pendientes de confirmación.', previous: 'Anterior', next: 'Siguiente', select: 'Destacar y pausar; pulsa de nuevo para continuar', name: 'Nombre del cliente', role: 'Cargo o empresa' },
+  pt: { title: 'Depoimentos', intro: 'O que nossos clientes dizem sobre trabalhar com o Estúdio Agartha.', previous: 'Anterior', next: 'Próximo', select: 'Destacar e pausar; clique novamente para continuar', photo: 'Foto de', logo: 'Logo da', external: 'abre em outra aba' },
+  en: { title: 'Testimonials', intro: 'What our clients say about working with Estúdio Agartha.', previous: 'Previous', next: 'Next', select: 'Highlight and pause; click again to resume', photo: 'Photo of', logo: 'Logo of', external: 'opens in a new tab' },
+  es: { title: 'Testimonios', intro: 'Lo que nuestros clientes dicen sobre trabajar con Estúdio Agartha.', previous: 'Anterior', next: 'Siguiente', select: 'Destacar y pausar; pulsa de nuevo para continuar', photo: 'Foto de', logo: 'Logotipo de', external: 'se abre en otra pestaña' },
 }[locale];
-// Local wireframe examples only; replace before publishing.
 const reviews = [
-  { name: 'Luiza Guimarães', role: 'Gestora da Luxo & Modas', text: 'O Studio Agartha foi essencial para fortalecer a identidade da nossa marca. O trabalho trouxe mais profissionalismo e coerência visual, com um resultado que se conecta com o nosso público.' },
-  { name: copy.name, role: copy.role, text: 'A equipe soube transformar nossas ideias em uma linguagem visual clara, elegante e consistente. Todo o processo foi conduzido com cuidado e atenção aos detalhes.' },
-  { name: copy.name, role: copy.role, text: 'Além da qualidade do projeto, valorizamos a organização e o diálogo ao longo do trabalho. O resultado final expressou exatamente o que buscávamos.' },
+  {
+    name: 'Aline', photo: AlinePhoto, link: 'https://www.instagram.com/arcikleinjoias/',
+    role: { pt: 'Proprietária da Arci Klein Joias', en: 'Owner of Arci Klein Joias', es: 'Propietaria de Arci Klein Joias' },
+    text: {
+      pt: 'O Paulo (San) me ajudou a organizar os conteúdos das mídias sociais de maneira padronizada e elegante, de acordo com o tom de uma marca de joias personalizadas. Sempre cumpriu os prazos. Indico 100%.',
+      en: 'Paulo (San) helped me organize our social media content in a consistent and elegant way, in keeping with the tone of a personalized jewelry brand. He always met deadlines. I recommend him 100%.',
+      es: 'Paulo (San) me ayudó a organizar los contenidos de las redes sociales de forma coherente y elegante, acorde con el tono de una marca de joyas personalizadas. Siempre cumplió los plazos. Lo recomiendo al 100 %.',
+    },
+  },
+  {
+    name: 'Beatriz Becker', photo: BeatrizPhoto, link: 'https://www.linkedin.com/in/beatriz-becker-writer/',
+    role: { pt: 'Assistente de edição · Editora Stella Maris', en: 'Editorial assistant · Editora Stella Maris', es: 'Asistente editorial · Editora Stella Maris' },
+    text: {
+      pt: 'O Paulo (San) é um profissional com quem é fácil e agradável trabalhar. Ele gosta do que faz, é tranquilo, está sempre de bom humor, é criativo e prioriza atender o cliente. A gente pode pedir numerosas alterações e focar nas minúcias; ele continua com a maior paciência e disponibilidade até chegar ao resultado que queremos. Ele também busca sempre ampliar seus conhecimentos. Recomendo muitíssimo.',
+      en: 'Paulo (San) is easy and pleasant to work with. He enjoys what he does, is calm, always in good spirits and creative, and puts the client first. We can ask for numerous changes and focus on the smallest details; he remains patient and available until we achieve the result we want. He also continually seeks to expand his knowledge. I highly recommend him.',
+      es: 'Es fácil y agradable trabajar con Paulo (San). Le gusta lo que hace, es tranquilo, siempre está de buen humor, es creativo y prioriza al cliente. Podemos pedir numerosas modificaciones y centrarnos en los detalles más pequeños; él mantiene la paciencia y la disposición hasta llegar al resultado que buscamos. También procura ampliar constantemente sus conocimientos. Lo recomiendo muchísimo.',
+    },
+  },
+  {
+    name: 'Demetrius Coin', photo: null, link: 'https://www.instagram.com/demetriusmoedas',
+    role: { pt: 'Moedas romanas', en: 'Roman coins', es: 'Monedas romanas' },
+    text: {
+      pt: 'Fiquei realmente impressionado com o trabalho do estúdio! Conseguiram captar com perfeição a estética da Antiguidade romana e traduzi-la para a identidade visual do meu negócio de moedas romanas, de uma forma que superou todas as minhas expectativas. O resultado ficou muito além do que eu poderia imaginar. Trabalho excepcional, estão de parabéns! Nota 100!',
+      en: 'I was truly impressed by the studio’s work! They captured the aesthetic of ancient Rome perfectly and translated it into the visual identity of my Roman coin business, surpassing all my expectations. The result was far beyond what I could have imagined. Exceptional work—congratulations! A perfect score!',
+      es: 'Me impresionó de verdad el trabajo del estudio. Captaron a la perfección la estética de la antigua Roma y la trasladaron a la identidad visual de mi negocio de monedas romanas, superando todas mis expectativas. El resultado fue mucho más allá de lo que podía imaginar. ¡Un trabajo excepcional, enhorabuena! ¡Un diez!',
+    },
+  },
 ];
-const previewLink = 'https://example.com';
 ---
 <section id="depoimentos" class="testimonials my-10 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12" aria-labelledby="testimonials-title" data-testimonials>
   <header class="testimonials-header">
     <div>
       <h2 id="testimonials-title" class="text-2xl text-brand sm:text-3xl">{copy.title}</h2>
       <p class="mt-3 text-sm leading-6 text-ink-muted">{copy.intro}</p>
-      <p class="mt-2 text-xs text-ink-muted">{copy.preview}</p>
     </div>
   </header>
   <div class="testimonials-track" data-track>
@@ -28,10 +52,10 @@ const previewLink = 'https://example.com';
       <article class="testimonial-card" data-selected="false">
         <button type="button" class="testimonial-select" aria-pressed="false" aria-label={`${copy.select}: ${review.name}`}></button>
         <Quote class="testimonial-quote" aria-hidden="true" />
-        <blockquote lang="pt-BR">{review.text}</blockquote>
+        <blockquote lang={ui[locale].htmlLang}>{review.text[locale]}</blockquote>
         <footer class="testimonial-person">
-          <span class="testimonial-avatar" aria-hidden="true"><UserRound /></span>
-          <div><p class="testimonial-name">{review.name}</p><p class="testimonial-role"><a href={previewLink} target="_blank" rel="noopener noreferrer" aria-label={`${review.role} (${locale === 'pt' ? 'link de exemplo, abre em outra aba' : locale === 'es' ? 'enlace de ejemplo, abre en otra pestaña' : 'sample link, opens in a new tab'})`}>{review.role}<ArrowUpRight aria-hidden="true" /></a></p></div>
+          {review.photo ? <Image src={review.photo} alt={`${copy.photo} ${review.name}`} width={160} height={160} format="webp" loading="lazy" class="testimonial-avatar" /> : <img src="/img/testimonials/demetrius-coin.svg" alt={`${copy.logo} ${review.name}`} width="80" height="80" loading="lazy" class="testimonial-avatar" />}
+          <div><p class="testimonial-name">{review.name}</p><p class="testimonial-role"><a href={review.link} target="_blank" rel="noopener noreferrer" aria-label={`${review.role[locale]} (${copy.external})`}>{review.role[locale]}<ArrowUpRight aria-hidden="true" /></a></p></div>
         </footer>
       </article>
     ))}
@@ -49,7 +73,7 @@ const previewLink = 'https://example.com';
   .testimonials-controls button { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: var(--color-ink-muted); transition: background 200ms, color 200ms; }
   .testimonials-controls button:hover { background: var(--color-surface-soft); color: var(--color-brand-strong); }
   .testimonials-controls svg { width: 15px; height: 15px; }
-  .testimonials-track { grid-column: 1 / -1; grid-row: 2; display: grid; grid-auto-columns: calc((100% - 24px) / 2); grid-auto-flow: column; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 12px 8px 16px; }
+  .testimonials-track { grid-column: 1 / -1; grid-row: 2; display: grid; grid-auto-columns: calc((100% - 24px) / 2); grid-auto-flow: column; gap: 24px; width: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 12px 8px 16px; }
   .testimonials-track::-webkit-scrollbar { display: none; }
   .testimonial-card { position: relative; scroll-snap-align: start; border: 1px solid var(--color-line); border-radius: 16px; background: var(--color-surface-soft); padding: 24px; min-height: 280px; display: flex; flex-direction: column; transform-origin: center; transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease; }
   .testimonial-select { position: absolute; inset: 0; border-radius: inherit; cursor: pointer; }
@@ -58,10 +82,9 @@ const previewLink = 'https://example.com';
   .testimonial-select:focus-visible, .testimonials-controls button:focus-visible { outline: 2px solid var(--color-brand-strong); outline-offset: 3px; }
   .testimonial-quote { width: 32px; height: 32px; color: var(--color-brand); opacity: 0.4; stroke-width: 1.25; flex-shrink: 0; }
   blockquote { margin: 16px 0 24px; font-size: 14px; line-height: 1.7; color: var(--color-ink-muted); }
-  .testimonial-person { border-top: 1px solid var(--color-line); padding-top: 20px; margin-top: auto; display: flex; gap: 14px; align-items: center; }
-  .testimonial-avatar { width: 56px; height: 56px; border-radius: 14px; background: var(--color-brand-tint); color: var(--color-brand); display: grid; place-items: center; flex-shrink: 0; }
-  .testimonial-avatar svg { width: 26px; height: 26px; }
-  .testimonial-name { color: var(--color-brand-strong); font-size: 15px; text-transform: uppercase; }
+  .testimonial-person { position: relative; z-index: 1; border-top: 1px solid var(--color-line); padding-top: 20px; margin-top: auto; display: flex; gap: 14px; align-items: center; }
+  .testimonial-avatar { width: 80px; height: 80px; border-radius: 14px; object-fit: cover; flex-shrink: 0; }
+  .testimonial-name { color: var(--color-brand-strong); font-size: 15px; }
   .testimonial-role { margin-top: 4px; color: var(--color-ink-muted); font-size: 13px; }
   .testimonial-role a { position: relative; display: inline-flex; align-items: center; gap: 4px; pointer-events: auto; text-decoration: underline; text-underline-offset: 3px; }
   .testimonial-role a:hover { color: var(--color-brand-strong); }
@@ -84,7 +107,8 @@ const previewLink = 'https://example.com';
     let paused = false;
     let inView = false;
     const current = () => cards.reduce((nearest, card, index) => Math.abs(card.offsetLeft - cards[0].offsetLeft - track.scrollLeft) < Math.abs(cards[nearest].offsetLeft - cards[0].offsetLeft - track.scrollLeft) ? index : nearest, 0);
-    const last = () => cards.length - (window.matchMedia('(max-width: 740px)').matches ? 1 : 2);
+    const mobile = window.matchMedia('(max-width: 740px)');
+    const last = () => mobile.matches ? cards.length - 1 : cards.length - 2;
     function update() {
       section.querySelector<HTMLElement>('[data-count]')!.textContent = `${Math.min(current(), last()) + 1} / ${last() + 1}`;
     }
@@ -108,7 +132,7 @@ const previewLink = 'https://example.com';
       section.querySelector(selector)!.addEventListener('click', () => move(direction));
     }
     track.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
+    window.addEventListener('resize', () => { if (!mobile.matches && current() > last()) track.scrollLeft = cards[last()].offsetLeft - cards[0].offsetLeft; update(); });
     const observer = new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; }, { threshold: 0.2 });
     observer.observe(section);
     window.setInterval(() => {
