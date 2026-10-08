@@ -1,0 +1,77 @@
+---
+import { getCollection } from 'astro:content';
+import { ArrowRight } from '@lucide/astro';
+import Layout from '../layouts/Layout.astro';
+import ProjectThumbnail from './ProjectThumbnail.astro';
+import { localePath, ui, type Locale } from '../i18n/ui';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const content = {
+  pt: {
+    title: 'Identidade visual e branding', description: 'Identidade visual e branding para marcas que precisam comunicar sua personalidade com clareza.',
+    intro: 'Traduzimos a essência de cada negócio em um sistema visual coerente, flexível e reconhecível.',
+    services: ['Logotipo e elementos gráficos', 'Paleta de cores e tipografia', 'Aplicações de marca', 'Direção visual', 'Estratégia de marca'],
+    projects: 'Projetos de identidade visual', process: 'Como trabalhamos',
+    steps: [['Conhecer', 'Conversamos sobre o negócio, o público e os objetivos.'], ['Definir', 'Construímos uma direção visual para orientar as escolhas.'], ['Criar', 'Desenvolvemos e refinamos os elementos da identidade.'], ['Entregar', 'Organizamos os arquivos finais conforme o escopo aprovado.']],
+    cta: 'Conte sobre sua marca', note: 'O estúdio também atua em design editorial, websites, embalagens e conteúdo digital.',
+  },
+  en: {
+    title: 'Visual identity and branding', description: 'Visual identity and branding for organisations that want to express their character clearly.',
+    intro: 'We translate the character of each organisation into a coherent, flexible and recognisable visual system.',
+    services: ['Logo and graphic elements', 'Colour and typography', 'Brand applications', 'Visual direction', 'Brand strategy'],
+    projects: 'Visual identity projects', process: 'How we work',
+    steps: [['Discover', 'We discuss the organisation, its audience and goals.'], ['Define', 'We establish a visual direction to guide design decisions.'], ['Create', 'We develop and refine the identity elements.'], ['Deliver', 'We organise the final files according to the approved scope.']],
+    cta: 'Tell us about your brand', note: 'The studio also works in editorial design, websites, packaging and digital content.',
+  },
+  es: {
+    title: 'Identidad visual y branding', description: 'Diseño de identidad visual y branding para marcas en España: logotipo, tipografía, sistema gráfico y aplicaciones coherentes.',
+    intro: 'Traducimos la esencia de cada proyecto en un sistema visual coherente, flexible y reconocible. Trabajamos con marcas a distancia, desde la conversación inicial hasta la entrega de los archivos finales.',
+    services: ['Logotipo y elementos gráficos', 'Color y tipografía', 'Aplicaciones de marca', 'Dirección visual', 'Estrategia de marca'],
+    projects: 'Proyectos de identidad visual', process: 'Cómo trabajamos',
+    steps: [['Conocer', 'Hablamos del negocio, el público y los objetivos.'], ['Definir', 'Establecemos una dirección visual para orientar las decisiones.'], ['Crear', 'Desarrollamos y ajustamos los elementos de la identidad.'], ['Entregar', 'Organizamos los archivos finales según el alcance aprobado.']],
+    cta: 'Hablemos de tu marca', note: 'El estudio también trabaja en diseño editorial, sitios web, packaging y contenido digital.',
+  },
+}[locale];
+const projectIds = ['amana', 'luan-cavalcanti', 'sheldon'];
+const projects = (await getCollection('projects')).filter((project) => projectIds.includes(project.id));
+---
+<Layout locale={locale} title={`${content.title} | Estúdio Agartha`} description={content.description}>
+  <section class="my-8 rounded-3xl bg-white px-6 py-12 sm:px-10 lg:px-16 lg:py-20">
+    <h1 class="max-w-4xl text-4xl leading-tight text-[#00a69c] sm:text-5xl">{content.title}</h1>
+    <p class="mt-6 max-w-3xl text-lg leading-8 text-[#686d85]">{content.intro}</p>
+    <button type="button" class="js-open-contact mt-8 rounded-xl bg-[#00a69c] px-7 py-3 font-medium text-white transition-colors hover:bg-[#009186]">{content.cta}</button>
+  </section>
+
+  <section class="my-8 rounded-3xl bg-white px-6 py-10 sm:px-10 lg:px-16">
+    <h2 class="text-2xl text-[#00a69c] sm:text-3xl">{ui[locale].services}</h2>
+    <ul class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {content.services.map((service) => <li class="rounded-2xl border border-gray-100 px-5 py-4 text-[#333]">{service}</li>)}
+    </ul>
+  </section>
+
+  <section class="my-8 rounded-3xl bg-white px-6 py-10 sm:px-10 lg:px-16">
+    <h2 class="text-2xl text-[#00a69c] sm:text-3xl">{content.projects}</h2>
+    <div class="mt-7 grid gap-6 md:grid-cols-3">
+      {projects.map((project) => (
+        <a href={localePath(locale, `projects/${project.id}`)} class="group overflow-hidden rounded-3xl bg-[#e1e4ed]">
+          <ProjectThumbnail src={project.data.cover} alt={project.data.title} variant="showcase" hover />
+          <span class="flex items-center gap-2 px-5 py-4 text-[#333]">{project.data.title}<ArrowRight class="h-4 w-4" aria-hidden="true" /></span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="my-8 rounded-3xl bg-white px-6 py-10 sm:px-10 lg:px-16">
+    <h2 class="text-2xl text-[#00a69c] sm:text-3xl">{content.process}</h2>
+    <div class="mt-7 grid gap-6 sm:grid-cols-2">
+      {content.steps.map(([title, description], index) => (
+        <div class="rounded-2xl border border-gray-100 p-5">
+          <span class="text-sm text-[#00a69c]">0{index + 1}</span>
+          <h3 class="mt-2 text-lg text-[#333]">{title}</h3>
+          <p class="mt-2 leading-7 text-[#686d85]">{description}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-8 max-w-3xl leading-7 text-[#686d85]">{content.note}</p>
+  </section>
+</Layout>

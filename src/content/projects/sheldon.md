@@ -5,7 +5,7 @@ categories:
   - Branding
   - Identidade Visual
   - Estratégia de Marca
-cover: "../../assets/img/projetos/sheldon/1.png"
+cover: "../../assets/img/projetos/sheldon/cover.png"
 images:
   - "../../assets/img/projetos/sheldon/1.png"
   - "../../assets/img/projetos/sheldon/2.png"

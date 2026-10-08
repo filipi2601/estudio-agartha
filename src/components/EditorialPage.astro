@@ -1,0 +1,97 @@
+---
+import { getCollection } from 'astro:content';
+import { ArrowRight } from '@lucide/astro';
+import Layout from '../layouts/Layout.astro';
+import ProjectThumbnail from './ProjectThumbnail.astro';
+import { localePath, ui, type Locale } from '../i18n/ui';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const copy = ui[locale];
+const content = {
+  pt: {
+    title: 'Design editorial e diagramação de livros',
+    description: 'Projetos gráficos, capas e diagramação de livros para editoras, autores e projetos culturais.',
+    intro: 'A forma do livro também conta a história. Criamos capas e interiores que traduzem o conteúdo em uma experiência de leitura clara e expressiva.',
+    eyebrow: 'Nossa especialidade', cta: 'Conte sobre seu livro', projects: 'Projetos editoriais', process: 'Como trabalhamos',
+    steps: [
+      ['Conversa e briefing', 'Entendemos a obra, o público e os formatos necessários.'],
+      ['Direção visual', 'Definimos linguagem gráfica, tipografia e hierarquia da publicação.'],
+      ['Desenvolvimento', 'Criamos e ajustamos capa e miolo conforme o escopo acordado.'],
+      ['Entrega', 'Preparamos os arquivos finais de acordo com as especificações combinadas.'],
+    ],
+    services: ['Projeto gráfico', 'Capas de livros', 'Diagramação do miolo', 'Tipografia editorial', 'Publicações impressas e digitais'],
+    note: 'Também criamos identidade visual, sites, embalagens e conteúdo digital. Cada projeto recebe uma proposta de escopo própria.',
+  },
+  en: {
+    title: 'Editorial design and book layout',
+    description: 'Book design, covers and layouts for publishers, authors and cultural projects.',
+    intro: 'A book’s form is part of its story. We design covers and interiors that turn content into a clear, expressive reading experience.',
+    eyebrow: 'Our specialty', cta: 'Tell us about your book', projects: 'Editorial projects', process: 'How we work',
+    steps: [
+      ['Conversation and brief', 'We learn about the work, its readers and required formats.'],
+      ['Visual direction', 'We define the publication’s visual language, typography and hierarchy.'],
+      ['Design', 'We develop and refine the cover and interior within the agreed scope.'],
+      ['Delivery', 'We prepare final files to the agreed specifications.'],
+    ],
+    services: ['Book design', 'Book covers', 'Interior layout', 'Editorial typography', 'Print and digital publications'],
+    note: 'We also design visual identities, websites, packaging and digital content. Each project receives its own proposal and scope.',
+  },
+  es: {
+    title: 'Diseño editorial y maquetación de libros',
+    description: 'Diseño editorial y maquetación de libros para editoriales y autores en España. Cubiertas, interiores y publicaciones impresas o digitales.',
+    intro: 'La forma de un libro también cuenta su historia. Diseñamos cubiertas e interiores que convierten el contenido en una experiencia de lectura clara y expresiva. Podemos colaborar a distancia con editoriales y autores en España.',
+    eyebrow: 'Nuestra especialidad', cta: 'Hablemos de tu libro', projects: 'Proyectos editoriales', process: 'Cómo trabajamos',
+    steps: [
+      ['Conversación y briefing', 'Conocemos la obra, sus lectores y los formatos necesarios.'],
+      ['Dirección visual', 'Definimos el lenguaje gráfico, la tipografía y la jerarquía de la publicación.'],
+      ['Diseño', 'Desarrollamos y ajustamos la cubierta y el interior según el alcance acordado.'],
+      ['Entrega', 'Preparamos los archivos finales con las especificaciones acordadas.'],
+    ],
+    services: ['Diseño de libros', 'Diseño de cubiertas', 'Maquetación interior', 'Tipografía editorial', 'Publicaciones impresas y digitales'],
+    note: 'También creamos identidades visuales, sitios web, packaging y contenido digital. Cada proyecto recibe una propuesta de alcance propia.',
+  },
+}[locale];
+const projectIds = ['a-alma-do-indio', 'raizes-da-condicao-humana', 'o-romance-da-alma'];
+const projects = (await getCollection('projects')).filter((project) => projectIds.includes(project.id));
+---
+<Layout locale={locale} title={`${content.title} | Estúdio Agartha`} description={content.description}>
+  <section class="my-8 rounded-3xl bg-white px-6 py-12 sm:px-10 lg:px-16 lg:py-20">
+    <p class="text-sm uppercase tracking-[0.18em] text-[#00a69c]">{content.eyebrow}</p>
+    <h1 class="mt-3 max-w-4xl text-4xl leading-tight text-[#00a69c] sm:text-5xl">{content.title}</h1>
+    <p class="mt-6 max-w-3xl text-lg leading-8 text-[#686d85]">{content.intro}</p>
+    <button type="button" class="js-open-contact mt-8 rounded-xl bg-[#00a69c] px-7 py-3 font-medium text-white transition-colors hover:bg-[#009186]">{content.cta}</button>
+  </section>
+
+  <section class="my-8 rounded-3xl bg-white px-6 py-10 sm:px-10 lg:px-16">
+    <h2 class="text-2xl text-[#00a69c] sm:text-3xl">{copy.services}</h2>
+    <ul class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {content.services.map((service) => <li class="rounded-2xl border border-gray-100 px-5 py-4 text-[#333]">{service}</li>)}
+    </ul>
+  </section>
+
+  <section class="my-8 rounded-3xl bg-white px-6 py-10 sm:px-10 lg:px-16">
+    <h2 class="text-2xl text-[#00a69c] sm:text-3xl">{content.projects}</h2>
+    <div class="mt-7 grid gap-6 md:grid-cols-3">
+      {projects.map((project) => (
+        <a href={localePath(locale, `projects/${project.id}`)} class="group overflow-hidden rounded-3xl bg-[#e1e4ed]">
+          <ProjectThumbnail src={project.data.cover} alt={project.data.title} variant="showcase" desktopFit="contain" hover />
+          <span class="flex items-center gap-2 px-5 py-4 text-[#333]">{project.data.title}<ArrowRight class="h-4 w-4" aria-hidden="true" /></span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="my-8 rounded-3xl bg-white px-6 py-10 sm:px-10 lg:px-16">
+    <h2 class="text-2xl text-[#00a69c] sm:text-3xl">{content.process}</h2>
+    <div class="mt-7 grid gap-6 sm:grid-cols-2">
+      {content.steps.map(([title, description], index) => (
+        <div class="rounded-2xl border border-gray-100 p-5">
+          <span class="text-sm text-[#00a69c]">0{index + 1}</span>
+          <h3 class="mt-2 text-lg text-[#333]">{title}</h3>
+          <p class="mt-2 leading-7 text-[#686d85]">{description}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-8 max-w-3xl leading-7 text-[#686d85]">{content.note}</p>
+  </section>
+</Layout>

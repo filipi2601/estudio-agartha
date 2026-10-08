@@ -1,7 +1,8 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
+import ProjectThumbnail from "../../components/ProjectThumbnail.astro";
 import { getCollection } from "astro:content";
+import { ArrowRight } from "@lucide/astro";
 import { localePath, localizeProject, ui, type Locale } from '../../i18n/ui';
 
 interface Props { locale?: Locale }
@@ -10,6 +11,11 @@ const copy = ui[locale];
 const projects = await getCollection("projects");
 const projectCategory = (project: (typeof projects)[number]) =>
   localizeProject(locale, project.id, project.data.description, project.data.categories).categories[0];
+const filters = [
+  { value: 'all', label: locale === 'es' ? 'Todos' : locale === 'en' ? 'All' : 'Todos' },
+  { value: 'editorial', label: locale === 'es' ? 'Editorial' : locale === 'en' ? 'Editorial' : 'Editorial' },
+  { value: 'identity', label: locale === 'es' ? 'Identidad visual' : locale === 'en' ? 'Visual identity' : 'Identidade visual' },
+];
 ---
 
 <Layout 
@@ -42,14 +48,22 @@ const projectCategory = (project: (typeof projects)[number]) =>
                 {copy.projectListTitle}
             </h1>
 
+            <div class="mb-8 flex flex-wrap gap-2" role="group" aria-label={locale === 'es' ? 'Filtrar proyectos' : locale === 'en' ? 'Filter projects' : 'Filtrar projetos'}>
+                {filters.map((filter, index) => (
+                  <button type="button" data-project-filter={filter.value} aria-pressed={index === 0 ? 'true' : 'false'}
+                    class:list={['rounded-xl border px-4 py-2 text-sm transition-colors', index === 0 ? 'border-[#00a69c] bg-[#00a69c] text-white' : 'border-gray-200 text-[#333] hover:border-[#00a69c]']}>
+                    {filter.label}
+                  </button>
+                ))}
+            </div>
+
             <div class="grid gap-6 md:grid-cols-3">
 
                 {projects.map((project) => (
-                <article
+                <article data-project-type={project.data.categories.includes('Design Editorial') ? 'editorial' : 'identity'}
                     class="overflow-hidden rounded-[2rem] bg-[#e1e4ed] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
 
-                    <Image src={project.data.cover} alt={`${project.data.title} - ${projectCategory(project)}`} loading="lazy"
-                        class="h-[375px] w-full object-cover" />
+                    <ProjectThumbnail src={project.data.cover} alt={`${project.data.title} - ${projectCategory(project)}`} />
 
                     <div class="px-5 py-5 text-center">
 
@@ -64,7 +78,7 @@ const projectCategory = (project: (typeof projects)[number]) =>
                         <a href={localePath(locale, `projects/${project.id}`)}
                             class="inline-flex items-center gap-1 text-sm text-gray-500 transition-colors hover:text-[#00a69c]">
                             <span>{copy.projectDetails}</span>
-                            <span class="text-xs">→</span>
+                            <ArrowRight class="h-3.5 w-3.5" aria-hidden="true" />
                         </a>
 
                     </div>
@@ -76,4 +90,21 @@ const projectCategory = (project: (typeof projects)[number]) =>
 
         </div>
     </section>
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-project-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('[data-project-type]');
+  buttons.forEach((button) => button.addEventListener('click', () => {
+    const selected = button.dataset.projectFilter;
+    buttons.forEach((item) => {
+      const active = item === button;
+      item.setAttribute('aria-pressed', String(active));
+      item.classList.toggle('border-[#00a69c]', active);
+      item.classList.toggle('bg-[#00a69c]', active);
+      item.classList.toggle('text-white', active);
+      item.classList.toggle('border-gray-200', !active);
+      item.classList.toggle('text-[#333]', !active);
+    });
+    cards.forEach((card) => card.classList.toggle('hidden', selected !== 'all' && card.dataset.projectType !== selected));
+  }));
+</script>
 </Layout>

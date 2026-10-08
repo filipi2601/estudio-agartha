@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ui, type Locale } from '../i18n/ui';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const content = {
+  pt: {
+    title: 'Política de Privacidade', intro: 'Esta página explica como o Estúdio Agartha trata os dados enviados pelo formulário de contato.',
+    headings: ['Dados e finalidade', 'Envio e armazenamento', 'Seus direitos', 'Contato'],
+    paragraphs: [
+      'Coletamos nome, e-mail e as informações que você decidir fornecer sobre seu projeto, prazo, orçamento e serviços desejados. Usamos esses dados para responder à consulta, preparar propostas e acompanhar a conversa comercial.',
+      'O formulário utiliza o serviço FormSubmit para encaminhar as mensagens a contatos@studioagartha.com. Segundo a documentação do provedor, as submissões ficam disponíveis em seu arquivo por 30 dias. O e-mail recebido pode ser mantido pelo tempo necessário para atender à consulta e cumprir obrigações aplicáveis.',
+      'Você pode solicitar acesso, correção ou exclusão de seus dados pelo e-mail abaixo. Avaliaremos o pedido conforme a legislação aplicável.',
+      'Para dúvidas sobre seus dados, escreva para contatos@studioagartha.com.',
+    ],
+  },
+  en: {
+    title: 'Privacy Policy', intro: 'This page explains how Estúdio Agartha handles information sent through the contact form.',
+    headings: ['Data and purpose', 'Delivery and storage', 'Your rights', 'Contact'],
+    paragraphs: [
+      'We collect your name, email address and the information you choose to provide about your project, timeline, budget and requested services. We use it to reply to your enquiry, prepare proposals and continue the business conversation.',
+      'The form uses FormSubmit to forward messages to contatos@studioagartha.com. According to the provider’s documentation, submissions remain available in its archive for 30 days. The received email may be kept as long as needed to answer your enquiry and meet applicable obligations.',
+      'You may request access to, correction or deletion of your data using the email address below. We will assess requests under applicable law.',
+      'For questions about your data, email contatos@studioagartha.com.',
+    ],
+  },
+  es: {
+    title: 'Política de privacidad', intro: 'Esta página explica cómo trata Estúdio Agartha los datos enviados mediante el formulario de contacto.',
+    headings: ['Datos y finalidad', 'Envío y conservación', 'Tus derechos', 'Contacto'],
+    paragraphs: [
+      'Recogemos tu nombre, dirección de correo y la información que decidas compartir sobre el proyecto, los plazos, el presupuesto y los servicios solicitados. Utilizamos estos datos para responder a tu consulta, preparar propuestas y continuar la conversación comercial.',
+      'El formulario utiliza FormSubmit para enviar los mensajes a contatos@studioagartha.com. Según la documentación del proveedor, los envíos permanecen disponibles en su archivo durante 30 días. El correo recibido puede conservarse el tiempo necesario para atender la consulta y cumplir las obligaciones aplicables.',
+      'Puedes solicitar acceso, rectificación o supresión de tus datos mediante el correo indicado abajo. Atenderemos tu solicitud de acuerdo con la legislación aplicable.',
+      'Para cualquier consulta sobre tus datos, escribe a contatos@studioagartha.com.',
+    ],
+  },
+}[locale];
+---
+<Layout locale={locale} title={`${content.title} | Estúdio Agartha`} description={content.intro}>
+  <article class="my-8 rounded-3xl bg-white px-6 py-10 sm:px-10 lg:px-16">
+    <h1 class="text-3xl text-[#00a69c] sm:text-4xl">{content.title}</h1>
+    <p class="mt-5 max-w-3xl leading-7 text-[#686d85]">{content.intro}</p>
+    {content.headings.map((heading, index) => (
+      <section class="mt-9 max-w-3xl">
+        <h2 class="text-xl text-[#00a69c]">{heading}</h2>
+        <p class="mt-3 leading-7 text-[#686d85]">{content.paragraphs[index]}</p>
+      </section>
+    ))}
+    <a class="mt-8 inline-block text-[#008f87] underline" href="mailto:contatos@studioagartha.com">contatos@studioagartha.com</a>
+  </article>
+</Layout>

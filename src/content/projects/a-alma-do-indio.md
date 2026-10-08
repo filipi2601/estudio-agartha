@@ -5,7 +5,7 @@ categories:
   - Livros
   - Capa
   - Design Editorial
-cover: "../../assets../../assets/img/projetos/alma/cover.png"
+cover: "../../assets/img/projetos/alma/cover.png"
 images:
   - "../../assets/img/projetos/alma/1.png"
   - "../../assets/img/projetos/alma/2.png"

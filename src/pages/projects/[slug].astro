@@ -21,6 +21,24 @@ const { project, locale = 'pt' } = Astro.props as { project: any; locale?: Local
 const copy = ui[locale];
 const { title, images, cover } = project.data;
 const { description, categories } = localizeProject(locale, project.id, project.data.description, project.data.categories);
+const editorialNotes = {
+  pt: {
+    'a-alma-do-indio': ['Espiritualidade dos povos das planícies norte-americanas', 'Capa e miolo criados a partir da pesquisa de símbolos, formas e silêncios presentes na obra.'],
+    'o-romance-da-alma': ['Expressar a profundidade espiritual do livro', 'Capa e miolo articulam cores, ornamentos medievais e harmonia tipográfica.'],
+    'raizes-da-condicao-humana': ['Equilibrar clareza e transcendência', 'O projeto gráfico organiza artigos sobre metafísica, espiritualidade e tradição com serenidade visual.'],
+  },
+  en: {
+    'a-alma-do-indio': ['The spirituality of North American Plains peoples', 'The cover and interior draw on the symbols, forms and silences explored in the work.'],
+    'o-romance-da-alma': ['Expressing the book’s spiritual depth', 'The cover and interior bring together colour, medieval ornament and typographic harmony.'],
+    'raizes-da-condicao-humana': ['Balancing clarity and transcendence', 'The design organises articles on metaphysics, spirituality and tradition with visual calm.'],
+  },
+  es: {
+    'a-alma-do-indio': ['La espiritualidad de los pueblos de las llanuras norteamericanas', 'La cubierta y el interior parten de los símbolos, las formas y los silencios presentes en la obra.'],
+    'o-romance-da-alma': ['Expresar la profundidad espiritual del libro', 'La cubierta y el interior combinan colores, ornamentos medievales y armonía tipográfica.'],
+    'raizes-da-condicao-humana': ['Equilibrar claridad y trascendencia', 'El diseño organiza artículos sobre metafísica, espiritualidad y tradición con serenidad visual.'],
+  },
+} as const;
+const note = (editorialNotes[locale] as Record<string, readonly [string, string]>)[project.id];
 
 // Usar a imagem cover para OG image
 const projectUrl = new URL(localePath(locale, `projects/${project.id}`), 'https://studioagartha.com').href;
@@ -38,8 +56,8 @@ const projectUrl = new URL(localePath(locale, `projects/${project.id}`), 'https:
     <main class="mx-auto max-w-6xl px-6 py-16">
 
         <!-- Breadcrumbs -->
-        <nav class="mb-8 text-sm" aria-label={copy.breadcrumb}>
-          <ol class="flex items-center gap-2">
+        <nav class="mb-8 text-center text-sm" aria-label={copy.breadcrumb}>
+          <ol class="flex flex-wrap items-center justify-center gap-2">
             <li>
               <a href={localePath(locale)} class="text-[#00a69c] hover:text-[#009186] transition-colors">
                 {copy.home}
@@ -81,6 +99,19 @@ const projectUrl = new URL(localePath(locale, `projects/${project.id}`), 'https:
 
         </header>
 
+        {note && (
+          <section class="mx-auto mt-12 grid max-w-4xl gap-6 rounded-3xl bg-white p-6 sm:grid-cols-2 sm:p-8" aria-label={locale === 'es' ? 'Detalles del proyecto' : locale === 'en' ? 'Project details' : 'Detalhes do projeto'}>
+            <div>
+              <h2 class="text-lg text-[#00a69c]">{locale === 'es' ? 'El reto' : locale === 'en' ? 'The brief' : 'O desafio'}</h2>
+              <p class="mt-2 leading-7 text-gray-600">{note[0]}</p>
+            </div>
+            <div>
+              <h2 class="text-lg text-[#00a69c]">{locale === 'es' ? 'La solución' : locale === 'en' ? 'The approach' : 'A solução'}</h2>
+              <p class="mt-2 leading-7 text-gray-600">{note[1]}</p>
+            </div>
+          </section>
+        )}
+
 
         <!-- Imagens -->
         <section class="mt-16" aria-label={copy.projectGallery}>
@@ -105,6 +136,9 @@ const projectUrl = new URL(localePath(locale, `projects/${project.id}`), 'https:
 
         <!-- Voltar -->
         <div class="mt-12 text-center">
+            <button type="button" class="js-open-contact mb-5 block mx-auto rounded-xl bg-[#00a69c] px-6 py-3 text-sm font-medium text-white hover:bg-[#009186]">
+                {locale === 'es' ? '¿Tienes un proyecto similar? Hablemos' : locale === 'en' ? 'Have a similar project? Let’s talk' : 'Tem um projeto parecido? Vamos conversar'}
+            </button>
             <a href={localePath(locale, 'projects')}
                 class="inline-block rounded-md bg-gray-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-gray-700">
                 {copy.moreProjects}

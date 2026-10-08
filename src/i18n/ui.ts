@@ -13,8 +13,8 @@ export const ui = {
     ogLocale: 'pt_BR',
     home: 'Home', projects: 'Projetos', services: 'Serviços', contact: 'Contato',
     openMenu: 'Abrir menu', closeMenu: 'Fechar menu', tagline: 'Design criativo que transforma marcas.',
-    heroTitle: 'A Beleza que', heroTitle2: 'Converte',
-    heroText: 'Criamos projetos que combinam beleza estratégica e alta performance.', talk: 'Vamos conversar?',
+    heroTitle: 'Design gráfico para marcas,', heroTitle2: 'editoras e projetos culturais.',
+    heroText: 'Criamos identidades visuais, livros, sites, embalagens e conteúdo digital com olhar estratégico.', talk: 'Conte seu projeto',
     recentProjects: 'PROJETOS RECENTES', knowProject: 'Conhecer projeto', allProjects: 'Ver todos os projetos',
     journeyTitle: 'Sua jornada será assim',
     journey: [
@@ -23,8 +23,8 @@ export const ui = {
       ['Apresentação', 'Apresentamos o projeto final com clareza e profissionalismo, seja presencialmente ou online. Explicamos as decisões de design, garantindo que cada elemento reflita sua visão e esteja alinhado com seus objetivos comerciais.'],
       ['Entrega', 'Com o projeto aprovado, organizamos todos os arquivos em um diretório seguro e bem estruturado. Você recebe documentação completa e suporte, garantindo acesso fácil e protegido à identidade da sua marca para sempre.'],
     ],
-    brandsTitle: 'Marcas que já transformaram suas ideias em projetos incríveis com o Estúdio Agartha!',
-    servicesTitle: 'Quais serviços oferecemos?',
+    brandsTitle: 'Marcas e projetos que confiam no Estúdio Agartha',
+    servicesTitle: 'Design editorial e muito mais',
     serviceItems: [
       ['Identidade Visual', 'Conjunto de elementos gráficos que representa uma marca, incluindo logotipo, cores e tipografia, criando uma imagem coesa que transmite os valores e a personalidade da empresa.'],
       ['Desenvolvimento e criação de website', 'Criamos websites personalizados, unindo design moderno, navegação intuitiva e otimização para uma experiência eficiente e profissional.'],
@@ -45,7 +45,7 @@ export const ui = {
   en: {
     htmlLang: 'en', ogLocale: 'en_US',
     home: 'Home', projects: 'Projects', services: 'Services', contact: 'Contact', openMenu: 'Open menu', closeMenu: 'Close menu', tagline: 'Creative design that transforms brands.',
-    heroTitle: 'Beauty that', heroTitle2: 'Converts', heroText: 'We create projects that combine strategic beauty and high performance.', talk: "Let's talk?",
+    heroTitle: 'Graphic design for brands,', heroTitle2: 'publishers and cultural projects.', heroText: 'We create visual identities, books, websites, packaging and digital content with a strategic approach.', talk: 'Tell us about your project',
     recentProjects: 'RECENT PROJECTS', knowProject: 'View project', allProjects: 'View all projects', journeyTitle: 'Your journey will look like this',
     journey: [
       ['Brand strategy', 'We begin with an in-depth conversation to understand your ideas, challenges, and goals. Through strategic meetings and detailed analysis, we build a solid plan that guides your project now and in the future.'],
@@ -53,7 +53,7 @@ export const ui = {
       ['Presentation', 'We present the final project clearly and professionally, in person or online. We explain each design decision and ensure every element reflects your vision and business goals.'],
       ['Delivery', 'Once approved, we organize every file in a secure, well-structured directory. You receive complete documentation and support for safe, lasting access to your brand identity.'],
     ],
-    brandsTitle: 'Brands that have transformed their ideas into remarkable projects with Estúdio Agartha!', servicesTitle: 'What services do we offer?',
+    brandsTitle: 'Brands and projects that trust Estúdio Agartha', servicesTitle: 'Editorial design and much more',
     serviceItems: [
       ['Visual Identity', 'A cohesive system of logos, colors, and typography that communicates a company’s values and personality.'],
       ['Website design and development', 'We create custom websites with modern design, intuitive navigation, and optimized, professional experiences.'],
@@ -69,7 +69,7 @@ export const ui = {
   es: {
     htmlLang: 'es', ogLocale: 'es_ES',
     home: 'Inicio', projects: 'Proyectos', services: 'Servicios', contact: 'Contacto', openMenu: 'Abrir menú', closeMenu: 'Cerrar menú', tagline: 'Diseño creativo que transforma marcas.',
-    heroTitle: 'La belleza que', heroTitle2: 'Convierte', heroText: 'Creamos proyectos que combinan belleza estratégica y alto rendimiento.', talk: '¿Hablamos?',
+    heroTitle: 'Diseño gráfico para marcas,', heroTitle2: 'editoriales y proyectos culturales.', heroText: 'Diseñamos libros, identidades visuales, sitios web, packaging y contenido digital para editoriales, autores y marcas. Podemos colaborar a distancia con clientes en España.', talk: 'Hablemos de tu proyecto',
     recentProjects: 'PROYECTOS RECIENTES', knowProject: 'Ver proyecto', allProjects: 'Ver todos los proyectos', journeyTitle: 'Así será tu recorrido',
     journey: [
       ['Estrategia de marca', 'Comenzamos con una conversación profunda para comprender tus ideas, desafíos y objetivos. Mediante reuniones estratégicas y un análisis detallado, estructuramos un plan sólido que guía el presente y el futuro de tu proyecto.'],
@@ -77,18 +77,18 @@ export const ui = {
       ['Presentación', 'Presentamos el proyecto final con claridad y profesionalidad, de forma presencial u online. Explicamos las decisiones de diseño para que cada elemento refleje tu visión y tus objetivos comerciales.'],
       ['Entrega', 'Una vez aprobado el proyecto, organizamos todos los archivos en un directorio seguro y bien estructurado. Recibes documentación completa y asistencia para acceder siempre a la identidad de tu marca.'],
     ],
-    brandsTitle: '¡Marcas que ya transformaron sus ideas en proyectos increíbles con Estúdio Agartha!', servicesTitle: '¿Qué servicios ofrecemos?',
+    brandsTitle: 'Marcas y proyectos que han confiado en Estúdio Agartha', servicesTitle: 'Diseño editorial y mucho más',
     serviceItems: [
-      ['Identidad visual', 'Conjunto de elementos gráficos que representa una marca, incluidos el logotipo, los colores y la tipografía, y comunica sus valores y personalidad.'],
+      ['Diseño editorial', 'Diseñamos cubiertas, libros y publicaciones impresas o digitales, cuidando la tipografía, las imágenes y la experiencia de lectura.'],
+      ['Identidad visual', 'Creamos sistemas visuales coherentes —logotipo, color, tipografía y aplicaciones— para expresar la personalidad de cada marca.'],
       ['Diseño y desarrollo web', 'Creamos sitios web personalizados que combinan diseño moderno, navegación intuitiva y optimización para ofrecer una experiencia eficiente y profesional.'],
       ['Embalajes y etiquetas', 'Desarrollamos embalajes que ofrecen una experiencia agradable y memorable, comunicando el mensaje de la marca de forma clara y eficaz.'],
-      ['Diseño editorial', 'Diseño de publicaciones impresas y digitales que combina tipografía, imágenes y maquetación para garantizar una lectura clara, atractiva y armoniosa.'],
       ['Contenido para redes sociales', 'Creamos contenido visual para plataformas digitales, como publicaciones y vídeos, con el objetivo de aumentar la interacción y promocionar la marca eficazmente.'],
     ],
     gallery: 'Galería', galleryTitle: 'Creamos obras visuales y estratégicas para negocios memorables.', projectListTitle: 'Proyectos de diseño y branding', projectDetails: 'Ver detalles del proyecto', moreProjects: 'Ver más proyectos', projectGallery: 'Galería del proyecto', image: 'Imagen', breadcrumb: 'Ruta de navegación',
     footerTitle: 'Transforma tu idea en algo increíble.', footerTagline: 'Como el jabalí, nuestro diseño es original e imposible de ignorar.', pages: 'Páginas', portfolio: 'Portafolio', rights: 'TODOS LOS DERECHOS RESERVADOS',
     formTitle: 'Hablemos', formIntro: 'Este formulario es un primer paso fundamental para que podamos comprender claramente tu proyecto.', name: 'Nombre', phone: 'Teléfono', company: 'Nombre de tu empresa', companyPlaceholder: 'Tu empresa', instagram: '¿Cuál es el Instagram de tu empresa?', referral: '¿Cómo nos conociste?', ad: 'Anuncio', recommendation: 'Recomendación', desiredServices: '¿Qué servicios deseas contratar?', visualIdentity: 'Identidad visual', packaging: 'Embalaje', business: 'Describe brevemente tu negocio', send: 'Enviar',
-    seoDescription: 'Diseño creativo que transforma marcas. Especialistas en identidad visual, branding, sitios web, embalajes y contenido para redes sociales.',
+    seoDescription: 'Diseño gráfico para editoriales, autores y marcas en España. Libros, identidad visual, sitios web, packaging y contenido digital a distancia.',
   },
 } as const;
 
@@ -109,6 +109,8 @@ const categoryTranslations = {
 
 const projectDescriptions = {
   en: {
+    'a-doutrina-sufi': 'For A Doutrina Súfi by Titus Burckhardt, published by Editora Stella Maris, I designed the cover and interior layout. Geometric patterns and typography echo the book’s study of Islam’s contemplative tradition.',
+    'arte-cavalheiresca-do-arqueiro-zen': 'For Editora Ekayana’s edition of A Arte Cavalheiresca do Arqueiro Zen by Eugen Herrigel, I designed the cover and interior layout. The visual language follows the meeting of archery practice and the inner path described in the book.',
     'a-alma-do-indio': 'Designing the interior and cover of A Alma do Índio was a profoundly cross-cultural experience. To visually represent the spirituality of the North American Plains peoples, I immersed myself in their symbols, forms, and silences.',
     amana: 'This visual identity was, above all, a deep immersion in the Muslim universe.',
     'ecos-do-japao': 'The cover of Ecos do Japão was created to evoke the serenity and elegance of traditional Japanese aesthetics. Its composition translates the spirit of the work into a simple, contemplative invitation to explore Japanese culture.',
@@ -119,6 +121,8 @@ const projectDescriptions = {
     sheldon: 'Working with Sheldon Calçados was a remarkable experience. Every stage combined professionalism, good taste, and energy with a brand deeply committed to quality, style, comfort, and its customers.',
   },
   es: {
+    'a-doutrina-sufi': 'Para A Doutrina Súfi, de Titus Burckhardt, publicado por Editora Stella Maris, diseñé la cubierta y maqueté el interior. Los motivos geométricos y la tipografía dialogan con el estudio de la tradición contemplativa del islam que presenta la obra.',
+    'arte-cavalheiresca-do-arqueiro-zen': 'Para la edición de A Arte Cavalheiresca do Arqueiro Zen, de Eugen Herrigel, publicada por Editora Ekayana, diseñé la cubierta y maqueté el interior. El lenguaje visual acompaña el encuentro entre la práctica del arco y el camino interior narrado en el libro.',
     'a-alma-do-indio': 'Maquetar el interior y crear la portada de A Alma do Índio fue una experiencia profundamente transcultural. Para representar visualmente la espiritualidad de los pueblos de las llanuras norteamericanas, me sumergí en sus símbolos, formas y silencios.',
     amana: 'Esta identidad visual fue, ante todo, una profunda inmersión en el universo musulmán.',
     'ecos-do-japao': 'La portada de Ecos do Japão fue creada para evocar la serenidad y la elegancia de la estética tradicional japonesa. Su composición traduce el espíritu de la obra en una invitación sencilla y contemplativa a recorrer la cultura de Japón.',

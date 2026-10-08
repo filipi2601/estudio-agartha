@@ -3,11 +3,14 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const pages = [
-  ['dist/index.html', 'lang="pt-BR"', 'A Beleza que'],
-  ['dist/en/index.html', 'lang="en"', 'Beauty that'],
-  ['dist/es/index.html', 'lang="es"', 'La belleza que'],
+  ['dist/index.html', 'lang="pt-BR"', 'Design gráfico para marcas,', 'Design editorial e muito mais'],
+  ['dist/en/index.html', 'lang="en"', 'Graphic design for brands,', 'Editorial design and much more'],
+  ['dist/es/index.html', 'lang="es"', 'Diseño gráfico para marcas,'],
   ['dist/en/projects/index.html', 'Design and Branding Projects'],
   ['dist/es/projects/index.html', 'Proyectos de diseño y branding'],
+  ['dist/es/diseno-editorial/index.html', 'Diseño editorial y maquetación de libros'],
+  ['dist/es/branding/index.html', 'Identidad visual y branding'],
+  ['dist/es/privacy/index.html', 'Política de privacidad'],
 ];
 
 for (const [file, ...expected] of pages) {
@@ -21,7 +24,18 @@ const scripts = [...pages.map(([file]) => file), ...readdirSync('dist/_astro')
   .map((file) => readFileSync(file, 'utf8'))
   .join('\n');
 
-assert.ok(scripts.includes('mailto:contato@studioagartha.com'), 'built site should prepare the form submission by email');
-assert.ok(scripts.includes('contato@studioagartha.com'), 'built footer should show the new email address');
+for (const localePrefix of ['', 'en/', 'es/']) {
+  const home = readFileSync(`dist/${localePrefix}index.html`, 'utf8');
+  for (const slug of ['a-doutrina-sufi', 'arte-cavalheiresca-do-arqueiro-zen']) {
+    const project = readFileSync(`dist/${localePrefix}projects/${slug}/index.html`, 'utf8');
+    assert.ok(home.includes(`/projects/${slug}`), `${localePrefix}home should show ${slug}`);
+    assert.ok(project.includes('capa-contracapa') && project.includes('diagramacao'), `${localePrefix}${slug} should show only the requested gallery images`);
+  }
+}
+
+assert.ok(scripts.includes('formsubmit.co/ajax/'), 'built site should submit the form to the email provider');
+assert.ok(scripts.includes('contatos@studioagartha.com'), 'built footer should show the confirmed email address');
+assert.ok(scripts.includes('https://t.me/Studioagartha'), 'built footer should link to Telegram');
+assert.ok(scripts.includes('prefers-reduced-motion'), 'built site should respect reduced-motion preferences');
 assert.ok(scripts.includes('open-contact'), 'built site should connect the contact button to the drawer');
-console.log('Site check passed: PT, EN, ES, contact drawer and email submission.');
+console.log('Site check passed: PT, EN, ES, editorial page, privacy and contact form.');
