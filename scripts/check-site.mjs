@@ -60,8 +60,17 @@ const testimonialExcerpts = {
 };
 
 const backToTopLabels = { '': 'Voltar ao início', 'en/': 'Back to top', 'es/': 'Volver al inicio' };
+const galleryCopy = {
+  '': ['Projetos em diferentes linguagens visuais.', 'Conhecer projeto', 'Identidade visual'],
+  'en/': ['Projects across different visual languages.', 'View project', 'Visual identity'],
+  'es/': ['Proyectos en distintos lenguajes visuales.', 'Ver proyecto', 'Identidad visual'],
+};
 for (const localePrefix of ['', 'en/', 'es/']) {
   const home = readFileSync(`dist/${localePrefix}index.html`, 'utf8');
+  assert.ok(home.includes('id="galeria"') && home.indexOf('id="galeria"') < home.lastIndexOf('js-open-contact'), `${localePrefix}gallery should precede the final contact invitation`);
+  for (const marker of [...galleryCopy[localePrefix], 'Sheldon Calçados</h3>', 'Amana</h3>', '/projects/sheldon', '/projects/amana']) {
+    assert.ok(home.includes(marker), `${localePrefix}gallery should include ${marker}`);
+  }
   assert.ok(home.includes('property="og:image" content="https://studioagartha.com/social-preview-v2.png"'), `${localePrefix}home should use the studio social preview`);
   assert.ok(home.includes(`data-back-to-top inert aria-hidden="true" aria-label="${backToTopLabels[localePrefix]}"`), `${localePrefix}home should offer a localized back-to-top control`);
   assert.ok(home.includes('whitespace-nowrap') && home.includes('>Estúdio Agartha</span>'), `${localePrefix}header should show the studio name on one line`);

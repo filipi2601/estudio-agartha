@@ -19,8 +19,8 @@ const copy = ui[locale];
 const journey = copy.journey.map(([title, text]) => ({ title, text }));
 
 const gallery = [
-	{ src: Galeria1, alt: 'Sheldon', href: localePath(locale, 'projects/sheldon'), title: 'Sheldon' },
-	{ src: Galeria2, alt: 'Amana', href: localePath(locale, 'projects/amana'), title: 'Amana' }
+	{ src: Galeria1, alt: { pt: 'Cartões de visita da Sheldon Calçados', en: 'Sheldon Calçados business cards', es: 'Tarjetas de visita de Sheldon Calçados' }[locale], href: localePath(locale, 'projects/sheldon'), title: 'Sheldon Calçados', category: 'Branding' },
+	{ src: Galeria2, alt: { pt: 'Identidade visual da Amana sobre uma fotografia arquitetônica', en: 'Amana visual identity over an architectural photograph', es: 'Identidad visual de Amana sobre una fotografía arquitectónica' }[locale], href: localePath(locale, 'projects/amana'), title: 'Amana', category: copy.visualIdentity }
 ];
 
 const recentProjectIds = ['a-doutrina-sufi', 'arte-cavalheiresca-do-arqueiro-zen', 'ecos-do-japao'];
@@ -212,20 +212,8 @@ const serviceIcon = (title: string) => {
 
     <Testimonials locale={locale} />
 
-    <section data-reveal class="my-10 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
-        <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-                <h2 class="text-2xl text-brand sm:text-3xl">{contactPrompt.title}</h2>
-                <p class="mt-3 max-w-3xl leading-relaxed text-ink-muted">{contactPrompt.text}</p>
-            </div>
-            <button type="button" class="js-open-contact shrink-0 self-start rounded-xl bg-brand-strong px-6 py-3 font-medium text-white transition-colors hover:bg-brand-active">
-                {contactPrompt.cta}
-            </button>
-        </div>
-    </section>
-
     <section id="galeria" data-reveal
-        class="mt-8 rounded-4xl border border-white/70 bg-white/75 px-6 py-10 shadow-[0_20px_80px_rgba(15,23,42,0.08)] sm:px-8 lg:px-10">
+        class="my-10 rounded-4xl border border-white/70 bg-white/75 px-6 py-10 shadow-[0_20px_80px_rgba(15,23,42,0.08)] sm:px-8 lg:px-10">
         <div class="text-center">
             <p class="text-sm uppercase tracking-[0.22em] text-teal-700">{copy.gallery}</p>
             <h2 class="mt-2 text-3xl tracking-tight text-slate-950 sm:text-4xl">{copy.galleryTitle}</h2>
@@ -233,14 +221,33 @@ const serviceIcon = (title: string) => {
 
         <div class="mt-8 grid gap-6 lg:grid-cols-2">
             {gallery.map((item) => (
-            <a href={item.href} title={item.title} aria-label={item.title}
-                class="group overflow-hidden rounded-4xl border border-slate-100 bg-white transition hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]">
+            <a href={item.href}
+                class="group overflow-hidden rounded-4xl border border-slate-200 bg-surface-muted shadow-sm transition hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)]">
                 <div class="aspect-16/10 overflow-hidden bg-slate-100">
                     <Image src={item.src} alt={item.alt}
                         class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                 </div>
+                <div class="px-5 py-4">
+                    <h3 class="text-base font-semibold text-brand-strong">{item.title}</h3>
+                    <p class="mt-1 text-sm text-ink-muted">{item.category}</p>
+                    <span class="mt-3 inline-flex items-center gap-1 text-sm font-medium text-brand-strong">
+                        {copy.knowProject}<ArrowRight class="h-4 w-4" aria-hidden="true" />
+                    </span>
+                </div>
             </a>
             ))}
+        </div>
+    </section>
+
+    <section data-reveal class="my-10 rounded-3xl bg-white px-4 py-10 sm:px-6 lg:px-12">
+        <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+                <h2 class="text-2xl text-brand sm:text-3xl">{contactPrompt.title}</h2>
+                <p class="mt-3 max-w-3xl leading-relaxed text-ink-muted">{contactPrompt.text}</p>
+            </div>
+            <button type="button" class="js-open-contact shrink-0 self-start rounded-xl bg-brand px-6 py-3 font-medium text-white transition-colors hover:bg-brand-active">
+                {contactPrompt.cta}
+            </button>
         </div>
     </section>
 </Layout>
