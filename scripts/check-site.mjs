@@ -17,6 +17,9 @@ const pages = [
 ];
 
 assert.ok(!readFileSync('dist/sitemap-0.xml', 'utf8').includes('/design-system/'), 'internal design system should not appear in the sitemap');
+const socialPreview = readFileSync('dist/social-preview.png');
+assert.equal(socialPreview.readUInt32BE(16), 1200, 'social preview should be 1200px wide');
+assert.equal(socialPreview.readUInt32BE(20), 630, 'social preview should be 630px high');
 
 const homeHtml = readFileSync('dist/index.html', 'utf8');
 const languageScript = [...homeHtml.matchAll(/<script>([\s\S]*?)<\/script>/g)]
@@ -58,12 +61,14 @@ const testimonialExcerpts = {
 
 for (const localePrefix of ['', 'en/', 'es/']) {
   const home = readFileSync(`dist/${localePrefix}index.html`, 'utf8');
+  assert.ok(home.includes('property="og:image" content="https://studioagartha.com/social-preview.png"'), `${localePrefix}home should use the studio social preview`);
   for (const marker of ['testimonials-track', 'Aline', 'Beatriz Becker', 'Demetrius Coin', '/img/testimonials/demetrius-coin.svg', 'instagram.com/arcikleinjoias/', 'linkedin.com/in/beatriz-becker-writer/', 'instagram.com/demetriusmoedas', ...testimonialExcerpts[localePrefix]]) {
     assert.ok(home.includes(marker), `${localePrefix}home should include testimonial marker ${marker}`);
   }
   assert.ok(!home.includes('example.com'), `${localePrefix}home should not publish sample testimonial links`);
   for (const slug of ['a-doutrina-sufi', 'arte-cavalheiresca-do-arqueiro-zen']) {
     const project = readFileSync(`dist/${localePrefix}projects/${slug}/index.html`, 'utf8');
+    assert.ok(!project.includes('property="og:image" content="https://studioagartha.com/social-preview.png"'), `${localePrefix}${slug} should retain its project preview`);
     assert.ok(home.includes(`/projects/${slug}`), `${localePrefix}home should show ${slug}`);
     assert.ok(project.includes('capa-contracapa') && project.includes('diagramacao'), `${localePrefix}${slug} should show only the requested gallery images`);
   }

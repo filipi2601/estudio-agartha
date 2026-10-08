@@ -15,8 +15,6 @@
  * />
  */
 
-import SocialPreview from '../assets/img/galeria-1.png';
-
 interface Props {
   title: string;
   description: string;
@@ -33,7 +31,7 @@ interface Props {
 const {
   title,
   description,
-  image = new URL(SocialPreview.src, Astro.site).href,
+  image = '/social-preview.png',
   url = Astro.url.href,
   type = 'webpage',
   author = 'Estúdio Agartha',
@@ -45,6 +43,8 @@ const {
 
 import { locales, localizedPath, ui } from '../i18n/ui';
 const copy = ui[locale];
+const socialImage = new URL(image, Astro.site).href;
+const isDefaultImage = image === '/social-preview.png';
 
 // Montando dados estruturados JSON-LD
 const structuredData = {
@@ -88,7 +88,11 @@ const structuredData = {
 <!-- Open Graph (Facebook, LinkedIn, etc) -->
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={image.startsWith('http') ? image : `https://studioagartha.com${image}`} />
+<meta property="og:image" content={socialImage} />
+<meta property="og:image:alt" content={isDefaultImage ? 'Estúdio Agartha' : title} />
+{isDefaultImage && <meta property="og:image:type" content="image/png" />}
+{isDefaultImage && <meta property="og:image:width" content="1200" />}
+{isDefaultImage && <meta property="og:image:height" content="630" />}
 <meta property="og:url" content={url} />
 <meta property="og:type" content={type === 'article' ? 'article' : 'website'} />
 <meta property="og:locale" content={copy.ogLocale} />
@@ -98,7 +102,7 @@ const structuredData = {
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={image.startsWith('http') ? image : `https://studioagartha.com${image}`} />
+<meta name="twitter:image" content={socialImage} />
 
 <!-- Metadata adicional para artigos -->
 {publishedDate && <meta property="article:published_time" content={publishedDate} />}
