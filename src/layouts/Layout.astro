@@ -52,6 +52,13 @@ const copy = ui[locale];
       locale={locale}
     />
     <title>{title}</title>
+    {Astro.url.pathname === '/' && <script is:inline>
+      let chosen;
+      try { chosen = localStorage.getItem('agartha-language'); } catch { /* Storage can be unavailable. */ }
+      const language = chosen || (navigator.language || 'en').toLowerCase().split('-')[0];
+      const destination = language === 'pt' ? null : language === 'es' ? 'es' : 'en';
+      if (destination) location.replace(`/${destination}/${location.search}${location.hash}`);
+    </script>}
 </head>
 
 <body class="min-h-screen bg-canvas text-slate-900 antialiased">
@@ -65,6 +72,11 @@ const copy = ui[locale];
     <DrawerForm locale={locale} />
     <Analytics locale={locale} />
     <script>
+        document.querySelectorAll<HTMLAnchorElement>('[data-language-choice]').forEach((link) => {
+            link.addEventListener('click', () => {
+                try { localStorage.setItem('agartha-language', link.dataset.languageChoice!); } catch { /* Storage can be unavailable. */ }
+            });
+        });
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const revealTargets = document.querySelectorAll<HTMLElement>('[data-reveal], main > section, main > article');
 

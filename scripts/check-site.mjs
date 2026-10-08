@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import './check-analytics.mjs';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { runInNewContext } from 'node:vm';
 
 const pages = [
   ['dist/design-system/index.html', 'Design system | Estúdio Agartha', 'noindex, nofollow', 'Poppins', 'Cores com função', 'Componentes em contexto'],
@@ -16,6 +17,27 @@ const pages = [
 ];
 
 assert.ok(!readFileSync('dist/sitemap-0.xml', 'utf8').includes('/design-system/'), 'internal design system should not appear in the sitemap');
+
+const homeHtml = readFileSync('dist/index.html', 'utf8');
+const languageScript = [...homeHtml.matchAll(/<script>([\s\S]*?)<\/script>/g)]
+  .map((match) => match[1]).find((script) => script.includes('let chosen;'));
+assert.ok(languageScript, 'root home should detect browser language');
+for (const [browserLanguage, choice, expected] of [
+  ['es-ES', null, '/es/?source=test#work'],
+  ['fr-FR', null, '/en/?source=test#work'],
+  ['pt-BR', null, null],
+  ['es-ES', 'pt', null],
+  ['fr-FR', 'es', '/es/?source=test#work'],
+]) {
+  let redirect = null;
+  runInNewContext(languageScript, {
+    localStorage: { getItem: () => choice }, navigator: { language: browserLanguage },
+    location: { search: '?source=test', hash: '#work', replace: (path) => { redirect = path; } },
+  });
+  assert.equal(redirect, expected, `language redirect for ${browserLanguage} with choice ${choice}`);
+}
+assert.ok(!readFileSync('dist/en/index.html', 'utf8').includes('let chosen;'), 'explicit English URL should not redirect');
+assert.ok(!readFileSync('dist/es/index.html', 'utf8').includes('let chosen;'), 'explicit Spanish URL should not redirect');
 
 for (const [file, ...expected] of pages) {
   const html = readFileSync(file, 'utf8');

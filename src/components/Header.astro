@@ -54,7 +54,7 @@ const copy = ui[locale];
 
              <nav class="hidden items-center gap-1 lg:flex" aria-label="Language selector">
                  {locales.map((item) => (
-                     <a href={localizedPath(pathname, item)} hreflang={ui[item].htmlLang} lang={ui[item].htmlLang}
+                     <a href={localizedPath(pathname, item)} hreflang={ui[item].htmlLang} lang={ui[item].htmlLang} data-language-choice={item}
                          aria-current={item === locale ? 'page' : undefined}
                          class:list={["rounded-md px-2 py-1 text-xs transition-colors", item === locale ? "bg-brand-strong text-white" : "text-brand hover:bg-canvas"]}>
                          {languageNames[item]}
@@ -107,7 +107,7 @@ const copy = ui[locale];
          </button>
          <div class="mt-4 flex gap-2 border-t border-gray-100 pt-5">
              {locales.map((item) => (
-                 <a href={localizedPath(pathname, item)} hreflang={ui[item].htmlLang} lang={ui[item].htmlLang}
+                 <a href={localizedPath(pathname, item)} hreflang={ui[item].htmlLang} lang={ui[item].htmlLang} data-language-choice={item}
                      class:list={["rounded-lg px-3 py-2 text-sm", item === locale ? "bg-brand-strong text-white" : "bg-gray-100 text-gray-600"]}>
                      {languageNames[item]}
                  </a>
