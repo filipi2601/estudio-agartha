@@ -1,4 +1,13 @@
 @import "tailwindcss";
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  input:is([type="button"], [type="submit"], [type="reset"]):not(:disabled) {
+    cursor: pointer;
+  }
+}
+
 @font-face {
   font-family: "Coolvetica Compressed HV";
   src: url("../assets/fonts/coolvetica-compressed-hv.woff2") format("woff2");
