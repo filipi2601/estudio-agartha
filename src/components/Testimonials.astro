@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import { ArrowUpRight, ChevronLeft, ChevronRight, Quote } from '@lucide/astro';
 import AlinePhoto from '../assets/img/testimonials/aline.jpg';
 import BeatrizPhoto from '../assets/img/testimonials/beatriz.jpg';
+import YuriPhoto from '../assets/img/testimonials/yuri.jpg';
 import { ui, type Locale } from '../i18n/ui';
 const { locale = 'pt' } = Astro.props as { locale?: Locale };
 const copy = {
@@ -27,6 +28,15 @@ const reviews = [
       pt: 'O Paulo (San) é um profissional com quem é fácil e agradável trabalhar. Ele gosta do que faz, é tranquilo, está sempre de bom humor, é criativo e prioriza atender o cliente. A gente pode pedir numerosas alterações e focar nas minúcias; ele continua com a maior paciência e disponibilidade até chegar ao resultado que queremos. Ele também busca sempre ampliar seus conhecimentos. Recomendo muitíssimo.',
       en: 'Paulo (San) is easy and pleasant to work with. He enjoys what he does, is calm, always in good spirits and creative, and puts the client first. We can ask for numerous changes and focus on the smallest details; he remains patient and available until we achieve the result we want. He also continually seeks to expand his knowledge. I highly recommend him.',
       es: 'Es fácil y agradable trabajar con Paulo (San). Le gusta lo que hace, es tranquilo, siempre está de buen humor, es creativo y prioriza al cliente. Podemos pedir numerosas modificaciones y centrarnos en los detalles más pequeños; él mantiene la paciencia y la disposición hasta llegar al resultado que buscamos. También procura ampliar constantemente sus conocimientos. Lo recomiendo muchísimo.',
+    },
+  },
+  {
+    name: 'Yuri dos Anjos', photo: YuriPhoto, link: 'https://www.instagram.com/oyuridosanjos/',
+    role: { pt: 'Autor', en: 'Author', es: 'Autor' },
+    text: {
+      pt: 'Se alguém tem dúvida sobre o trabalho do Paulo Ricardo (San), eu diria: não tenha dúvida. Digo isso com a experiência de quem confiou dois livros aos seus cuidados, desde a revisão até o maravilhoso trabalho de diagramação e capa. O livro sobre relacionamento ficou magnífico. Podem contratar e confiar nesse profissional, pois não há melhor no mercado. É alguém de grande confiança.',
+      en: 'If anyone has doubts about Paulo Ricardo (San)’s work, I would say: don’t. I speak from the experience of having entrusted two of my books to him, from editing to his wonderful work on the layout and cover. The book about relationships turned out magnificent. You can hire him with confidence: there is no one better in the market. He is someone you can truly trust.',
+      es: 'Si alguien tiene dudas sobre el trabajo de Paulo Ricardo (San), le diría: no las tengas. Lo digo desde la experiencia de haberle confiado dos libros míos, desde la revisión hasta su maravilloso trabajo de maquetación y cubierta. El libro sobre relaciones quedó magnífico. Podéis contratarlo con confianza, porque no hay nadie mejor en el mercado. Es una persona de plena confianza.',
     },
   },
   {
