@@ -24,27 +24,49 @@ const copy = {
   const banner = document.getElementById('analytics-consent');
   let consent = null;
   let loaded = false;
+  const query = new URLSearchParams(location.search);
+  let internal = query.get('analytics_test') === '1';
+  try {
+    if (query.get('analytics_test') === '1') localStorage.setItem('agartha-analytics-test', '1');
+    if (query.get('analytics_test') === '0') localStorage.removeItem('agartha-analytics-test');
+    internal = internal || localStorage.getItem('agartha-analytics-test') === '1';
+  } catch {}
+  const excluded = internal || !['studioagartha.com', 'www.studioagartha.com'].includes(location.hostname);
+  const pageUrl = new URL(location.origin + location.pathname);
+  const campaign = {};
+  for (const [parameter, field] of Object.entries({ utm_source: 'campaign_source', utm_medium: 'campaign_medium', utm_campaign: 'campaign_name', utm_content: 'campaign_content', utm_term: 'campaign_term', utm_id: 'campaign_id' })) {
+    const value = query.get(parameter);
+    // Campaign labels are public tokens; never forward arbitrary query parameters.
+    if (value && /^[a-z0-9_-]{1,80}$/.test(value)) {
+      pageUrl.searchParams.set(parameter, value);
+      campaign[field] = value;
+    }
+  }
+  const projectPage = /^\/(?:en\/|es\/)?projects\/[a-z0-9-]+\/?$/;
   try { consent = localStorage.getItem(key); } catch {}
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }
   gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
 
   function enable() {
+    if (excluded) return;
     gtag('consent', 'update', { analytics_storage: 'granted' });
     if (loaded) return;
     loaded = true;
     gtag('js', new Date());
     gtag('config', id, {
-      page_location: location.origin + location.pathname,
+      page_location: pageUrl.href,
       page_referrer: document.referrer.split('?')[0].split('#')[0],
       allow_google_signals: false,
       allow_ad_personalization_signals: false,
-      send_page_view: true
+      send_page_view: true,
+      ...campaign
     });
     const script = document.createElement('script');
     script.async = true;
     script.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
     document.head.appendChild(script);
+    if (projectPage.test(location.pathname)) track('project_view', { project_path: location.pathname });
   }
   function choose(value) {
     consent = value;
@@ -57,16 +79,24 @@ const copy = {
     }
     banner.hidden = true;
   }
-  function track(name) {
-    if (consent !== 'granted') return;
-    gtag('event', name, { send_to: id, site_language: document.documentElement.lang, page_location: location.origin + location.pathname });
+  function track(name, details = {}) {
+    if (consent !== 'granted' || excluded || !loaded) return;
+    gtag('event', name, { send_to: id, site_language: document.documentElement.lang, page_location: pageUrl.href, ...details });
   }
   if (consent === 'granted') enable();
   else banner.hidden = consent === 'denied';
   document.getElementById('analytics-accept').addEventListener('click', () => choose('granted'));
   document.getElementById('analytics-reject').addEventListener('click', () => choose('denied'));
   document.getElementById('analytics-settings').addEventListener('click', () => { banner.hidden = false; document.getElementById('analytics-accept').focus(); });
-  document.addEventListener('contact-opened', () => track('contact_open'));
-  document.addEventListener('contact-submitted', () => track('generate_lead'));
+  document.addEventListener('contact-opened', () => track('contact_open', { contact_page: location.pathname }));
+  document.addEventListener('contact-submitted', () => track('generate_lead', { contact_page: location.pathname }));
+  document.addEventListener('click', (event) => {
+    const anchor = event.target?.closest?.('a[href]');
+    if (!anchor) return;
+    const target = new URL(anchor.href, location.origin);
+    if (target.origin === location.origin && projectPage.test(target.pathname)) {
+      track('project_click', { project_path: target.pathname });
+    }
+  });
 })();
 </script>
