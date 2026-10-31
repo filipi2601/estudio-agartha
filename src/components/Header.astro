@@ -11,7 +11,7 @@ const copy = ui[locale];
 
  <header>
      <nav class="w-full rounded-b-[18px] bg-white px-8 py-4">
-         <div class="flex w-full items-center justify-between">
+         <div class="flex w-full items-center justify-between lg:grid lg:grid-cols-[1fr_auto_1fr]">
              <a href={localePath(locale)} class="inline-flex shrink-0 items-center gap-2 whitespace-nowrap">
                  <Image src={Logo} alt="" class="h-10 w-auto" />
                  <span class="text-base font-semibold leading-none text-brand sm:text-lg">Estúdio Agartha</span>
@@ -26,34 +26,34 @@ const copy = ui[locale];
              <ul class="z-1 -mb-20 hidden flex-row items-center rounded-2xl bg-canvas p-2.5 lg:flex">
                  <li class="nav-item">
                      <a href={localePath(locale)}
-                         class="mr-2 rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-ink transition-colors hover:bg-gray-100">
+                         class="mr-2 inline-flex items-center rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-ink transition-colors hover:bg-gray-100">
                          {copy.home}
                      </a>
                  </li>
 
                  <li class="nav-item">
                      <a href={localePath(locale, 'projects')}
-                         class="mr-2 rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-ink transition-colors hover:bg-gray-100">
+                         class="mr-2 inline-flex items-center rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-ink transition-colors hover:bg-gray-100">
                          {copy.projects}
                      </a>
                  </li>
 
                  <li class="nav-item">
                      <a href={`${localePath(locale)}#servicos`}
-                         class="mr-2 rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-ink transition-colors hover:bg-gray-100">
+                         class="mr-2 inline-flex items-center rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-ink transition-colors hover:bg-gray-100">
                          {copy.services}
                      </a>
                  </li>
 
                  <li class="nav-item">
                      <button type="button" aria-controls="contactOffcanvas"
-                         class="mr-2 rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-ink transition-colors hover:bg-gray-100">
+                         class="mr-2 inline-flex items-center rounded-[10px] bg-white px-3 py-1.75 text-[0.9rem] font-medium text-ink transition-colors hover:bg-gray-100">
                          {copy.contact}
                      </button>
                  </li>
              </ul>
 
-             <nav class="hidden items-center gap-1 lg:flex" aria-label="Language selector">
+             <nav class="hidden items-center justify-self-end gap-1 lg:flex" aria-label="Language selector">
                  {locales.map((item) => (
                      <a href={localizedPath(pathname, item)} hreflang={ui[item].htmlLang} lang={ui[item].htmlLang} data-language-choice={item}
                          aria-current={item === locale ? 'page' : undefined}
