@@ -1,0 +1,103 @@
+---
+import { Image } from 'astro:assets';
+import Portrait from '../assets/img/paulo-ricardo.png';
+import Layout from '../layouts/Layout.astro';
+import { type Locale } from '../i18n/ui';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const content = {
+  pt: {
+    title: 'San, o designer por trás do Estúdio Agartha',
+    intro: 'Sou Paulo Ricardo Souza Silva, mas profissionalmente assino como San. À frente do Estúdio Agartha, trabalho para dar a cada projeto uma forma que expresse sua essência, valorize seu conteúdo e faça sentido para quem vai encontrá-lo.',
+    sections: [
+      ['Beleza que comunica e valoriza',
+       'Cheguei ao design pelo prazer de ver e criar coisas bonitas. O interesse pelas formas geométricas se tornou uma maneira de organizar ideias e dar presença ao que merece ser visto.',
+       'Esse olhar orienta meu trabalho: escolher formas, cores e tipografia que ajudem o público a compreender uma mensagem, reconhecer uma marca e perceber o valor do que ela oferece. A beleza participa desse resultado ao despertar interesse e tornar a apresentação mais clara e coerente.'],
+      ['Um servidor da palavra impressa',
+       'Meu encontro com o design editorial veio do amor pelos livros: pelas capas que convidam à leitura e pelos miolos em que cada detalhe ajuda o texto a respirar. Considero-me um servidor leal da palavra impressa.',
+       'Minha tarefa é encontrar uma apresentação à altura da obra. A forma deve respeitar o conteúdo, revelar suas qualidades e oferecer ao leitor uma experiência bem cuidada. É esse compromisso que levo ao trabalho com autores e editoras.'],
+      ['O sentido de Agartha',
+       'Escolhi o nome Agartha pela imagem do paraíso terrestre: uma referência de beleza, pureza e harmonia. O javali que acompanha a marca também nasce do meu interesse pelo simbolismo tradicional. Esses elementos traduzem uma busca pessoal que orienta meu olhar para a proporção, o significado e a coerência das formas.',
+       'Conduzo os projetos pessoalmente e, em geral, trabalho sozinho. Isso permite que você converse diretamente com quem pensa e desenvolve o design, da primeira ideia aos detalhes finais. Meu compromisso é colocar esse cuidado a serviço do seu projeto e dos objetivos que ele precisa alcançar.'],
+    ],
+  },
+  en: {
+    title: 'San, the designer behind Estúdio Agartha',
+    intro: 'My name is Paulo Ricardo Souza Silva, and I work under the name San. At Estúdio Agartha, I give each project a visual form that expresses its character, brings out the value of its content and connects with its audience.',
+    sections: [
+      ['Beauty that communicates value',
+       'I came to design through the pleasure of seeing and creating beautiful things. My interest in geometric forms became a way to organise ideas and give a presence to things that deserve to be seen.',
+       'That perspective guides my work: choosing shapes, colours and typography that help people understand a message, recognise a brand and appreciate what it offers. Beauty contributes by inviting attention and making the presentation clearer and more coherent.'],
+      ['In service of the printed word',
+       'My path into editorial design grew out of a love of books: covers that invite you to read and interiors where every detail gives the text room to breathe. I see myself as a faithful servant of the printed word.',
+       'My task is to find a presentation worthy of the work. Its form should respect the content, bring out its qualities and offer a carefully considered reading experience. That is the commitment I bring to working with authors and publishers.'],
+      ['The meaning of Agartha',
+       'I chose the name Agartha for its image of an earthly paradise: a reference to beauty, purity and harmony. The wild boar in the studio’s identity also comes from my interest in traditional symbolism. These elements express a personal pursuit that informs my attention to proportion, meaning and coherence of form.',
+       'I lead projects personally and generally work on my own. You speak directly with the person who conceives and develops the design, from the first idea to the final details. My commitment is to put that care at the service of your project and the goals it needs to achieve.'],
+    ],
+  },
+  es: {
+    title: 'San, el diseñador detrás de Estúdio Agartha',
+    intro: 'Me llamo Paulo Ricardo Souza Silva, pero profesionalmente firmo como San. Al frente de Estúdio Agartha, doy a cada proyecto una forma que exprese su esencia, ponga en valor su contenido y conecte con su público.',
+    sections: [
+      ['Belleza que comunica y aporta valor',
+       'Llegué al diseño por el placer de ver y crear cosas bonitas. El interés por las formas geométricas se convirtió en una manera de organizar ideas y dar presencia a lo que merece ser visto.',
+       'Esa mirada guía mi trabajo: elegir formas, colores y tipografías que ayuden al público a comprender un mensaje, reconocer una marca y percibir el valor de lo que ofrece. La belleza contribuye al despertar interés y hacer que la presentación sea más clara y coherente.'],
+      ['Al servicio de la palabra impresa',
+       'Mi encuentro con el diseño editorial nació del amor por los libros: las cubiertas que invitan a leer y los interiores donde cada detalle ayuda al texto a respirar. Me considero un servidor fiel de la palabra impresa.',
+       'Mi tarea es encontrar una presentación a la altura de la obra. La forma debe respetar el contenido, revelar sus cualidades y ofrecer al lector una experiencia cuidada. Ese es el compromiso que llevo al trabajo con autores y editoriales.'],
+      ['El sentido de Agartha',
+       'Elegí el nombre Agartha por la imagen del paraíso terrestre: una referencia de belleza, pureza y armonía. El jabalí que acompaña a la marca también nace de mi interés por el simbolismo tradicional. Estos elementos expresan una búsqueda personal que guía mi atención a la proporción, el significado y la coherencia de las formas.',
+       'Dirijo los proyectos personalmente y, por lo general, trabajo solo. Así puedes hablar directamente con quien concibe y desarrolla el diseño, desde la primera idea hasta los detalles finales. Mi compromiso es poner ese cuidado al servicio de tu proyecto y de los objetivos que necesita alcanzar.'],
+    ],
+  },
+}[locale];
+---
+<Layout locale={locale} title={`${content.title} | Estúdio Agartha`} description={content.intro}>
+  <article class="my-12 rounded-3xl bg-white px-5 py-12 sm:px-10 lg:px-16 lg:py-16">
+    <header class="mx-auto max-w-4xl text-center">
+      <Image src={Portrait} alt="San — Paulo Ricardo Souza Silva" widths={[240, 360, 480, 720]} sizes="(min-width: 640px) 360px, 240px" loading="eager" class="mx-auto h-60 w-60 rounded-full object-cover sm:h-90 sm:w-90" />
+      <h1 class="sr-only">{content.title}</h1>
+      <p class="mx-auto mt-8 max-w-2xl text-xl leading-7 text-ink-muted sm:text-2xl sm:leading-8" data-introduction>
+        <span class="sr-only">{content.intro}</span>
+        <span aria-hidden="true">{content.intro.split(' ').map((word, index) => <Fragment><span class="intro-word" style={`--word-delay: ${index * 90}ms`}><span class="intro-ink">{word}</span></span>{' '}</Fragment>)}</span>
+      </p>
+    </header>
+    <div class="mx-auto mt-16 max-w-5xl sm:mt-24">
+      {content.sections.map(([title, ...paragraphs], index) => (
+        <section class:list={["grid gap-6 border-t border-brand/25 py-10 sm:py-14 lg:grid-cols-12 lg:gap-12", index === 1 && "lg:gap-x-16"]}>
+          <h2 class:list={["max-w-sm text-4xl leading-tight text-brand-strong sm:text-5xl lg:col-span-4", index === 1 && "lg:col-start-9 lg:row-start-1"]}>{title}</h2>
+          <div class:list={["space-y-5 font-sans text-base leading-6 text-ink lg:col-span-8", index === 1 && "lg:col-start-1 lg:row-start-1"]}>
+            {paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        </section>
+      ))}
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .intro-word { display: inline-block; position: relative; }
+  .intro-ink { display: inline-block; }
+  @media (prefers-reduced-motion: no-preference) {
+    .intro-ink { animation: write-word 90ms linear var(--word-delay) both; }
+    .intro-word::after {
+      content: '';
+      position: absolute;
+      top: 0.15em;
+      height: 1em;
+      border-left: 2px solid var(--color-brand-strong);
+      opacity: 0;
+      animation: writing-cursor 90ms linear var(--word-delay);
+    }
+  }
+  @keyframes write-word {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+  }
+  @keyframes writing-cursor {
+    0% { left: 0; opacity: 1; }
+    99% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+  }
+</style>

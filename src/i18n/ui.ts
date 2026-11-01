@@ -11,7 +11,7 @@ export const ui = {
   pt: {
     htmlLang: 'pt-BR',
     ogLocale: 'pt_BR',
-    home: 'Home', projects: 'Projetos', services: 'Serviços', contact: 'Contato',
+    home: 'Home', about: 'Sobre', projects: 'Projetos', services: 'Serviços', contact: 'Contato',
     openMenu: 'Abrir menu', closeMenu: 'Fechar menu', tagline: 'Design criativo que transforma marcas.',
     heroTitle: 'Design gráfico para marcas,', heroTitle2: 'editoras e projetos culturais.',
     heroText: 'Criamos identidades visuais, livros, sites, embalagens e conteúdo digital com olhar estratégico.', talk: 'Conte seu projeto',
@@ -44,7 +44,7 @@ export const ui = {
   },
   en: {
     htmlLang: 'en', ogLocale: 'en_US',
-    home: 'Home', projects: 'Projects', services: 'Services', contact: 'Contact', openMenu: 'Open menu', closeMenu: 'Close menu', tagline: 'Creative design that transforms brands.',
+    home: 'Home', about: 'About', projects: 'Projects', services: 'Services', contact: 'Contact', openMenu: 'Open menu', closeMenu: 'Close menu', tagline: 'Creative design that transforms brands.',
     heroTitle: 'Graphic design for brands,', heroTitle2: 'publishers and cultural projects.', heroText: 'We create visual identities, books, websites, packaging and digital content with a strategic approach.', talk: 'Tell us about your project',
     recentProjects: 'RECENT PROJECTS', knowProject: 'View project', allProjects: 'View all projects', journeyTitle: 'Your journey will look like this',
     journey: [
@@ -68,7 +68,7 @@ export const ui = {
   },
   es: {
     htmlLang: 'es', ogLocale: 'es_ES',
-    home: 'Inicio', projects: 'Proyectos', services: 'Servicios', contact: 'Contacto', openMenu: 'Abrir menú', closeMenu: 'Cerrar menú', tagline: 'Diseño creativo que transforma marcas.',
+    home: 'Inicio', about: 'Sobre mí', projects: 'Proyectos', services: 'Servicios', contact: 'Contacto', openMenu: 'Abrir menú', closeMenu: 'Cerrar menú', tagline: 'Diseño creativo que transforma marcas.',
     heroTitle: 'Diseño gráfico para marcas,', heroTitle2: 'editoriales y proyectos culturales.', heroText: 'Diseñamos libros, identidades visuales, sitios web, packaging y contenido digital para editoriales, autores y marcas. Podemos colaborar a distancia con clientes en España.', talk: 'Hablemos de tu proyecto',
     recentProjects: 'PROYECTOS RECIENTES', knowProject: 'Ver proyecto', allProjects: 'Ver todos los proyectos', journeyTitle: 'Así será tu recorrido',
     journey: [

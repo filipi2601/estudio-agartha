@@ -21,6 +21,15 @@ const socialPreview = readFileSync('dist/social-preview-v2.png');
 assert.equal(socialPreview.readUInt32BE(16), 1200, 'social preview should be 1200px wide');
 assert.equal(socialPreview.readUInt32BE(20), 630, 'social preview should be 630px high');
 
+for (const prefix of ['', 'en/', 'es/']) {
+  const about = readFileSync(`dist/${prefix}sobre/index.html`, 'utf8');
+  assert.ok(about.includes('CNPJ: 54.786.560/0001-42'), `${prefix}footer should show the studio CNPJ`);
+  assert.ok(about.includes('Paulo Ricardo Souza Silva'), `${prefix}about should identify San`);
+  assert.match(about, /<img[^>]+alt="San — Paulo Ricardo Souza Silva"[^>]+class="[^"]*rounded-full/, `${prefix}about should show the circular portrait`);
+  assert.ok(!about.includes('substack.com'), `${prefix}about should not include the removed Substack section`);
+  assert.ok(readFileSync(`dist/${prefix}index.html`, 'utf8').includes(`href="/${prefix}sobre"`), `${prefix}navigation should link to about`);
+}
+
 const homeHtml = readFileSync('dist/index.html', 'utf8');
 const languageScript = [...homeHtml.matchAll(/<script>([\s\S]*?)<\/script>/g)]
   .map((match) => match[1]).find((script) => script.includes('let chosen;'));
