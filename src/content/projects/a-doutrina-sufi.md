@@ -7,6 +7,9 @@ categories:
   - Design Editorial
 cover: "../../assets/img/projetos/doutrina-sufi/cover.png"
 images:
+  - "../../assets/img/projetos/doutrina-sufi/closed_book.webp"
+  - "../../assets/img/projetos/doutrina-sufi/back_cover.webp"
+  - "../../assets/img/projetos/doutrina-sufi/partially_open.webp"
   - "../../assets/img/projetos/doutrina-sufi/capa-contracapa.png"
   - "../../assets/img/projetos/doutrina-sufi/diagramacao.png"
 ---

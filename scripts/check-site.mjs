@@ -91,7 +91,12 @@ for (const localePrefix of ['', 'en/', 'es/']) {
     const project = readFileSync(`dist/${localePrefix}projects/${slug}/index.html`, 'utf8');
     assert.ok(!project.includes('property="og:image" content="https://studioagartha.com/social-preview-v2.png"'), `${localePrefix}${slug} should retain its project preview`);
     assert.ok(home.includes(`/projects/${slug}`), `${localePrefix}home should show ${slug}`);
-    assert.ok(project.includes('capa-contracapa') && project.includes('diagramacao'), `${localePrefix}${slug} should show only the requested gallery images`);
+    if (slug === 'a-doutrina-sufi') {
+      for (const mockup of ['closed_book', 'back_cover', 'partially_open']) {
+        assert.ok(project.includes(mockup), `${localePrefix}${slug} should include ${mockup}`);
+      }
+    }
+    assert.ok(project.includes('capa-contracapa') && project.includes('diagramacao'), `${localePrefix}${slug} should retain the original gallery images`);
   }
 }
 
